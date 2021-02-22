@@ -1,8 +1,10 @@
 {
   "tags": {
-    "paramTag": "@param",
-    "sectionTag": "@section"
+    "param": "@param",
+    "section": "@section"
   },
-  "modifiers": {}
-
+  "modifiers": {
+    "array": "array",
+    "object": "object"
+  }
 }

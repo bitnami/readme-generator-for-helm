@@ -6,52 +6,56 @@ const toTable = require('json-to-markdown-table');
 const { CliPrettify } = require('markdown-table-prettify');
 const CONFIG = require('./config.json');
 
-// DOCS:
-// The comments structure will be "## (Key)[Modifier?] Description"
-// The order in the metadata lines must be the same than the order in the YAML object
-// Modifier: [array] Indicates the object is an empty array to set the description as '[]'.
-//           [object] Same as [array] but indicates it is an object.
-//           [commented] Indicates the object is commented by default in the values.yaml
-// When the param is an empty object or array it will be consider object by default. You need to add [array] to set it as array in the README
+/** DOCS:
+* The comments structure will be "## (Key)[Modifier?] Description"
+* The order in the metadata lines must be the same than the order in the YAML object
+* Modifier: [array] Indicates the key is for an array to set the description as '[]'.
+*           [object] Indicates the key is for an object to set the description as '[]'.
+*           [commented] Indicates the object is commented by default in the values.yaml
+* When the param is an empty object or array it will be consider object by default. You need to add [array] to set it as array in the README
 
-// The only not supported case is when we add an array with actual values. Test what happens, maybe it prints the array values
+* The only not supported case is when we add an array with actual values. Test what happens, maybe it prints the array values
+*/
 
 main();
 
 function main() {
-  const valuesFilePath = './values.yaml';
+  const valuesFilePath = './values-test.yaml';
   const valuesObject = createValuesObject(valuesFilePath);
   const valuesMetadata = parseMetadataComments(valuesFilePath);
 
-  const errors = []; // Array to store list of errors
+  // Check missing metadata or metadata provided for non existing key
+  const errors = [];
+  const parsedKeys = valuesMetadata.map((el) => el.name);
+  const realKeys = valuesObject.map((el) => el.name);
+  const missingKeys = realKeys.filter((key) => !parsedKeys.includes(key));
+  const notFoundKeys = parsedKeys.filter((key) => !realKeys.includes(key));
 
-  // If the value is took from the metadata it means it is an empty object
-  // and it has in the metadata object the proper '[]' or '{}'
-  valuesObject.forEach((item, i) => {
-    if (item.name != valuesMetadata[i].name) {
-      console.log(`WARN: Checking ${item.name} against ${valuesMetadata[i].name}`);
-      // Check parsed metadata from comments matches the real objects paths
-      errors.push(`ERROR: Missing metadata for ${item.name}`);
-    }
-    if(valuesMetadata[i].value) {
-      // Set the values for objects with modifiers
-      valuesObject[i].value = valuesMetadata[i].value;
-    }
-    // Add the description from the metadata
-    valuesObject[i].description = valuesMetadata[i].description;
-    // Add markdown quotes to the name and value
-    valuesObject[i].value = `\`${valuesObject[i].value}\``;
-    valuesObject[i].name = `\`${valuesObject[i].name}\``;
+  missingKeys.forEach((key) => {
+    errors.push(`ERROR: Missing metadata for key: ${key}`);
+  });
+  notFoundKeys.forEach((key) => {
+    errors.push(`ERROR: Metadata provided for non existing key: ${key}`);
   });
 
   if (errors.length > 0) {
-    // Print all errors and exit
     console.log('\n\n######\nThe following errors must be fixed before proceeding\n######\n\n');
     errors.map((error) => console.log(error));
     return 1;
   }
 
-  //console.log(valuesObject)
+  valuesObject.forEach((item, i) => {
+    // Apply modifiers obtained from the parsed metadata taking precedence over real values
+    if(valuesMetadata[i].value) {
+      valuesObject[i].value = valuesMetadata[i].value;
+    }
+
+    valuesObject[i].description = valuesMetadata[i].description;
+    // Add markdown quotes
+    valuesObject[i].name = `\`${valuesObject[i].name}\``;
+    valuesObject[i].value = `\`${valuesObject[i].value}\``;
+  });
+
   const markdownTable = createMarkdownTable(valuesObject);
   console.log(markdownTable);
 }
@@ -67,8 +71,10 @@ function createMarkdownTable(objArray) {
  * in the values.yaml
  * The array is generated from the YAML keys and values directly
  * {
- *   name: "name", // This will be a path to the value like a.b.c
- *   value: "value" // This will be the final value for the key path except if it is an empty object, that will be undefined
+ *   name: "name",  // This will be a path to the value like a.b.c
+ *   value: "value" // This will be the final value for the key path.
+ *                  // If the type is not recognized it will be returned as undefined
+ *                  // A modifier can be added to handle such type.
  * }
  */
 function createValuesObject(valuesFilePath) {
@@ -79,12 +85,19 @@ function createValuesObject(valuesFilePath) {
   for (let valuePath in dot.dot(valuesPaths)) {
     let value = doc.getIn(valuePath.split('.'), false);
     if (value && typeof(value) == 'object') {
-      // Set the value as undefined since it will be an empty object
-      // It should have a modifier that will come from the metadata
-      value = undefined;
+      switch (value.type) {
+        case "FLOW_MAP":
+          value = "{}";
+          break;
+        case "FLOW_SEQ":
+          value = "[]";
+          break
+        default:
+          value = undefined; // The type is not recognized. We can add a modifier to it to bypass the error
+      }
     }
     if (value === null) {
-      value = 'nil';
+      value = 'nil'; // Map the javascript 'null' to golang 'nil'
     }
     resultValues.push({
       name: valuePath,
@@ -100,7 +113,7 @@ function createValuesObject(valuesFilePath) {
  * {
  *   name: "name", // This will be the final key
  *   description: "description", // This will contain the description
- *   value: "value" // This will be undefined if the value has an actual value. '[]', or '{}' if it is an empty object.
+ *   value: "value" // This will be undefined if the value has an actual value. '[]', or '{}' if a modifier is provided.
  * }
  */
 function parseMetadataComments(valuesFilePath) {
@@ -108,13 +121,13 @@ function parseMetadataComments(valuesFilePath) {
   const lines = data.split(/\r?\n/);
 
   const parsedValues = [];
-  const entryRegex = new RegExp(`^\\s*##\\s*${CONFIG.tags.paramTag}\\s*([^\\s]+)(\\[.*\\])?\\s*(.*)$`);
+  const entryRegex = new RegExp(`^\\s*##\\s*${CONFIG.tags.param}\\s*([^\\s]+)\\s*(\\[.*\\])?\\s*(.*)$`);
   lines.forEach((line) => {
     const match = line.match(entryRegex);
     if (match && match.length > 0) {
       parsedValues.push({
         name: match[1],
-        value: match[2] ? (match[2] === "[array]" ? "[]" : "{}") : undefined,
+        value: match[2] ? applyTypeModifiers(match[2].split('[')[1].split(']')[0]) : undefined,
         description: match[3]
       });
     }
@@ -122,7 +135,23 @@ function parseMetadataComments(valuesFilePath) {
   return parsedValues;
 }
 
-// Return the last key in the path
+// Returns the propery value for the provided modifier
+function applyTypeModifiers(modifier) {
+  let type;
+  switch (modifier) {
+    case `${CONFIG.modifiers.array}`:
+      type = "[]";
+      break;
+    case `${CONFIG.modifiers.object}`:
+      type = "{}";
+      break;
+    default:
+      type = undefined;
+  }
+  return type;
+}
+
+// Returns the last key in the path
 function getFinalKey(path) {
   const keys = path.split('.');
   return keys[keys.length-1];

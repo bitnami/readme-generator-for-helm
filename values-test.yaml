@@ -3,7 +3,7 @@
 ## Current available global Docker image parameters: imageRegistry and imagePullSecrets
 ##
 ## @param global.imageRegistry Global Docker image registry
-## @param global.imagePullSecrets [array] Global Docker registry secret names as an array
+## @param global.imagePullSecrets Global Docker registry secret names as an array
 ##
 # global:
 #   imageRegistry: myRegistryName
@@ -24,23 +24,23 @@ nameOverride:
 fullnameOverride:
 
 ## Add labels to all the deployed resources
-## @param commonLabels [object] Labels to add to all deployed objects
+## @param commonLabels  Labels to add to all deployed objects
 ##
 commonLabels: {}
 
 ## Add annotations to all the deployed resources
-## @param commonAnnotations [object] Annotations to add to all deployed objects
+## @param commonAnnotations  Annotations to add to all deployed objects
 ##
 commonAnnotations: {}
 
 ## Extra objects to deploy (value evaluated as a template)
-## @param extraDeploy [array] Array of extra objects to deploy with the release
+## @param extraDeploy Array of extra objects to deploy with the release
 ##
 extraDeploy: []
 
 ## Deployment pod host aliases
 ## https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/
-## @param hostAliases [array] Add deployment host aliases
+## @param hostAliases Add deployment host aliases
 ##
 hostAliases: []
 
@@ -67,7 +67,7 @@ image:
   ## pullSecrets:
   ##   - myRegistryKeySecretName
   ##
-  ## @param image.pullSecrets [array] Specify docker-registry secret names as an array
+  ## @param image.pullSecrets Specify docker-registry secret names as an array
   pullSecrets: []
 
 ## @param slack.enabled Enable Slack notifications
@@ -178,16 +178,16 @@ resourcesToWatch:
   persistentvolume: false
 
 ## Command for running the container (set to default if not set). Use array form
-## @param command [array] Override default container command (useful when using custom images)
+## @param command Override default container command (useful when using custom images)
 ##
 command: []
 ## Args for running the container (set to default if not set). Use array form
-## @param args [array] Override default container args (useful when using custom images)
+## @param args Override default container args (useful when using custom images)
 ##
 args: []
 
 ## An array to add extra env vars
-## @param extraEnvVars [array] Extra environment variables to be set on Kubewatch container
+## @param extraEnvVars Extra environment variables to be set on Kubewatch container
 ##
 ## Example:
 ## extraEnvVars:
@@ -235,8 +235,8 @@ containerSecurityContext:
 ## Kubewatch resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
 ##
-## @param resources.limits [object] The resources limits for the Kubewatch container
-## @param resources.requests [object] The requested resources for the Kubewatch container
+## @param resources.limits  The resources limits for the Kubewatch container
+## @param resources.requests  The requested resources for the Kubewatch container
 ##
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -287,12 +287,12 @@ readinessProbe:
   successThreshold: 1
 
 ## Custom Liveness probes for Kubewatch
-## @param customLivenessProbe [object] Override default liveness probe
+## @param customLivenessProbe  Override default liveness probe
 ##
 customLivenessProbe: {}
 
 ## Custom Rediness probes Kubewatch
-## @param customReadinessProbe [object] Override default readiness probe
+## @param customReadinessProbe  Override default readiness probe
 ##
 customReadinessProbe: {}
 
@@ -317,7 +317,7 @@ podAntiAffinityPreset: soft
 ##
 ## @param nodeAffinityPreset.type Node affinity preset type. Ignored if `affinity` is set. Allowed values: `soft` or `hard`
 ## @param nodeAffinityPreset.key Node label key to match. Ignored if `affinity` is set
-## @param nodeAffinityPreset.values [array] Node label values to match. Ignored if `affinity` is set
+## @param nodeAffinityPreset.values Node label values to match. Ignored if `affinity` is set
 ##
 nodeAffinityPreset:
   ## Node affinity type
@@ -341,47 +341,47 @@ nodeAffinityPreset:
 ## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
 ## Note: podAffinityPreset, podAntiAffinityPreset, and nodeAffinityPreset will be ignored when it's set
 ##
-## @param affinity [object] Affinity for pod assignment
+## @param affinity  Affinity for pod assignment
 ##
 affinity: {}
 
 ## Node labels for pod assignment. Evaluated as a template.
 ## ref: https://kubernetes.io/docs/user-guide/node-selection/
 ##
-## @param nodeSelector [object] Node labels for pod assignment
+## @param nodeSelector  Node labels for pod assignment
 ##
 nodeSelector: {}
 
 ## Tolerations for pod assignment. Evaluated as a template.
 ## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 ##
-## @param tolerations [array] Tolerations for pod assignment
+## @param tolerations  Tolerations for pod assignment
 ##
 tolerations: []
 
 ## Pod extra labels
 ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 ##
-## @param podLabels [object] Extra labels for Kubewatch pods
+## @param podLabels  Extra labels for Kubewatch pods
 ##
 podLabels: {}
 
 ## Annotations for server pods.
 ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
 ##
-## @param podAnnotations [object] Annotations for Kubewatch pods
+## @param podAnnotations  Annotations for Kubewatch pods
 ##
 podAnnotations: {}
 
 ## Extra volumes to add to the deployment
 ##
-## @param extraVolumes [array] Optionally specify extra list of additional volumes for Kubewatch pods
+## @param extraVolumes  Optionally specify extra list of additional volumes for Kubewatch pods
 ##
 extraVolumes: []
 
 ## Extra volume mounts to add to the container
 ##
-## @param extraVolumeMounts [array] Optionally specify extra list of additional volumeMounts for Kubewatch container(s)
+## @param extraVolumeMounts  Optionally specify extra list of additional volumeMounts for Kubewatch container(s)
 ##
 extraVolumeMounts: []
 
@@ -395,7 +395,7 @@ extraVolumeMounts: []
 ##       - name: portname
 ##         containerPort: 1234
 ##
-## @param initContainers [object] Add additional init containers to the Kubewatch pods
+## @param initContainers  Add additional init containers to the Kubewatch pods
 ##
 initContainers: {}
 
@@ -409,7 +409,7 @@ initContainers: {}
 ##       - name: portname
 ##         containerPort: 1234
 ##
-## @param sidecars [object] Add additional sidecar containers to the Kubewatch pods
+## @param sidecars  Add additional sidecar containers to the Kubewatch pods
 ##
 sidecars: {}
 
