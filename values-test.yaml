@@ -1,0 +1,433 @@
+## Global Docker image parameters
+## Please, note that this will override the image parameters, including dependencies, configured to use the global value
+## Current available global Docker image parameters: imageRegistry and imagePullSecrets
+##
+## @param global.imageRegistry Global Docker image registry
+## @param global.imagePullSecrets [array] Global Docker registry secret names as an array
+##
+# global:
+#   imageRegistry: myRegistryName
+#   imagePullSecrets:
+#     - myRegistryKeySecretName
+global:
+  imageRegistry:
+  imagePullSecrets: []
+
+## String to partially override aspnet-core.fullname template (will maintain the release name)
+## @param nameOverride String to partially override common.names.fullname
+##
+nameOverride:
+
+## String to fully override aspnet-core.fullname template
+## @param fullnameOverride String to fully override common.names.fullname
+##
+fullnameOverride:
+
+## Add labels to all the deployed resources
+## @param commonLabels [object] Labels to add to all deployed objects
+##
+commonLabels: {}
+
+## Add annotations to all the deployed resources
+## @param commonAnnotations [object] Annotations to add to all deployed objects
+##
+commonAnnotations: {}
+
+## Extra objects to deploy (value evaluated as a template)
+## @param extraDeploy [array] Array of extra objects to deploy with the release
+##
+extraDeploy: []
+
+## Deployment pod host aliases
+## https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/
+## @param hostAliases [array] Add deployment host aliases
+##
+hostAliases: []
+
+## Bitnami Kubewatch image version
+## ref: https://hub.docker.com/r/bitnami/kubewatch/tags/
+##
+image:
+  ## @param image.registry Kubewatch image registry
+  registry: docker.io
+  ## @param image.repository Kubewatch image name
+  repository: bitnami/kubewatch
+  ## @param image.tag Kubewatch image tag
+  tag: 0.1.0-debian-10-r162
+  ## Specify a imagePullPolicy
+  ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
+  ## ref: http://kubernetes.io/docs/user-guide/images/#pre-pulling-images
+  ##
+  ## @param image.pullPolicy Kubewatch image tag
+  pullPolicy: IfNotPresent
+  ## Optionally specify an array of imagePullSecrets.
+  ## Secrets must be manually created in the namespace.
+  ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+  ## Example:
+  ## pullSecrets:
+  ##   - myRegistryKeySecretName
+  ##
+  ## @param image.pullSecrets [array] Specify docker-registry secret names as an array
+  pullSecrets: []
+
+## @param slack.enabled Enable Slack notifications
+## @param slack.channel Slack channel to notify
+## @param slack.token Slack API token
+##
+slack:
+  enabled: true
+  # Slack channel to notify
+  channel: "XXXX"
+  # Slack bots token. Create using: https://my.slack.com/services/new/bot
+  # and invite the bot to your channel using: /join @botname
+  token: "XXXX"
+
+## @param hipchat.enabled Enable HipChat notifications
+## @param hipchat.room HipChat room to notify
+## @param hipchat.token HipChat token
+## @param hipchat.url HipChat URL
+##
+hipchat:
+  enabled: false
+  room:
+  token:
+  url:
+
+## @param mattermost.enabled Enable Mattermost notifications
+## @param mattermost.channel Mattermost channel to notify
+## @param mattermost.username Mattermost user to notify
+## @param mattermost.url Mattermost URL
+##
+mattermost:
+  enabled: false
+  channel:
+  username:
+  url:
+
+## @param flock.enabled Enable Flock notifications
+## @param flock.url Flock URL
+##
+flock:
+  enabled: false
+  url:
+
+## @param msteams.enabled Enable Microsoft Teams notifications
+## @param msteams.webhookurl Microsoft Teams webhook URL
+##
+msteams:
+  enabled: false
+  webhookurl:
+
+## @param webhook.enabled Enable Webhook notifications
+## @param webhook.url Webhook URL
+##
+webhook:
+  enabled: false
+  url:
+
+## SMTP configuration
+## @param smtp.enabled Enable SMTP (email) notifications
+## @param smtp.to Destination email address (required)
+## @param smtp.from Source email address (required)
+## @param smtp.hello SMTP hello field (optional)
+## @param smtp.smarthost SMTP server address (name:port) (required)
+## @param smtp.subject SMTP subject for the email
+## @param smtp.requireTLS Force STARTTLS
+##
+smtp:
+  enabled: false
+  to: ""
+  from: ""
+  hello: ""
+  smarthost: ""
+  subject: ""
+  requireTLS: false
+  ## @param smtp.auth.username Username for LOGIN and PLAIN auth mech
+  ## @param smtp.auth.password Password for LOGIN and PLAIN auth mech
+  ## @param smtp.auth.secret Secret for CRAM-MD5 auth mech
+  ## @param smtp.auth.identity Identity for PLAIN auth mech
+  auth:
+    username: ""
+    password: ""
+    secret: ""
+    identity: ""
+
+## Namespace to watch, leave it empty for watching all
+## @param namespaceToWatch Namespace to watch, leave it empty for watching all
+##
+namespaceToWatch: ""
+
+## Resources to watch
+## @param resourcesToWatch.pod Watch changes to Pods
+## @param resourcesToWatch.deployment Watch changes to Deployments
+## @param resourcesToWatch.replicationcontroller Watch changes to ReplicationControllers
+## @param resourcesToWatch.replicaset Watch changes to ReplicaSets
+## @param resourcesToWatch.daemonset Watch changes to DaemonSets
+## @param resourcesToWatch.services Watch changes to Services
+## @param resourcesToWatch.job Watch changes to Jobs
+## @param resourcesToWatch.persistentvolume Watch changes to PersistentVolumes
+##
+resourcesToWatch:
+  pod: true
+  deployment: true
+  replicationcontroller: false
+  replicaset: false
+  daemonset: false
+  services: false
+  job: false
+  persistentvolume: false
+
+## Command for running the container (set to default if not set). Use array form
+## @param command [array] Override default container command (useful when using custom images)
+##
+command: []
+## Args for running the container (set to default if not set). Use array form
+## @param args [array] Override default container args (useful when using custom images)
+##
+args: []
+
+## An array to add extra env vars
+## @param extraEnvVars [array] Extra environment variables to be set on Kubewatch container
+##
+## Example:
+## extraEnvVars:
+##   - name: FOO
+##     value: "bar"
+##
+extraEnvVars: []
+
+## ConfigMap with extra environment variables
+## @param extraEnvVarsCM Name of existing ConfigMap containing extra env vars
+##
+extraEnvVarsCM:
+
+## Secret with extra environment variables
+## @param extraEnvVarsSecret Name of existing Secret containing extra env vars
+##
+extraEnvVarsSecret:
+
+## Number of Kubewatch replicas to deploy
+## @param replicaCount Number of Kubewatch replicas to deploy
+replicaCount: 1
+
+## Kubewatch containers' SecurityContext
+## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
+##
+## @param podSecurityContext.enabled Enabled Kubewatch pods' Security Context
+## @param podSecurityContext.fsGroup Set Kubewatch pod's Security Context fsGroup
+##
+podSecurityContext:
+  enabled: false
+  fsGroup: 1001
+
+## Kubewatch pods' Security Context
+## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
+##
+## @param containerSecurityContext.enabled Enabled Kubewatch containers' Security Context
+## @param containerSecurityContext.runAsUser Set Kubewatch container's Security Context runAsUser
+## @param containerSecurityContext.runAsNonRoot Set Kubewatch container's Security Context runAsNonRoot
+##
+containerSecurityContext:
+  enabled: false
+  runAsUser: 1001
+  runAsNonRoot: true
+
+## Kubewatch resource requests and limits
+## ref: http://kubernetes.io/docs/user-guide/compute-resources/
+##
+## @param resources.limits [object] The resources limits for the Kubewatch container
+## @param resources.requests [object] The requested resources for the Kubewatch container
+##
+resources:
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  limits: {}
+  #   cpu: 200m
+  #   memory: 256Mi
+  requests: {}
+  #   cpu: 200m
+  #   memory: 10Mi
+
+## Kubewatch containers' liveness probe.
+## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes
+##
+## @param livenessProbe.enabled Enable liveness probe
+## @param livenessProbe.initialDelaySeconds Initial delay seconds for livenessProbe
+## @param livenessProbe.periodSeconds Period seconds for livenessProbe
+## @param livenessProbe.timeoutSeconds Timeout seconds for livenessProbe
+## @param livenessProbe.failureThreshold Failure threshold for livenessProbe
+## @param livenessProbe.successThreshold Success threshold for livenessProbe
+##
+livenessProbe:
+  enabled: false
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  timeoutSeconds: 1
+  failureThreshold: 3
+  successThreshold: 1
+
+## Kubewatch containers' readiness probe.
+## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes
+##
+## @param readinessProbe.enabled Enable readiness probe
+## @param readinessProbe.initialDelaySeconds Initial delay seconds for readinessProbe
+## @param readinessProbe.periodSeconds Period seconds for readinessProbe
+## @param readinessProbe.timeoutSeconds Timeout seconds for readinessProbe
+## @param readinessProbe.failureThreshold Failure threshold for readinessProbe
+## @param readinessProbe.successThreshold Success threshold for readinessProbe
+##
+readinessProbe:
+  enabled: false
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  timeoutSeconds: 1
+  failureThreshold: 3
+  successThreshold: 1
+
+## Custom Liveness probes for Kubewatch
+## @param customLivenessProbe [object] Override default liveness probe
+##
+customLivenessProbe: {}
+
+## Custom Rediness probes Kubewatch
+## @param customReadinessProbe [object] Override default readiness probe
+##
+customReadinessProbe: {}
+
+## Pod affinity preset
+## Allowed values: soft, hard
+## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity
+##
+## @param podAffinityPreset Pod affinity preset. Ignored if `affinity` is set. Allowed values: `soft` or `hard`
+##
+podAffinityPreset: ""
+
+## Pod anti-affinity preset
+## Allowed values: soft, hard
+## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity
+##
+## @param podAntiAffinityPreset Pod anti-affinity preset. Ignored if `affinity` is set. Allowed values: `soft` or `hard`
+##
+podAntiAffinityPreset: soft
+
+## Node affinity preset
+## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity
+##
+## @param nodeAffinityPreset.type Node affinity preset type. Ignored if `affinity` is set. Allowed values: `soft` or `hard`
+## @param nodeAffinityPreset.key Node label key to match. Ignored if `affinity` is set
+## @param nodeAffinityPreset.values [array] Node label values to match. Ignored if `affinity` is set
+##
+nodeAffinityPreset:
+  ## Node affinity type
+  ## Allowed values: soft, hard
+  ##
+  type: ""
+  ## Node label key to match
+  ## E.g.
+  ## key: "kubernetes.io/e2e-az-name"
+  ##
+  key: ""
+  ## Node label values to match
+  ## E.g.
+  ## values:
+  ##   - e2e-az1
+  ##   - e2e-az2
+  ##
+  values: []
+
+## Affinity for pod assignment. Evaluated as a template.
+## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
+## Note: podAffinityPreset, podAntiAffinityPreset, and nodeAffinityPreset will be ignored when it's set
+##
+## @param affinity [object] Affinity for pod assignment
+##
+affinity: {}
+
+## Node labels for pod assignment. Evaluated as a template.
+## ref: https://kubernetes.io/docs/user-guide/node-selection/
+##
+## @param nodeSelector [object] Node labels for pod assignment
+##
+nodeSelector: {}
+
+## Tolerations for pod assignment. Evaluated as a template.
+## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+##
+## @param tolerations [array] Tolerations for pod assignment
+##
+tolerations: []
+
+## Pod extra labels
+## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+##
+## @param podLabels [object] Extra labels for Kubewatch pods
+##
+podLabels: {}
+
+## Annotations for server pods.
+## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/
+##
+## @param podAnnotations [object] Annotations for Kubewatch pods
+##
+podAnnotations: {}
+
+## Extra volumes to add to the deployment
+##
+## @param extraVolumes [array] Optionally specify extra list of additional volumes for Kubewatch pods
+##
+extraVolumes: []
+
+## Extra volume mounts to add to the container
+##
+## @param extraVolumeMounts [array] Optionally specify extra list of additional volumeMounts for Kubewatch container(s)
+##
+extraVolumeMounts: []
+
+## Add init containers to the Kubewatch pods.
+## Example:
+## initContainers:
+##   - name: your-image-name
+##     image: your-image
+##     imagePullPolicy: Always
+##     ports:
+##       - name: portname
+##         containerPort: 1234
+##
+## @param initContainers [object] Add additional init containers to the Kubewatch pods
+##
+initContainers: {}
+
+## Add sidecars to the Kubewatch pods.
+## Example:
+## sidecars:
+##   - name: your-image-name
+##     image: your-image
+##     imagePullPolicy: Always
+##     ports:
+##       - name: portname
+##         containerPort: 1234
+##
+## @param sidecars [object] Add additional sidecar containers to the Kubewatch pods
+##
+sidecars: {}
+
+## Specifies whether RBAC resources should be created
+##
+## @param rbac.create Weather to create & use RBAC resources or not
+##
+rbac:
+  create: false
+
+## Specifies whether a ServiceAccount should be created
+##
+## @param serviceAccount.create Enable the creation of a ServiceAccount for Kubewatch pods
+## @param serviceAccount.name Name of the created ServiceAccount
+##
+serviceAccount:
+  create: true
+  ## The name of the ServiceAccount to use.
+  ## If not set and create is true, a name is generated using the fullname template
+  ##
+  name: ""

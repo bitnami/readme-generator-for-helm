@@ -1,0 +1,26 @@
+{
+  "name": "readmenator",
+  "version": "1.0.0",
+  "description": "Autogenerate READMEs' tables for Bitnami Helm Charts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "README",
+    "Helm",
+    "Chart",
+    "Kubernetes",
+    "table",
+    "autogenerate"
+  ],
+  "author": "Miguel Angel Cabrera Minagorri",
+  "license": "ISC",
+  "dependencies": {
+    "dot-object": "^2.1.4",
+    "json-to-markdown-table": "^1.0.0",
+    "line-reader": "^0.4.0",
+    "markdown-table-prettify": "^3.2.2",
+    "yaml": "^2.0.0-3"
+  }
+}
