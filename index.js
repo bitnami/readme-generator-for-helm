@@ -70,7 +70,8 @@ function main() {
     }
   });
 
-  console.log(renderReadmeTable(sections))
+  const newParametersSection = renderReadmeTable(sections);
+  insertReadmeTable('./test-readme.md', newParametersSection);
 
 }
 
@@ -173,6 +174,45 @@ function applyTypeModifiers(modifier) {
 }
 
 /*
+* Add table to README.md
+*/
+function insertReadmeTable(readmeFilePath, table) {
+  const data = fs.readFileSync(readmeFilePath, 'UTF-8');
+  const lines = data.split(/\r?\n/);
+  let paramsSectionLimits = [];
+  lines.forEach((line, i) => {
+    // Find parameters section start
+    if (line.match(/## Parameters/)) {
+      paramsSectionLimits.push(i);
+      console.log(`Found parameters section at: ${line}`)
+    }
+  });
+  if (paramsSectionLimits.length === 1) {
+    // Find parameters section end
+    let nextSectionFound = false;
+    lines.slice(paramsSectionLimits[0] + 1).forEach((line, i) => {
+      if (!nextSectionFound && line.match(/^##\s+/)) {
+        console.log(`Found next section: ${line}`);
+        paramsSectionLimits.push(i+paramsSectionLimits[0]);
+        nextSectionFound = true;
+      }
+    });
+  }
+  if (paramsSectionLimits.length != 2) {
+    throw new Error("ERROR: error getting Parameters section from the current README");
+  }
+
+  console.log('Inserting the new table...');
+  // Delete the old parameters section
+  lines.splice(paramsSectionLimits[0] + 1, paramsSectionLimits[1] - paramsSectionLimits[0]);
+  // Add the new parameters section
+  lines.splice(paramsSectionLimits[0] + 1, 0, ...table.split(/\r?\n/));
+
+  fs.writeFileSync(readmeFilePath, lines.join('\n'));
+
+}
+
+/*
 * Returns the README's table as string
 */
 function renderReadmeTable(sections) {
@@ -188,7 +228,8 @@ function renderReadmeTable(sections) {
 */
 function renderSection(section) {
   let sectionTable = "";
-  sectionTable += `#### ${section[0].section}\r\n\n`;
+  sectionTable += "\r\n";
+  sectionTable += `### ${section[0].section}\r\n\n`;
   sectionTable += createMarkdownTable(section.slice(1));
   sectionTable += "\r\n\n";
   return sectionTable;
