@@ -1,4 +1,7 @@
 {
+  "comments": {
+    "format": "##"
+  },
   "tags": {
     "param": "@param",
     "section": "@section"

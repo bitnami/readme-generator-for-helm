@@ -17,8 +17,8 @@
   "author": "Miguel Angel Cabrera Minagorri",
   "license": "ISC",
   "dependencies": {
+    "commander": "^7.1.0",
     "dot-object": "^2.1.4",
-    "line-reader": "^0.4.0",
     "markdown-table": "^2.0.0",
     "yaml": "^2.0.0-3"
   }
