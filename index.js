@@ -6,13 +6,13 @@ const table = require('markdown-table')
 const CONFIG = require('./config.json');
 
 /** DOCS:
-* The comments structure for a parameter is "## @param (FullKeyPath)[Modifier?] Description"
-* The comments structure for a section is "## @section Section Title"
-* Modifiers: they allow to force a value for a parameter.
-* Modifiers supported: [array] Indicates the key is for an array to set the description as '[]'.
-*                      [object] Indicates the key is for an object to set the description as '[]'.
-* The only not supported case is when we add an array with actual values. Test what happens, maybe it prints the array values
-*/
+ * The comments structure for a parameter is "## @param (FullKeyPath)[Modifier?] Description"
+ * The comments structure for a section is "## @section Section Title"
+ * Modifiers: they allow to force a value for a parameter.
+ * Modifiers supported: [array] Indicates the key is for an array to set the description as '[]'.
+ *                      [object] Indicates the key is for an object to set the description as '[]'.
+ * The only not supported case is when we add an array with actual values. Test what happens, maybe it prints the array values
+ */
 
 main();
 
@@ -156,8 +156,8 @@ function parseMetadataComments(valuesFilePath) {
 }
 
 /*
-* Returns the propery value for the provided modifier
-*/
+ * Returns the propery value for the provided modifier
+ */
 function applyTypeModifiers(modifier) {
   let type;
   switch (modifier) {
@@ -174,8 +174,8 @@ function applyTypeModifiers(modifier) {
 }
 
 /*
-* Add table to README.md
-*/
+ * Add table to README.md
+ */
 function insertReadmeTable(readmeFilePath, sections) {
   const data = fs.readFileSync(readmeFilePath, 'UTF-8');
   const lines = data.split(/\r?\n/);
@@ -225,8 +225,8 @@ function insertReadmeTable(readmeFilePath, sections) {
 }
 
 /*
-* Returns the README's table as string
-*/
+ * Returns the README's table as string
+ */
 function renderReadmeTable(sections, lineNumberSigns) {
   let fullTable = "";
   sections.forEach((section) => {
@@ -236,8 +236,8 @@ function renderReadmeTable(sections, lineNumberSigns) {
 }
 
 /*
-* Returns the section rendered
-*/
+ * Returns the section rendered
+ */
 function renderSection(section, lineNumberSigns) {
   let sectionTable = "";
   sectionTable += "\r\n";
@@ -251,7 +251,9 @@ function renderSection(section, lineNumberSigns) {
  * Converts an array of objects of the same type to markdown table
  */
 function createMarkdownTable(objArray) {
-  const modifiedArray = objArray.map((e) => {return [`\`${e.name}\``, e.description, `\`${e.value}\``]});
+  const modifiedArray = objArray.map((e) => {
+    return [`\`${e.name}\``, e.description, `\`${e.value}\``]
+  });
   //return CliPrettify.prettify((toTable(modifiedArray, ['name', 'description', 'value'])));
   return table([
     ['Name', 'Description', 'Value'],
