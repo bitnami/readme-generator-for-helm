@@ -70,8 +70,8 @@ function main() {
     }
   });
 
-  const newParametersSection = renderReadmeTable(sections);
-  insertReadmeTable('./test-readme.md', newParametersSection);
+  //const newParametersSection = renderReadmeTable(sections);
+  insertReadmeTable('./test-readme.md', sections);
 
 }
 
@@ -176,13 +176,16 @@ function applyTypeModifiers(modifier) {
 /*
 * Add table to README.md
 */
-function insertReadmeTable(readmeFilePath, table) {
+function insertReadmeTable(readmeFilePath, sections) {
   const data = fs.readFileSync(readmeFilePath, 'UTF-8');
   const lines = data.split(/\r?\n/);
+  let lineNumberSigns; // Store line starting # simbols
   let paramsSectionLimits = [];
   lines.forEach((line, i) => {
     // Find parameters section start
-    if (line.match(/## Parameters/)) {
+    const match = line.match(/(##+) Parameters/); // use minimun two # signs since the single one is the README title
+    if (match) {
+      lineNumberSigns = match[1];
       paramsSectionLimits.push(i);
       console.log(`Found parameters section at: ${line}`)
     }
@@ -191,22 +194,31 @@ function insertReadmeTable(readmeFilePath, table) {
     // Find parameters section end
     let nextSectionFound = false;
     lines.slice(paramsSectionLimits[0] + 1).forEach((line, i) => {
-      if (!nextSectionFound && line.match(/^##\s+/)) {
+      if (!nextSectionFound && line.match(new RegExp(`^${lineNumberSigns}\s+`))) {
         console.log(`Found next section: ${line}`);
-        paramsSectionLimits.push(i+paramsSectionLimits[0]);
+        paramsSectionLimits.push(i + paramsSectionLimits[0]);
         nextSectionFound = true;
+      } else {
+        if (paramsSectionLimits[0] + i + 2 === lines.length) {
+          // The parameters section is the last section in the file
+          paramsSectionLimits.push(i + paramsSectionLimits[0]);
+          nextSectionFound = true;
+          console.log(`The paremeters section is the last section with ${lineNumberSigns} in the file`);
+        }
       }
     });
   }
   if (paramsSectionLimits.length != 2) {
-    throw new Error("ERROR: error getting Parameters section from the current README");
+    throw new Error("ERROR: error getting current Parameters section from README");
   }
 
   console.log('Inserting the new table...');
+  // Build the table adding the proper number of # to the section headers
+  const newParamsSection = renderReadmeTable(sections, `${lineNumberSigns}#`);
   // Delete the old parameters section
   lines.splice(paramsSectionLimits[0] + 1, paramsSectionLimits[1] - paramsSectionLimits[0]);
   // Add the new parameters section
-  lines.splice(paramsSectionLimits[0] + 1, 0, ...table.split(/\r?\n/));
+  lines.splice(paramsSectionLimits[0] + 1, 0, ...newParamsSection.split(/\r?\n/));
 
   fs.writeFileSync(readmeFilePath, lines.join('\n'));
 
@@ -215,10 +227,10 @@ function insertReadmeTable(readmeFilePath, table) {
 /*
 * Returns the README's table as string
 */
-function renderReadmeTable(sections) {
+function renderReadmeTable(sections, lineNumberSigns) {
   let fullTable = "";
   sections.forEach((section) => {
-    fullTable += renderSection(section);
+    fullTable += renderSection(section, lineNumberSigns);
   });
   return fullTable;
 }
@@ -226,11 +238,11 @@ function renderReadmeTable(sections) {
 /*
 * Returns the section rendered
 */
-function renderSection(section) {
+function renderSection(section, lineNumberSigns) {
   let sectionTable = "";
   sectionTable += "\r\n";
-  sectionTable += `### ${section[0].section}\r\n\n`;
-  sectionTable += createMarkdownTable(section.slice(1));
+  sectionTable += `${lineNumberSigns} ${section[0].section}\r\n\n`; // section header
+  sectionTable += createMarkdownTable(section.slice(1)); // section body parameters
   sectionTable += "\r\n\n";
   return sectionTable;
 }
