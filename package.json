@@ -18,9 +18,8 @@
   "license": "ISC",
   "dependencies": {
     "dot-object": "^2.1.4",
-    "json-to-markdown-table": "^1.0.0",
     "line-reader": "^0.4.0",
-    "markdown-table-prettify": "^3.2.2",
+    "markdown-table": "^2.0.0",
     "yaml": "^2.0.0-3"
   }
 }
