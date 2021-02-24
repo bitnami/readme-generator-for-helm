@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "readmenator": "./index.js"
+  },
   "keywords": [
     "README",
     "Helm",
@@ -14,7 +17,7 @@
     "table",
     "autogenerate"
   ],
-  "author": "Miguel Angel Cabrera Minagorri",
+  "author": "Miguel Angel Cabrera Minagorri <https://github.com/miguelaeh>",
   "license": "ISC",
   "dependencies": {
     "commander": "^7.1.0",
