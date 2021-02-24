@@ -193,14 +193,15 @@ command: []
 args: []
 
 ## An array to add extra env vars
-## @param extraEnvVars Extra environment variables to be set on Kubewatch container
+## @param extraEnvVars[0].name Name of the env var
+## @param extraEnvVars[0].value Value for the env var
 ##
 ## Example:
-## extraEnvVars:
-##   - name: FOO
-##     value: "bar"
+extraEnvVars:
+ - name: FOO
+   value: "bar"
 ##
-extraEnvVars: []
+## extraEnvVars: []
 
 ## ConfigMap with extra environment variables
 ## @param extraEnvVarsCM Name of existing ConfigMap containing extra env vars

@@ -114,7 +114,8 @@ The command removes all the Kubernetes components associated with the chart and 
 | --------------------------------------- | ----------------------------------------------------------------------------------------- | ------- |
 | `command`                               | Override default container command (useful when using custom images)                      | `[]`    |
 | `args`                                  | Override default container args (useful when using custom images)                         | `[]`    |
-| `extraEnvVars`                          | Extra environment variables to be set on Kubewatch container                              | `[]`    |
+| `extraEnvVars[0].name`                  | Name of the env var                                                                       | `FOO`   |
+| `extraEnvVars[0].value`                 | Value for the env var                                                                     | `bar`   |
 | `extraEnvVarsCM`                        | Name of existing ConfigMap containing extra env vars                                      | `nil`   |
 | `extraEnvVarsSecret`                    | Name of existing Secret containing extra env vars                                         | `nil`   |
 | `replicaCount`                          | Number of Kubewatch replicas to deploy                                                    | `1`     |
