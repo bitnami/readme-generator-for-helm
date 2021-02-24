@@ -38,4 +38,4 @@ checkKeys(realKeys, parsedKeys);
 // Build sections array combining metadata and real values
 const sections = buildSections(valuesObject, valuesMetadata);
 
-insertReadmeTable(readmeFilePath, sections);
+insertReadmeTable(readmeFilePath, sections, CONFIG);

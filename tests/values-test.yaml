@@ -13,6 +13,8 @@ global:
   imageRegistry:
   imagePullSecrets: []
 
+## @section Common parameters
+
 ## String to partially override aspnet-core.fullname template (will maintain the release name)
 ## @param nameOverride String to partially override common.names.fullname
 ##
@@ -43,6 +45,8 @@ extraDeploy: []
 ## @param hostAliases Add deployment host aliases
 ##
 hostAliases: []
+
+## @section Kubewatch parameters
 
 ## Bitnami Kubewatch image version
 ## ref: https://hub.docker.com/r/bitnami/kubewatch/tags/
@@ -176,6 +180,8 @@ resourcesToWatch:
   services: false
   job: false
   persistentvolume: false
+
+## @section Deployment parameters
 
 ## Command for running the container (set to default if not set). Use array form
 ## @param command Override default container command (useful when using custom images)
@@ -351,7 +357,7 @@ affinity: {}
 ## @param nodeSelector  Node labels for pod assignment
 ##
 nodeSelector: {}
-## @section petete
+
 ## Tolerations for pod assignment. Evaluated as a template.
 ## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 ##

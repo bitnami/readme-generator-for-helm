@@ -9,5 +9,8 @@
   "modifiers": {
     "array": "array",
     "object": "object"
+  },
+  "regexp": {
+    "paramsSectionTitle": "Parameters"
   }
 }
