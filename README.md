@@ -15,24 +15,24 @@ The table that will be inserted into the `readme.md` will have the following str
 
 ### Section 1 title
 
-| Name     | Description             | Default        |
-|----------|-------------------------|----------------|
-|`value_1` | Description for value 1 | `defaultValue` |
-|`value_2` | Description for value 2 | `defaultValue` |
-|`value_3` | Description for value 3 | `defaultValue` |
+| Name      | Description             | Default        |
+|:----------|:------------------------|:---------------|
+| `value_1` | Description for value 1 | `defaultValue` |
+| `value_2` | Description for value 2 | `defaultValue` |
+| `value_3` | Description for value 3 | `defaultValue` |
 
 ### Section 2 title
 
-| Name     | Description             | Default        |
-|----------|-------------------------|----------------|
-|`value_1` | Description for value 1 | `defaultValue` |
-|`value_2` | Description for value 2 | `defaultValue` |
-|`value_3` | Description for value 3 | `defaultValue` |
+| Name      | Description             | Default        |
+|:----------|:------------------------|:---------------|
+| `value_1` | Description for value 1 | `defaultValue` |
+| `value_2` | Description for value 2 | `defaultValue` |
+| `value_3` | Description for value 3 | `defaultValue` |
 
 ...
 ```
 
-The number of `#` characters needed for the sections title is dynamically calculated, and the title of the `Parameters` section can be configured via the [configuration file](## Configuration file).
+The number of `#` characters needed for the sections title is dynamically calculated, and the title of the `Parameters` section can be configured via the [configuration file](#configuration-file).
 
 ## Install
 
@@ -66,14 +66,14 @@ There are two tags supported at this very moment:
 - For a parameter: `## @param (fullKeyPath)[modifier?] Description`.
 - For a section: `## @section Section Title"`.
 
-The tags (`@param` and `@section`) as well as the two initial `#` characters for the comments style can be configured in the [configuration file](## Configuration file).
+The tags (`@param` and `@section`) as well as the two initial `#` characters for the comments style can be configured in the [configuration file](#configuration-file).
 
 The `modifier` is optional and it will let you override the value of an object. Currently there two modifiers supported:
 
 - `[array]` Indicates that the value of the parameter must be set to `[]`.
 - `[object]` Indicates that the value of the parameter must be set to `{}`.
 
-The modifiers are also customizable via the [configuration file](## Configuration file).
+The modifiers are also customizable via the [configuration file](#configuration-file).
 
 ## Configuration file
 
