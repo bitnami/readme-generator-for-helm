@@ -4,7 +4,8 @@
   },
   "tags": {
     "param": "@param",
-    "section": "@section"
+    "section": "@section",
+    "skip": "@skip"
   },
   "modifiers": {
     "array": "array",

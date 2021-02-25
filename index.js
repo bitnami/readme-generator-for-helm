@@ -29,13 +29,13 @@ const configPath = options.config ? options.config : `${__dirname}/config.json`;
 const CONFIG = require(configPath);
 
 const valuesObject = createValuesObject(valuesFilePath);
-const valuesMetadata = parseMetadataComments(valuesFilePath, CONFIG);
+let valuesMetadata = parseMetadataComments(valuesFilePath, CONFIG);
 
 // Check the parsed keys are consistent with the real ones
-const parsedValues = valuesMetadata.filter((el) => el.section ? false : true); // Filter sections
-const parsedKeys = parsedValues.map((el) => el.name);
-const realKeys = valuesObject.map((el) => el.name);
-checkKeys(realKeys, parsedKeys);
+checkKeys(valuesObject, valuesMetadata);
+
+// We don't need the skip objects anymore so filter them
+valuesMetadata = valuesMetadata.filter((el) => el.skip ? false : true);
 
 // Build sections array combining metadata and real values
 const sections = buildSections(valuesObject, valuesMetadata);

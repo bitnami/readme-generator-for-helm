@@ -278,7 +278,6 @@ livenessProbe:
 ## Kubewatch containers' readiness probe.
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes
 ##
-## @param readinessProbe.enabled Enable readiness probe
 ## @param readinessProbe.initialDelaySeconds Initial delay seconds for readinessProbe
 ## @param readinessProbe.periodSeconds Period seconds for readinessProbe
 ## @param readinessProbe.timeoutSeconds Timeout seconds for readinessProbe
@@ -286,7 +285,9 @@ livenessProbe:
 ## @param readinessProbe.successThreshold Success threshold for readinessProbe
 ##
 readinessProbe:
-  enabled: false
+  ## @skip readinessProbe.enabled
+  enabled:
+    petete: patata
   initialDelaySeconds: 10
   periodSeconds: 10
   timeoutSeconds: 1
