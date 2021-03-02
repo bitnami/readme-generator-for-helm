@@ -126,12 +126,13 @@ The command removes all the Kubernetes components associated with the chart and 
 | `containerSecurityContext.runAsNonRoot` | Set Kubewatch container's Security Context runAsNonRoot                                   | `true`  |
 | `resources.limits`                      | The resources limits for the Kubewatch container                                          | `{}`    |
 | `resources.requests`                    | The requested resources for the Kubewatch container                                       | `{}`    |
-| `livenessProbe.enabled`                 | Enable liveness probe                                                                     | `false` |
+| `livenessProbe.enabled`                 | Enable livenessProbe                                                                      | `false` |
 | `livenessProbe.initialDelaySeconds`     | Initial delay seconds for livenessProbe                                                   | `10`    |
 | `livenessProbe.periodSeconds`           | Period seconds for livenessProbe                                                          | `10`    |
 | `livenessProbe.timeoutSeconds`          | Timeout seconds for livenessProbe                                                         | `1`     |
 | `livenessProbe.failureThreshold`        | Failure threshold for livenessProbe                                                       | `3`     |
 | `livenessProbe.successThreshold`        | Success threshold for livenessProbe                                                       | `1`     |
+| `readinessProbe.enabled`                | Enable readinessProbe                                                                     | `false` |
 | `readinessProbe.initialDelaySeconds`    | Initial delay seconds for readinessProbe                                                  | `10`    |
 | `readinessProbe.periodSeconds`          | Period seconds for readinessProbe                                                         | `10`    |
 | `readinessProbe.timeoutSeconds`         | Timeout seconds for readinessProbe                                                        | `1`     |

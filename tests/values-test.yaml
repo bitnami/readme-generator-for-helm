@@ -242,8 +242,9 @@ containerSecurityContext:
 ## Kubewatch resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
 ##
-## @param resources.limits  The resources limits for the Kubewatch container
-## @param resources.requests  The requested resources for the Kubewatch container
+## @skip resources
+## @disabled-param resources.limits  The resources limits for the Kubewatch container
+## @disabled-param resources.requests  The requested resources for the Kubewatch container
 ##
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -260,7 +261,7 @@ resources:
 ## Kubewatch containers' liveness probe.
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes
 ##
-## @param livenessProbe.enabled Enable liveness probe
+## @param livenessProbe.enabled Enable livenessProbe
 ## @param livenessProbe.initialDelaySeconds Initial delay seconds for livenessProbe
 ## @param livenessProbe.periodSeconds Period seconds for livenessProbe
 ## @param livenessProbe.timeoutSeconds Timeout seconds for livenessProbe
@@ -278,6 +279,7 @@ livenessProbe:
 ## Kubewatch containers' readiness probe.
 ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes
 ##
+## @param readinessProbe.enabled Enable readinessProbe
 ## @param readinessProbe.initialDelaySeconds Initial delay seconds for readinessProbe
 ## @param readinessProbe.periodSeconds Period seconds for readinessProbe
 ## @param readinessProbe.timeoutSeconds Timeout seconds for readinessProbe
@@ -285,9 +287,7 @@ livenessProbe:
 ## @param readinessProbe.successThreshold Success threshold for readinessProbe
 ##
 readinessProbe:
-  ## @skip readinessProbe.enabled
-  enabled:
-    petete: patata
+  enabled: false
   initialDelaySeconds: 10
   periodSeconds: 10
   timeoutSeconds: 1

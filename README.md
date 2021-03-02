@@ -61,12 +61,15 @@ For the tool to work, you need to add some metadata to your `values.yaml` file.
 
 By default we use a format similar to Javadoc, using `@xxx` for tags followed by the tag structure.
 
-There are two tags supported at this very moment:
+The following are the tags supported at this very moment:
 
 - For a parameter: `## @param (fullKeyPath)[modifier?] Description`.
 - For a section: `## @section Section Title"`.
+- To skip an object and all its childrens:   `## @skip fullKeyPath`.
 
-The tags (`@param` and `@section`) as well as the two initial `#` characters for the comments style can be configured in the [configuration file](#configuration-file).
+All the tags as well as the two initial `#` characters for the comments style can be configured in the [configuration file](#configuration-file).
+
+> IMPORTANT: tags' order or position in the file is NOT important except for the @section tag. The @section that will include in the section all the parameters after it until a new section is found or the file ends.
 
 The `modifier` is optional and it will let you override the value of an object. Currently there two modifiers supported:
 
@@ -86,7 +89,8 @@ The configuration file has the following structure:
   },
   "tags": {
     "param": "@param",                   <-- Tag that indicates a parameter
-    "section": "@section"                <-- Tag that indicates a section
+    "section": "@section",               <-- Tag that indicates a section
+    "skip": "@skip"                      <-- Tag that indicates the object must be skipped
   },
   "modifiers": {
     "array": "array",                    <-- Modifier that indicates an array type
