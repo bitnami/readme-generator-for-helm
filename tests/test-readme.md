@@ -124,8 +124,6 @@ The command removes all the Kubernetes components associated with the chart and 
 | `containerSecurityContext.enabled`      | Enabled Kubewatch containers' Security Context                                            | `false` |
 | `containerSecurityContext.runAsUser`    | Set Kubewatch container's Security Context runAsUser                                      | `1001`  |
 | `containerSecurityContext.runAsNonRoot` | Set Kubewatch container's Security Context runAsNonRoot                                   | `true`  |
-| `resources.limits`                      | The resources limits for the Kubewatch container                                          | `{}`    |
-| `resources.requests`                    | The requested resources for the Kubewatch container                                       | `{}`    |
 | `livenessProbe.enabled`                 | Enable livenessProbe                                                                      | `false` |
 | `livenessProbe.initialDelaySeconds`     | Initial delay seconds for livenessProbe                                                   | `10`    |
 | `livenessProbe.periodSeconds`           | Period seconds for livenessProbe                                                          | `10`    |
