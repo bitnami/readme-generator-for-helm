@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "readmenator": "./index.js"
+    "readmenator": "./bin/index.js"
   },
   "keywords": [
     "README",
