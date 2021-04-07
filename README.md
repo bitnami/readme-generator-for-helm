@@ -63,7 +63,7 @@ By default we use a format similar to Javadoc, using `@xxx` for tags followed by
 
 The following are the tags supported at this very moment:
 
-- For a parameter: `## @param (fullKeyPath)[modifier?] Description`.
+- For a parameter: `## @param (fullKeyPath) [modifier?] Description`.
 - For a section: `## @section Section Title"`.
 - To skip an object and all its childrens:   `## @skip fullKeyPath`.
 
