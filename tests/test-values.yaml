@@ -122,8 +122,7 @@ msteams:
   enabled: false
   webhookurl:
 
-## @param webhook.enabled Enable Webhook notifications
-## @param webhook.url Webhook URL
+## @param webhook [object] Enable Webhook notifications
 ##
 webhook:
   enabled: false
@@ -439,3 +438,15 @@ serviceAccount:
   ## If not set and create is true, a name is generated using the fullname template
   ##
   name: ""
+
+## Invented parameter to test arrays
+## @param inventedArray Test parameter to check arrays
+inventedArray:
+  - a
+  - b
+
+## Invented parameter to test array modifier
+## @param arrayModifier [array] Test parameter for modifier array
+arrayModifier:
+  - a
+  - b

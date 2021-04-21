@@ -1,3 +1,4 @@
+/* eslint-disable */
 const fs = require('fs');
 
 const testValuesPath = `${__dirname}/test-values.yaml`; // File where the content will end after the tool is executed

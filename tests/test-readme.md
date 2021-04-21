@@ -84,8 +84,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | `flock.url`                              | Flock URL                                           | `nil`                  |
 | `msteams.enabled`                        | Enable Microsoft Teams notifications                | `false`                |
 | `msteams.webhookurl`                     | Microsoft Teams webhook URL                         | `nil`                  |
-| `webhook.enabled`                        | Enable Webhook notifications                        | `false`                |
-| `webhook.url`                            | Webhook URL                                         | `nil`                  |
+| `webhook`                                | Enable Webhook notifications                        | `{}`                   |
 | `smtp.enabled`                           | Enable SMTP (email) notifications                   | `false`                |
 | `smtp.to`                                | Destination email address (required)                | `""`                   |
 | `smtp.from`                              | Source email address (required)                     | `""`                   |
@@ -155,11 +154,13 @@ The command removes all the Kubernetes components associated with the chart and 
 | `rbac.create`                           | Weather to create & use RBAC resources or not                                             | `false` |
 | `serviceAccount.create`                 | Enable the creation of a ServiceAccount for Kubewatch pods                                | `true`  |
 | `serviceAccount.name`                   | Name of the created ServiceAccount                                                        | `""`    |
+| `inventedArray`                         | Test parameter to check arrays                                                            | `[]`    |
+| `arrayModifier`                         | Test parameter for modifier array                                                         | `[]`    |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
-```console  
+```console
 $ helm install my-release bitnami/kubewatch \
   --set=slack.channel="#bots",slack.token="XXXX-XXXX-XXXX"
 ```

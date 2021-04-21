@@ -3,7 +3,9 @@
 * SPDX-License-Identifier: Apache-2.0
 */
 
-const { program } = require('commander');
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
+
 const { createValuesObject, parseMetadataComments } = require('./lib/parser');
 const { checkKeys } = require('./lib/checker');
 const { buildSections } = require('./lib/builder');
@@ -11,7 +13,6 @@ const { insertReadmeTable } = require('./lib/render');
 
 function getValuesSections(options) {
   const valuesFilePath = options.values;
-  const readmeFilePath = options.readme;
   const configPath = options.config ? options.config : `${__dirname}/config.json`;
   const CONFIG = require(configPath);
 
@@ -22,10 +23,10 @@ function getValuesSections(options) {
   checkKeys(valuesObject, valuesMetadata);
 
   // We don't need the skip objects anymore so filter them
-  valuesMetadata = valuesMetadata.filter((el) => el.skip ? false : true);
+  valuesMetadata = valuesMetadata.filter((el) => (!el.skip));
 
   // Return sections array combining metadata and real values
-  return  buildSections(valuesObject, valuesMetadata);
+  return buildSections(valuesObject, valuesMetadata);
 }
 
 function runReadmenator(options) {
@@ -33,10 +34,10 @@ function runReadmenator(options) {
   const valuesFilePath = options.values;
 
   if (!readmeFilePath) {
-    throw new Error("README file not provided");
+    throw new Error('README file not provided');
   }
   if (!valuesFilePath) {
-    throw new Error("Values file not provided");
+    throw new Error('Values file not provided');
   }
 
   const configPath = options.config ? options.config : `${__dirname}/config.json`;
@@ -50,4 +51,4 @@ function runReadmenator(options) {
 module.exports = {
   getValuesSections,
   runReadmenator,
-}
+};
