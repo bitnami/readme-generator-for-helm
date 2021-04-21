@@ -4,7 +4,7 @@
   "description": "Autogenerate READMEs' tables for Bitnami Helm Charts",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "bin": {
     "readmenator": "./bin/index.js"
@@ -24,5 +24,8 @@
     "dot-object": "^2.1.4",
     "markdown-table": "^2.0.0",
     "yaml": "^2.0.0-3"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
   }
 }

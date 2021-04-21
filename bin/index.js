@@ -6,11 +6,7 @@
 */
 
 const { program } = require('commander');
-const { createValuesObject, parseMetadataComments } = require('../lib/parser');
-const { checkKeys } = require('../lib/checker');
-const { buildSections } = require('../lib/builder');
-const { insertReadmeTable } = require('../lib/render');
-const { getValuesSections } = require('../index');
+const { runReadmenator } = require('../index');
 
 program
   .requiredOption('-r, --readme <path>', 'Path to the README.md file')
@@ -20,11 +16,5 @@ program
 program.parse(process.argv);
 
 const options = program.opts();
-const readmeFilePath = options.readme;
-const configPath = options.config ? options.config : `${__dirname}/../config.json`;
-const CONFIG = require(configPath);
 
-
-const sections = getValuesSections(options);
-
-insertReadmeTable(readmeFilePath, sections, CONFIG);
+runReadmenator(options);

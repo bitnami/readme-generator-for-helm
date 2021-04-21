@@ -43,6 +43,14 @@ git clone https://github.com/bitnami-labs/readmenator
 npm install -g readminator
 ```
 
+## Test
+
+We use [Jest](https://jestjs.io) to implement the tests. In order to test your changes execute the following command:
+
+```
+npm run-script test
+```
+
 ## Basic usage
 
 ```

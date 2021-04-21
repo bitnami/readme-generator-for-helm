@@ -28,6 +28,26 @@ function getValuesSections(options) {
   return  buildSections(valuesObject, valuesMetadata);
 }
 
+function runReadmenator(options) {
+  const readmeFilePath = options.readme;
+  const valuesFilePath = options.values;
+
+  if (!readmeFilePath) {
+    throw new Error("README file not provided");
+  }
+  if (!valuesFilePath) {
+    throw new Error("Values file not provided");
+  }
+
+  const configPath = options.config ? options.config : `${__dirname}/config.json`;
+  const CONFIG = require(configPath);
+
+  const sections = getValuesSections(options);
+
+  insertReadmeTable(readmeFilePath, sections, CONFIG);
+}
+
 module.exports = {
   getValuesSections,
+  runReadmenator,
 }
