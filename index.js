@@ -1,4 +1,7 @@
-#!/usr/bin/env node
+/*
+* Copyright 2021-2021 VMware, Inc.
+* SPDX-License-Identifier: Apache-2.0
+*/
 
 const { program } = require('commander');
 const { createValuesObject, parseMetadataComments } = require('./lib/parser');
