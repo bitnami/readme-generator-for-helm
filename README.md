@@ -34,6 +34,10 @@ The table that will be inserted into the `readme.md` will have the following str
 
 The number of `#` characters needed for the sections title is dynamically calculated, and the title of the `Parameters` section can be configured via the [configuration file](#configuration-file).
 
+## Requirements
+
+The project has been developed and tested with node version `12.21.0`.
+
 ## Install
 
 Execute the following commands to install the tool:
