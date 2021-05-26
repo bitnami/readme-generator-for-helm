@@ -160,7 +160,7 @@ The command removes all the Kubernetes components associated with the chart and 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
-```console  
+```console
 $ helm install my-release bitnami/kubewatch \
   --set=slack.channel="#bots",slack.token="XXXX-XXXX-XXXX"
 ```
