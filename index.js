@@ -29,7 +29,7 @@ function getValuesSections(options) {
   return buildSections(valuesObject, valuesMetadata);
 }
 
-function runReadmenator(options) {
+function runReadmeGenerator(options) {
   const readmeFilePath = options.readme;
   const valuesFilePath = options.values;
 
@@ -50,5 +50,5 @@ function runReadmenator(options) {
 
 module.exports = {
   getValuesSections,
-  runReadmenator,
+  runReadmeGenerator,
 };

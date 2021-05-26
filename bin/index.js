@@ -6,7 +6,7 @@
 */
 
 const { program } = require('commander');
-const { runReadmenator } = require('../index');
+const { runReadmeGenerator } = require('../index');
 
 program
   .requiredOption('-r, --readme <path>', 'Path to the README.md file')
@@ -17,4 +17,4 @@ program.parse(process.argv);
 
 const options = program.opts();
 
-runReadmenator(options);
+runReadmeGenerator(options);

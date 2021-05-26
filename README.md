@@ -1,4 +1,4 @@
-# Bitnami Charts Readmenator
+# Readme Generator For Helm
 
 Autogenerate Helm Charts READMEs' tables based on values YAML file metadata.
 
@@ -43,7 +43,7 @@ The project has been developed and tested with node version `12.21.0`.
 Execute the following commands to install the tool:
 
 ```
-git clone https://github.com/bitnami-labs/readmenator
+git clone https://github.com/bitnami-labs/readme-generator-for-helm
 npm install -g readminator
 ```
 
@@ -58,7 +58,7 @@ npm run-script test
 ## Basic usage
 
 ```
-Usage: readmenator [options]
+Usage: readme-generator [options]
 
 Options:
   -r, --readme <path>  Path to the README.md file

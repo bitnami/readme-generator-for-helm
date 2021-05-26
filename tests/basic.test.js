@@ -5,15 +5,15 @@ const testValuesPath = `${__dirname}/test-values.yaml`; // File where the conten
 const testReadmePath = `${__dirname}/test-readme.md`; // File where the content will end after the tool is executed
 const expectedReadmePath = `${__dirname}/expected-readme.md`; // File that must result from executing the tool providing the test README and values
 
-const { runReadmenator } = require('../index.js');
+const { runReadGenerator } = require('../index.js');
 
 test('Check basic functionality', () => {
-  // Run readmenator with the test files
+  // Run readme gnerator with the test files
   const options = {
     readme: testReadmePath,
     values: testValuesPath,
   };
-  runReadmenator(options);
+  runReadmeGenerator(options);
 
   // Check the output is the expected one
   expect(fs.readFileSync(testReadmePath)).toEqual(fs.readFileSync(expectedReadmePath));

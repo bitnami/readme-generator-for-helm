@@ -1,5 +1,5 @@
 {
-  "name": "readmenator",
+  "name": "readme-generator-for-helm",
   "version": "1.0.1",
   "description": "Autogenerate READMEs' tables for Bitnami Helm Charts",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "jest"
   },
   "bin": {
-    "readmenator": "./bin/index.js"
+    "readme-generator": "./bin/index.js"
   },
   "keywords": [
     "README",
@@ -17,7 +17,6 @@
     "table",
     "autogenerate"
   ],
-  "author": "Miguel Angel Cabrera Minagorri <https://github.com/miguelaeh>",
   "license": "ISC",
   "dependencies": {
     "commander": "^7.1.0",
