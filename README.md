@@ -44,7 +44,7 @@ Execute the following commands to install the tool:
 
 ```
 git clone https://github.com/bitnami-labs/readme-generator-for-helm
-npm install -g readminator
+npm install -g readme-generator-for-helm
 ```
 
 ## Test
