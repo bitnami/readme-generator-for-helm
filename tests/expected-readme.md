@@ -156,6 +156,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | `serviceAccount.name`                   | Name of the created ServiceAccount                                                        | `""`    |
 | `inventedArray`                         | Test parameter to check arrays                                                            | `[]`    |
 | `arrayModifier`                         | Test parameter for modifier array                                                         | `[]`    |
+| `configuration`                         | haproxy configuration                                                                     | `""`    |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,

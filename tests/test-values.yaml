@@ -450,3 +450,11 @@ inventedArray:
 arrayModifier:
   - a
   - b
+
+## @param configuration [string] haproxy configuration
+##
+configuration: |
+  global
+    log stdout format raw local0
+    maxconn 1024
+  defaults
