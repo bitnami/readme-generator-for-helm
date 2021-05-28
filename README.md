@@ -87,6 +87,7 @@ The `modifier` is optional and it will let you override the value of an object. 
 
 - `[array]` Indicates that the value of the parameter must be set to `[]`.
 - `[object]` Indicates that the value of the parameter must be set to `{}`.
+- `[string]` Indicates that the value of the parameter must be set to `""`.
 
 The modifiers are also customizable via the [configuration file](#configuration-file).
 
@@ -107,6 +108,7 @@ The configuration file has the following structure:
   "modifiers": {
     "array": "array",                    <-- Modifier that indicates an array type
     "object": "object"                   <-- Modifier that indicates an object type
+    "string": "string"                   <-- Modifier that indicates an string type
   },
   "regexp": {
     "paramsSectionTitle": "Parameters"   <-- Title of the parameters section to replace in the README.md
