@@ -9,9 +9,10 @@ const { program } = require('commander');
 const { runReadmeGenerator } = require('../index');
 
 program
-  .requiredOption('-r, --readme <path>', 'Path to the README.md file')
   .requiredOption('-v, --values <path>', 'Path to the values.yaml file')
-  .option('-c, --config <path>', 'Path to the config file');
+  .option('-r, --readme <path>', 'Path to the README.md file')
+  .option('-c, --config <path>', 'Path to the config file')
+  .option('-m, --metadata <path>', 'Path for the metadata output file');
 
 program.parse(process.argv);
 
