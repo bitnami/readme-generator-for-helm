@@ -4,6 +4,8 @@ const fs = require('fs');
 const testValuesPath = `${__dirname}/test-values.yaml`; // File where the content will end after the tool is executed
 const testReadmePath = `${__dirname}/test-readme.md`; // File where the content will end after the tool is executed
 const expectedReadmePath = `${__dirname}/expected-readme.md`; // File that must result from executing the tool providing the test README and values
+const testMetadataPath = `${__dirname}/test-metadata.json`; // File where the content will end after the tool is executed
+const expectedMetadataPath = `${__dirname}/expected-metadata.json`; // File that must result from executing the tool providing the test README and values
 
 const { runReadmeGenerator } = require('../index.js');
 
