@@ -19,3 +19,16 @@ test('Check basic functionality', () => {
   fs.writeFileSync('/tmp/result', fs.readFileSync(testReadmePath));
   expect(fs.readFileSync(testReadmePath)).toEqual(fs.readFileSync(expectedReadmePath));
 });
+
+test('Check metadata', () => {
+  // Run readme gnerator with the test files
+  const options = {
+    metadata: testMetadataPath,
+    values: testValuesPath,
+  };
+  runReadmeGenerator(options);
+
+  // Check the output is the expected one
+  fs.writeFileSync('/tmp/result', fs.readFileSync(testMetadataPath));
+  expect(fs.readFileSync(testMetadataPath)).toEqual(fs.readFileSync(expectedMetadataPath));
+});
