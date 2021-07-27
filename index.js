@@ -6,8 +6,6 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 
-const fs = require('fs');
-
 const { createValuesObject, parseMetadataComments, generateMetadataObject } = require('./lib/parser');
 const { checkKeys } = require('./lib/checker');
 const { buildSections } = require('./lib/builder');
@@ -40,24 +38,21 @@ function runReadmeGenerator(options) {
     throw new Error('Values file not provided');
   }
 
+  if (!readmeFilePath && !metadataFilePath) {
+    throw new Error('Nothing to do. Please provide a README file or Metadata output.');
+  }
+
   const configPath = options.config ? options.config : `${__dirname}/config.json`;
-
   const CONFIG = require(configPath);
-
   const sections = getValuesSections(options);
 
-  if (metadataFilePath || readmeFilePath){
-    //Generate metadata
-    if(metadataFilePath) {
-      const metadata = generateMetadataObject(sections);
-      exportMetadata(metadataFilePath, metadata);
-    }
-    if(readmeFilePath) {
-      insertReadmeTable(readmeFilePath, sections, CONFIG);
-    }
+  if (readmeFilePath) {
+    insertReadmeTable(readmeFilePath, sections, CONFIG);
   }
-  else{
-    throw new Error('Nothing to do. Please provide a README file or Metadata output.');
+
+  if (metadataFilePath) {
+    const metadata = generateMetadataObject(sections, valuesFilePath);
+    exportMetadata(metadataFilePath, metadata);
   }
 }
 
