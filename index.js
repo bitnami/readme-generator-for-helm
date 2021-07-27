@@ -34,12 +34,11 @@ function runReadmeGenerator(options) {
   const readmeFilePath = options.readme;
   const metadataFilePath = options.metadata;
 
-  if (!valuesFilePath) {
-    throw new Error('Values file not provided');
-  }
-
   if (!readmeFilePath && !metadataFilePath) {
     throw new Error('Nothing to do. Please provide a README file or Metadata output.');
+  }
+  if (!valuesFilePath) {
+    throw new Error('Values file not provided');
   }
 
   const configPath = options.config ? options.config : `${__dirname}/config.json`;
