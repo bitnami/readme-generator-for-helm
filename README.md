@@ -61,10 +61,11 @@ npm run-script test
 Usage: readme-generator [options]
 
 Options:
-  -r, --readme <path>  Path to the README.md file
-  -v, --values <path>  Path to the values.yaml file
-  -c, --config <path>  Path to the config file
-  -h, --help           display help for command
+  -r, --readme <path>   Path to the README.md file
+  -v, --values <path>   Path to the values.yaml file
+  -c, --config <path>   Path to the config file
+  -m, --metadata <path> Path to the metadata file
+  -h, --help            display help for command
 ```
 
 ## Metadata
@@ -115,3 +116,7 @@ The configuration file has the following structure:
   }
 }
 ```
+
+## Generate values.yaml Schema
+
+The readme-generator-for-helm can also use the metadata in the `values.yaml` to generate an schemaObject as output by using the `--metadata` option. File generated will be a JSON file formated according to the [OpenAPIv3 SchemaObject](https://spec.openapis.org/oas/v3.1.0#schema-object) definition.

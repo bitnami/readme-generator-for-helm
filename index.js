@@ -6,10 +6,10 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 
-const { createValuesObject, parseMetadataComments } = require('./lib/parser');
+const { createValuesObject, parseMetadataComments, generateMetadataObject } = require('./lib/parser');
 const { checkKeys } = require('./lib/checker');
 const { buildSections } = require('./lib/builder');
-const { insertReadmeTable } = require('./lib/render');
+const { insertReadmeTable, exportMetadata } = require('./lib/render');
 
 function getValuesSections(options) {
   const valuesFilePath = options.values;
@@ -30,11 +30,12 @@ function getValuesSections(options) {
 }
 
 function runReadmeGenerator(options) {
-  const readmeFilePath = options.readme;
   const valuesFilePath = options.values;
+  const readmeFilePath = options.readme;
+  const metadataFilePath = options.metadata;
 
-  if (!readmeFilePath) {
-    throw new Error('README file not provided');
+  if (!readmeFilePath && !metadataFilePath) {
+    throw new Error('Nothing to do. Please provide a README file or Metadata output.');
   }
   if (!valuesFilePath) {
     throw new Error('Values file not provided');
@@ -42,10 +43,16 @@ function runReadmeGenerator(options) {
 
   const configPath = options.config ? options.config : `${__dirname}/config.json`;
   const CONFIG = require(configPath);
-
   const sections = getValuesSections(options);
 
-  insertReadmeTable(readmeFilePath, sections, CONFIG);
+  if (readmeFilePath) {
+    insertReadmeTable(readmeFilePath, sections, CONFIG);
+  }
+
+  if (metadataFilePath) {
+    const metadata = generateMetadataObject(sections, valuesFilePath);
+    exportMetadata(metadataFilePath, metadata);
+  }
 }
 
 module.exports = {
