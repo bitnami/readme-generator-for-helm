@@ -10,7 +10,7 @@ const expectedMetadataPath = `${__dirname}/expected-metadata.json`; // File that
 const { runReadmeGenerator } = require('../index.js');
 
 test('Check basic functionality', () => {
-  // Run readme gnerator with the test files
+  // Run readme generator with the test files
   const options = {
     readme: testReadmePath,
     values: testValuesPath,
@@ -23,7 +23,7 @@ test('Check basic functionality', () => {
 });
 
 test('Check metadata', () => {
-  // Run readme gnerator with the test files
+  // Run readme generator with the test files
   const options = {
     metadata: testMetadataPath,
     values: testValuesPath,
