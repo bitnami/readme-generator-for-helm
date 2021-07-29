@@ -44,7 +44,7 @@ The command removes all the Kubernetes components associated with the chart and 
 
 | Name                      | Description                                     | Value |
 | ------------------------- | ----------------------------------------------- | ----- |
-| `global.imageRegistry`    | Global Docker image registry                    | `nil` |
+| `global.imageRegistry`    | Global Docker image registry                    | `""`  |
 | `global.imagePullSecrets` | Global Docker registry secret names as an array | `[]`  |
 
 
@@ -52,8 +52,8 @@ The command removes all the Kubernetes components associated with the chart and 
 
 | Name                | Description                                        | Value |
 | ------------------- | -------------------------------------------------- | ----- |
-| `nameOverride`      | String to partially override common.names.fullname | `nil` |
-| `fullnameOverride`  | String to fully override common.names.fullname     | `nil` |
+| `nameOverride`      | String to partially override common.names.fullname | `""`  |
+| `fullnameOverride`  | String to fully override common.names.fullname     | `""`  |
 | `commonLabels`      | Labels to add to all deployed objects              | `{}`  |
 | `commonAnnotations` | Annotations to add to all deployed objects         | `{}`  |
 | `extraDeploy`       | Array of extra objects to deploy with the release  | `[]`  |
@@ -73,17 +73,17 @@ The command removes all the Kubernetes components associated with the chart and 
 | `slack.channel`                          | Slack channel to notify                             | `XXXX`                 |
 | `slack.token`                            | Slack API token                                     | `XXXX`                 |
 | `hipchat.enabled`                        | Enable HipChat notifications                        | `false`                |
-| `hipchat.room`                           | HipChat room to notify                              | `nil`                  |
-| `hipchat.token`                          | HipChat token                                       | `nil`                  |
-| `hipchat.url`                            | HipChat URL                                         | `nil`                  |
+| `hipchat.room`                           | HipChat room to notify                              | `""`                   |
+| `hipchat.token`                          | HipChat token                                       | `""`                   |
+| `hipchat.url`                            | HipChat URL                                         | `""`                   |
 | `mattermost.enabled`                     | Enable Mattermost notifications                     | `false`                |
-| `mattermost.channel`                     | Mattermost channel to notify                        | `nil`                  |
-| `mattermost.username`                    | Mattermost user to notify                           | `nil`                  |
-| `mattermost.url`                         | Mattermost URL                                      | `nil`                  |
+| `mattermost.channel`                     | Mattermost channel to notify                        | `""`                   |
+| `mattermost.username`                    | Mattermost user to notify                           | `""`                   |
+| `mattermost.url`                         | Mattermost URL                                      | `""`                   |
 | `flock.enabled`                          | Enable Flock notifications                          | `false`                |
-| `flock.url`                              | Flock URL                                           | `nil`                  |
+| `flock.url`                              | Flock URL                                           | `""`                   |
 | `msteams.enabled`                        | Enable Microsoft Teams notifications                | `false`                |
-| `msteams.webhookurl`                     | Microsoft Teams webhook URL                         | `nil`                  |
+| `msteams.webhookurl`                     | Microsoft Teams webhook URL                         | `""`                   |
 | `webhook`                                | Enable Webhook notifications                        | `{}`                   |
 | `smtp.enabled`                           | Enable SMTP (email) notifications                   | `false`                |
 | `smtp.to`                                | Destination email address (required)                | `""`                   |
@@ -115,8 +115,8 @@ The command removes all the Kubernetes components associated with the chart and 
 | `args`                                  | Override default container args (useful when using custom images)                         | `[]`    |
 | `extraEnvVars[0].name`                  | Name of the env var                                                                       | `FOO`   |
 | `extraEnvVars[0].value`                 | Value for the env var                                                                     | `bar`   |
-| `extraEnvVarsCM`                        | Name of existing ConfigMap containing extra env vars                                      | `nil`   |
-| `extraEnvVarsSecret`                    | Name of existing Secret containing extra env vars                                         | `nil`   |
+| `extraEnvVarsCM`                        | Name of existing ConfigMap containing extra env vars                                      | `""`    |
+| `extraEnvVarsSecret`                    | Name of existing Secret containing extra env vars                                         | `""`    |
 | `replicaCount`                          | Number of Kubewatch replicas to deploy                                                    | `1`     |
 | `podSecurityContext.enabled`            | Enabled Kubewatch pods' Security Context                                                  | `false` |
 | `podSecurityContext.fsGroup`            | Set Kubewatch pod's Security Context fsGroup                                              | `1001`  |
