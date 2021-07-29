@@ -109,54 +109,55 @@ The command removes all the Kubernetes components associated with the chart and 
 
 ### Deployment parameters
 
-| Name                                    | Description                                                                               | Value   |
-| --------------------------------------- | ----------------------------------------------------------------------------------------- | ------- |
-| `command`                               | Override default container command (useful when using custom images)                      | `[]`    |
-| `args`                                  | Override default container args (useful when using custom images)                         | `[]`    |
-| `extraEnvVars[0].name`                  | Name of the env var                                                                       | `FOO`   |
-| `extraEnvVars[0].value`                 | Value for the env var                                                                     | `bar`   |
-| `extraEnvVarsCM`                        | Name of existing ConfigMap containing extra env vars                                      | `nil`   |
-| `extraEnvVarsSecret`                    | Name of existing Secret containing extra env vars                                         | `nil`   |
-| `replicaCount`                          | Number of Kubewatch replicas to deploy                                                    | `1`     |
-| `podSecurityContext.enabled`            | Enabled Kubewatch pods' Security Context                                                  | `false` |
-| `podSecurityContext.fsGroup`            | Set Kubewatch pod's Security Context fsGroup                                              | `1001`  |
-| `containerSecurityContext.enabled`      | Enabled Kubewatch containers' Security Context                                            | `false` |
-| `containerSecurityContext.runAsUser`    | Set Kubewatch container's Security Context runAsUser                                      | `1001`  |
-| `containerSecurityContext.runAsNonRoot` | Set Kubewatch container's Security Context runAsNonRoot                                   | `true`  |
-| `livenessProbe.enabled`                 | Enable livenessProbe                                                                      | `false` |
-| `livenessProbe.initialDelaySeconds`     | Initial delay seconds for livenessProbe                                                   | `10`    |
-| `livenessProbe.periodSeconds`           | Period seconds for livenessProbe                                                          | `10`    |
-| `livenessProbe.timeoutSeconds`          | Timeout seconds for livenessProbe                                                         | `1`     |
-| `livenessProbe.failureThreshold`        | Failure threshold for livenessProbe                                                       | `3`     |
-| `livenessProbe.successThreshold`        | Success threshold for livenessProbe                                                       | `1`     |
-| `readinessProbe.enabled`                | Enable readinessProbe                                                                     | `false` |
-| `readinessProbe.initialDelaySeconds`    | Initial delay seconds for readinessProbe                                                  | `10`    |
-| `readinessProbe.periodSeconds`          | Period seconds for readinessProbe                                                         | `10`    |
-| `readinessProbe.timeoutSeconds`         | Timeout seconds for readinessProbe                                                        | `1`     |
-| `readinessProbe.failureThreshold`       | Failure threshold for readinessProbe                                                      | `3`     |
-| `readinessProbe.successThreshold`       | Success threshold for readinessProbe                                                      | `1`     |
-| `customLivenessProbe`                   | Override default liveness probe                                                           | `{}`    |
-| `customReadinessProbe`                  | Override default readiness probe                                                          | `{}`    |
-| `podAffinityPreset`                     | Pod affinity preset. Ignored if `affinity` is set. Allowed values: `soft` or `hard`       | `""`    |
-| `podAntiAffinityPreset`                 | Pod anti-affinity preset. Ignored if `affinity` is set. Allowed values: `soft` or `hard`  | `soft`  |
-| `nodeAffinityPreset.type`               | Node affinity preset type. Ignored if `affinity` is set. Allowed values: `soft` or `hard` | `""`    |
-| `nodeAffinityPreset.key`                | Node label key to match. Ignored if `affinity` is set                                     | `""`    |
-| `nodeAffinityPreset.values`             | Node label values to match. Ignored if `affinity` is set                                  | `[]`    |
-| `affinity`                              | Affinity for pod assignment                                                               | `{}`    |
-| `nodeSelector`                          | Node labels for pod assignment                                                            | `{}`    |
-| `tolerations`                           | Tolerations for pod assignment                                                            | `[]`    |
-| `podLabels`                             | Extra labels for Kubewatch pods                                                           | `{}`    |
-| `podAnnotations`                        | Annotations for Kubewatch pods                                                            | `{}`    |
-| `extraVolumes`                          | Optionally specify extra list of additional volumes for Kubewatch pods                    | `[]`    |
-| `extraVolumeMounts`                     | Optionally specify extra list of additional volumeMounts for Kubewatch container(s)       | `[]`    |
-| `initContainers`                        | Add additional init containers to the Kubewatch pods                                      | `{}`    |
-| `sidecars`                              | Add additional sidecar containers to the Kubewatch pods                                   | `{}`    |
-| `rbac.create`                           | Weather to create & use RBAC resources or not                                             | `false` |
-| `serviceAccount.create`                 | Enable the creation of a ServiceAccount for Kubewatch pods                                | `true`  |
-| `serviceAccount.name`                   | Name of the created ServiceAccount                                                        | `""`    |
-| `inventedArray`                         | Test parameter to check arrays                                                            | `[]`    |
-| `arrayModifier`                         | Test parameter for modifier array                                                         | `[]`    |
-| `configuration`                         | haproxy configuration                                                                     | `""`    |
+| Name                                    | Description                                                                               | Value               |
+| --------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------- |
+| `command`                               | Override default container command (useful when using custom images)                      | `[]`                |
+| `args`                                  | Override default container args (useful when using custom images)                         | `[]`                |
+| `extraEnvVars[0].name`                  | Name of the env var                                                                       | `FOO`               |
+| `extraEnvVars[0].value`                 | Value for the env var                                                                     | `bar`               |
+| `extraEnvVarsCM`                        | Name of existing ConfigMap containing extra env vars                                      | `nil`               |
+| `extraEnvVarsSecret`                    | Name of existing Secret containing extra env vars                                         | `nil`               |
+| `replicaCount`                          | Number of Kubewatch replicas to deploy                                                    | `1`                 |
+| `podSecurityContext.enabled`            | Enabled Kubewatch pods' Security Context                                                  | `false`             |
+| `podSecurityContext.fsGroup`            | Set Kubewatch pod's Security Context fsGroup                                              | `1001`              |
+| `containerSecurityContext.enabled`      | Enabled Kubewatch containers' Security Context                                            | `false`             |
+| `containerSecurityContext.runAsUser`    | Set Kubewatch container's Security Context runAsUser                                      | `1001`              |
+| `containerSecurityContext.runAsNonRoot` | Set Kubewatch container's Security Context runAsNonRoot                                   | `true`              |
+| `livenessProbe.enabled`                 | Enable livenessProbe                                                                      | `false`             |
+| `livenessProbe.initialDelaySeconds`     | Initial delay seconds for livenessProbe                                                   | `10`                |
+| `livenessProbe.periodSeconds`           | Period seconds for livenessProbe                                                          | `10`                |
+| `livenessProbe.timeoutSeconds`          | Timeout seconds for livenessProbe                                                         | `1`                 |
+| `livenessProbe.failureThreshold`        | Failure threshold for livenessProbe                                                       | `3`                 |
+| `livenessProbe.successThreshold`        | Success threshold for livenessProbe                                                       | `1`                 |
+| `readinessProbe.enabled`                | Enable readinessProbe                                                                     | `false`             |
+| `readinessProbe.initialDelaySeconds`    | Initial delay seconds for readinessProbe                                                  | `10`                |
+| `readinessProbe.periodSeconds`          | Period seconds for readinessProbe                                                         | `10`                |
+| `readinessProbe.timeoutSeconds`         | Timeout seconds for readinessProbe                                                        | `1`                 |
+| `readinessProbe.failureThreshold`       | Failure threshold for readinessProbe                                                      | `3`                 |
+| `readinessProbe.successThreshold`       | Success threshold for readinessProbe                                                      | `1`                 |
+| `customLivenessProbe`                   | Override default liveness probe                                                           | `{}`                |
+| `customReadinessProbe`                  | Override default readiness probe                                                          | `{}`                |
+| `podAffinityPreset`                     | Pod affinity preset. Ignored if `affinity` is set. Allowed values: `soft` or `hard`       | `""`                |
+| `podAntiAffinityPreset`                 | Pod anti-affinity preset. Ignored if `affinity` is set. Allowed values: `soft` or `hard`  | `soft`              |
+| `nodeAffinityPreset.type`               | Node affinity preset type. Ignored if `affinity` is set. Allowed values: `soft` or `hard` | `""`                |
+| `nodeAffinityPreset.key`                | Node label key to match. Ignored if `affinity` is set                                     | `""`                |
+| `nodeAffinityPreset.values`             | Node label values to match. Ignored if `affinity` is set                                  | `[]`                |
+| `affinity`                              | Affinity for pod assignment                                                               | `{}`                |
+| `nodeSelector`                          | Node labels for pod assignment                                                            | `{}`                |
+| `tolerations`                           | Tolerations for pod assignment                                                            | `[]`                |
+| `podLabels`                             | Extra labels for Kubewatch pods                                                           | `{}`                |
+| `podAnnotations`                        | Annotations for Kubewatch pods                                                            | `{}`                |
+| `extraVolumes`                          | Optionally specify extra list of additional volumes for Kubewatch pods                    | `[]`                |
+| `extraVolumeMounts`                     | Optionally specify extra list of additional volumeMounts for Kubewatch container(s)       | `[]`                |
+| `initContainers`                        | Add additional init containers to the Kubewatch pods                                      | `{}`                |
+| `sidecars`                              | Add additional sidecar containers to the Kubewatch pods                                   | `{}`                |
+| `rbac.create`                           | Weather to create & use RBAC resources or not                                             | `false`             |
+| `serviceAccount.create`                 | Enable the creation of a ServiceAccount for Kubewatch pods                                | `true`              |
+| `serviceAccount.name`                   | Name of the created ServiceAccount                                                        | `""`                |
+| `inventedArray`                         | Test parameter to check arrays                                                            | `[]`                |
+| `arrayModifier`                         | Test parameter for modifier array                                                         | `[]`                |
+| `configuration`                         | haproxy configuration                                                                     | `""`                |
+| `longString`                            | Test the check modifier                                                                   | `Check values.yaml` |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,

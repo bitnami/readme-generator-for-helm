@@ -458,3 +458,9 @@ configuration: |
     log stdout format raw local0
     maxconn 1024
   defaults
+
+## @param longString [check] Test the check modifier
+##
+longString: |
+  foo
+  bar

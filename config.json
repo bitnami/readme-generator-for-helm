@@ -10,7 +10,8 @@
   "modifiers": {
     "array": "array",
     "object": "object",
-    "string": "string"
+    "string": "string",
+    "check": "check"
   },
   "regexp": {
     "paramsSectionTitle": "Parameters"

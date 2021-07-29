@@ -89,6 +89,7 @@ The `modifier` is optional and it will let you override the value of an object. 
 - `[array]` Indicates that the value of the parameter must be set to `[]`.
 - `[object]` Indicates that the value of the parameter must be set to `{}`.
 - `[string]` Indicates that the value of the parameter must be set to `""`.
+- `[check]` Indicates that the value of the parameter can be obtained in the chart's `values.yaml` file, useful for long strings or arrays.
 
 The modifiers are also customizable via the [configuration file](#configuration-file).
 
@@ -110,6 +111,7 @@ The configuration file has the following structure:
     "array": "array",                    <-- Modifier that indicates an array type
     "object": "object"                   <-- Modifier that indicates an object type
     "string": "string"                   <-- Modifier that indicates an string type
+    "check": "check"                     <-- Modifier that indicates to check the real value at the values.yaml
   },
   "regexp": {
     "paramsSectionTitle": "Parameters"   <-- Title of the parameters section to replace in the README.md
