@@ -10,7 +10,7 @@
 #   imagePullSecrets:
 #     - myRegistryKeySecretName
 global:
-  imageRegistry:
+  imageRegistry: ""
   imagePullSecrets: []
 
 ## @section Common parameters
@@ -18,12 +18,12 @@ global:
 ## String to partially override aspnet-core.fullname template (will maintain the release name)
 ## @param nameOverride String to partially override common.names.fullname
 ##
-nameOverride:
+nameOverride: ""
 
 ## String to fully override aspnet-core.fullname template
 ## @param fullnameOverride String to fully override common.names.fullname
 ##
-fullnameOverride:
+fullnameOverride: ""
 
 ## Add labels to all the deployed resources
 ## @param commonLabels  Labels to add to all deployed objects
@@ -93,9 +93,9 @@ slack:
 ##
 hipchat:
   enabled: false
-  room:
-  token:
-  url:
+  room: ""
+  token: ""
+  url: ""
 
 ## @param mattermost.enabled Enable Mattermost notifications
 ## @param mattermost.channel Mattermost channel to notify
@@ -104,29 +104,29 @@ hipchat:
 ##
 mattermost:
   enabled: false
-  channel:
-  username:
-  url:
+  channel: ""
+  username: ""
+  url: ""
 
 ## @param flock.enabled Enable Flock notifications
 ## @param flock.url Flock URL
 ##
 flock:
   enabled: false
-  url:
+  url: ""
 
 ## @param msteams.enabled Enable Microsoft Teams notifications
 ## @param msteams.webhookurl Microsoft Teams webhook URL
 ##
 msteams:
   enabled: false
-  webhookurl:
+  webhookurl: ""
 
 ## @param webhook [object] Enable Webhook notifications
 ##
 webhook:
   enabled: false
-  url:
+  url: ""
 
 ## SMTP configuration
 ## @param smtp.enabled Enable SMTP (email) notifications
@@ -205,12 +205,12 @@ extraEnvVars:
 ## ConfigMap with extra environment variables
 ## @param extraEnvVarsCM Name of existing ConfigMap containing extra env vars
 ##
-extraEnvVarsCM:
+extraEnvVarsCM: ""
 
 ## Secret with extra environment variables
 ## @param extraEnvVarsSecret Name of existing Secret containing extra env vars
 ##
-extraEnvVarsSecret:
+extraEnvVarsSecret: ""
 
 ## Number of Kubewatch replicas to deploy
 ## @param replicaCount Number of Kubewatch replicas to deploy
