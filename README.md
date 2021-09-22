@@ -10,7 +10,7 @@ If the metadata is not correct it will print the full list of errors. It checks 
 
 The table that will be inserted into the `readme.md` will have the following structure:
 
-```
+```markdown
 ## Parameters
 
 ### Section 1 title
@@ -42,7 +42,7 @@ The project has been developed and tested with node version `12.21.0`.
 
 Execute the following commands to install the tool:
 
-```
+```console
 git clone https://github.com/bitnami-labs/readme-generator-for-helm
 npm install -g readme-generator-for-helm
 ```
@@ -51,13 +51,13 @@ npm install -g readme-generator-for-helm
 
 We use [Jest](https://jestjs.io) to implement the tests. In order to test your changes execute the following command:
 
-```
+```console
 npm run-script test
 ```
 
 ## Basic usage
 
-```
+```console
 Usage: readme-generator [options]
 
 Options:
