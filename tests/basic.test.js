@@ -18,7 +18,6 @@ test('Check basic functionality', () => {
   runReadmeGenerator(options);
 
   // Check the output is the expected one
-  fs.writeFileSync('/tmp/result', fs.readFileSync(testReadmePath));
   expect(fs.readFileSync(testReadmePath)).toEqual(fs.readFileSync(expectedReadmePath));
 });
 
@@ -31,6 +30,5 @@ test('Check metadata', () => {
   runReadmeGenerator(options);
 
   // Check the output is the expected one
-  fs.writeFileSync('/tmp/result', fs.readFileSync(testMetadataPath));
   expect(fs.readFileSync(testMetadataPath)).toEqual(fs.readFileSync(expectedMetadataPath));
 });
