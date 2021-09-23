@@ -607,7 +607,7 @@
                                         },
                                         "plainArray": {
                                             "type": "array",
-                                            "description": "Test anidated arrays"
+                                            "description": "Test nested arrays"
                                         },
                                         "threeLevelsArray": {
                                             "type": "array",

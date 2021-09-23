@@ -473,7 +473,7 @@ jobs:
     resources:
       limits: {}
     ## @param jobs[0].newOption.subArray[0].object Test object inside Arrat
-    ## @param jobs[0].newOption.subArray[0].plainArray Test anidated arrays
+    ## @param jobs[0].newOption.subArray[0].plainArray Test nested arrays
     ## @param jobs[0].newOption.subArray[0].threeLevelsArray[0].c Test 3 levels array
     ## @param jobs[0].newOption.subArray[0].emptyObject Empty object
     newOption:
