@@ -458,3 +458,29 @@ configuration: |
     log stdout format raw local0
     maxconn 1024
   defaults
+## Jobs definition
+##
+jobs:
+  -
+    ## @param jobs[0].nameOverride String to partially override jobs.names.fullname
+    ##
+    nameOverride: ""
+    ## @param jobs[0].fullnameOverride String to fully override jobs.names.fullname
+    ##
+    fullnameOverride: ""
+    ## @param jobs[0].resources.limits The resources limits override for the Job
+    ##
+    resources:
+      limits: {}
+    ## @param jobs[0].newOption.subArray[0].object Test object inside Arrat
+    ## @param jobs[0].newOption.subArray[0].plainArray Test nested arrays
+    ## @param jobs[0].newOption.subArray[0].threeLevelsArray[0].c Test 3 levels array
+    ## @param jobs[0].newOption.subArray[0].emptyObject Empty object
+    newOption:
+      subArray:
+        - object: a
+          plainArray:
+            - b
+          threeLevelsArray:
+            - c: d
+          emptyObject: {}
