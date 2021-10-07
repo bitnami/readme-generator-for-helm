@@ -633,6 +633,16 @@
                     }
                 }
             }
+        },
+        "extraTest": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string",
+                    "default": "whatever",
+                    "description": "Content of the object"
+                }
+            }
         }
     }
 }

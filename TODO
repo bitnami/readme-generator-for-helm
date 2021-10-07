@@ -1,0 +1,5 @@
+# Pending stuff
+
+- Support `Check value in values.yaml` modifier
+- Support @extra tag that will add an extra element to the table that does not actually exists or should not have metadata. For example if we want to document an array name but continue adding metadata for the elements inside so we cannot use the `array` modifier. Check Airflow git repositories. This descriptions do not need values.
+

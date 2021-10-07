@@ -24,7 +24,6 @@ function getValuesSections(options) {
 
   // We don't need the skip objects anymore so filter them
   valuesMetadata = valuesMetadata.filter((el) => (!el.skip));
-
   // Return sections array combining metadata and real values
   return buildSections(valuesObject, valuesMetadata);
 }

@@ -164,6 +164,8 @@ The command removes all the Kubernetes components associated with the chart and 
 | `jobs[0].newOption.subArray[0].plainArray`            | Test nested arrays                                                                        | `["b"]`     |
 | `jobs[0].newOption.subArray[0].threeLevelsArray[0].c` | Test 3 levels array                                                                       | `d`         |
 | `jobs[0].newOption.subArray[0].emptyObject`           | Empty object                                                                              | `{}`        |
+| `extraTest`                                           | An object that we want to document even though it is not at the end of the YAML tree      |             |
+| `extraTest.content`                                   | Content of the object                                                                     | `whatever`  |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,

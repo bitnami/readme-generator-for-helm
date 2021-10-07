@@ -76,9 +76,10 @@ By default we use a format similar to Javadoc, using `@xxx` for tags followed by
 
 The following are the tags supported at this very moment:
 
-- For a parameter: `## @param (fullKeyPath) [modifier?] Description`.
+- For a parameter: `## @param fullKeyPath [modifier?] Description`.
 - For a section: `## @section Section Title"`.
 - To skip an object and all its childrens:   `## @skip fullKeyPath`.
+- To add a description for an intermediate object (i.e. not final in the YAML tree): `## @extra fullkeyPath Description`
 
 All the tags as well as the two initial `#` characters for the comments style can be configured in the [configuration file](#configuration-file).
 
@@ -104,7 +105,8 @@ The configuration file has the following structure:
   "tags": {
     "param": "@param",                   <-- Tag that indicates a parameter
     "section": "@section",               <-- Tag that indicates a section
-    "skip": "@skip"                      <-- Tag that indicates the object must be skipped
+    "skip": "@skip",                     <-- Tag that indicates the object must be skipped
+    "extra": "@extra"                    <-- Tag to add a description for an intermediate object
   },
   "modifiers": {
     "array": "array",                    <-- Modifier that indicates an array type

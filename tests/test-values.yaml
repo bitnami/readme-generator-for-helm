@@ -484,3 +484,10 @@ jobs:
           threeLevelsArray:
             - c: d
           emptyObject: {}
+## Test the extra tag
+## @extra extraTest An object that we want to document even though it is not at the end of the YAML tree
+## @param extraTest.content Content of the object
+## We expect both entries to appear in the README and the paths keys inside the object to be verified
+extraTest:
+  content: whatever
+

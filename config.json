@@ -5,7 +5,8 @@
   "tags": {
     "param": "@param",
     "section": "@section",
-    "skip": "@skip"
+    "skip": "@skip",
+    "extra": "@extra"
   },
   "modifiers": {
     "array": "array",
