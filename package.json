@@ -4,7 +4,7 @@
   "description": "Autogenerate READMEs' tables for Bitnami Helm Charts",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "npx jest"
   },
   "bin": {
     "readme-generator": "./bin/index.js"
