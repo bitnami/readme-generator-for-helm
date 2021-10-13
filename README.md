@@ -4,9 +4,9 @@ Autogenerate Helm Charts READMEs' tables based on values YAML file metadata.
 
 ## How it works
 
-The tools expects some metadata for the descriptions in the provided `values.yaml` file. It will parse and check the metadata against the real values.
+The tool expects some metadata for the descriptions in the provided `values.yaml` file. It will parse and check the metadata against the real values.
 If the metadata is consistent with the real values, it will generate and insert the values table into the provided `README.md` file.
-If the metadata is not correct it will print the full list of errors. It checks whether there are metadata for non existing values or there are missing metadata for an existing value.
+If the metadata is not correct, it will print the full list of errors. It checks whether there is metadata for non-existing values or there is missing metadata for an existing value.
 
 The table that will be inserted into the `readme.md` will have the following structure:
 
@@ -32,7 +32,7 @@ The table that will be inserted into the `readme.md` will have the following str
 ...
 ```
 
-The number of `#` characters needed for the sections title is dynamically calculated, and the title of the `Parameters` section can be configured via the [configuration file](#configuration-file).
+The number of `#` characters needed for the sections titles is dynamically calculated, and the title of the `Parameters` section can be configured via the [configuration file](#configuration-file).
 
 ## Requirements
 
@@ -49,7 +49,7 @@ npm install -g readme-generator-for-helm
 
 ## Test
 
-We use [Jest](https://jestjs.io) to implement the tests. In order to test your changes execute the following command:
+We use [Jest](https://jestjs.io) to implement the tests. In order to test your changes, execute the following command:
 
 ```console
 npm run-script test
@@ -78,14 +78,14 @@ The following are the tags supported at this very moment:
 
 - For a parameter: `## @param fullKeyPath [modifier?] Description`.
 - For a section: `## @section Section Title"`.
-- To skip an object and all its childrens:   `## @skip fullKeyPath`.
-- To add a description for an intermediate object (i.e. not final in the YAML tree): `## @extra fullkeyPath Description`
+- To skip an object and all its children: `## @skip fullKeyPath`.
+- To add a description for an intermediate object (i.e. not final in the YAML tree): `## @extra fullkeyPath Description`.
 
 All the tags as well as the two initial `#` characters for the comments style can be configured in the [configuration file](#configuration-file).
 
 > IMPORTANT: tags' order or position in the file is NOT important except for the @section tag. The @section that will include in the section all the parameters after it until a new section is found or the file ends.
 
-The `modifier` is optional and it will let you override the value of an object. Currently there two modifiers supported:
+The `modifier` is optional and it will let you override the value of an object. Currently supported modifiers:
 
 - `[array]` Indicates that the value of the parameter must be set to `[]`.
 - `[object]` Indicates that the value of the parameter must be set to `{}`.
@@ -111,7 +111,7 @@ The configuration file has the following structure:
   "modifiers": {
     "array": "array",                    <-- Modifier that indicates an array type
     "object": "object"                   <-- Modifier that indicates an object type
-    "string": "string"                   <-- Modifier that indicates an string type
+    "string": "string"                   <-- Modifier that indicates a string type
   },
   "regexp": {
     "paramsSectionTitle": "Parameters"   <-- Title of the parameters section to replace in the README.md
@@ -121,4 +121,4 @@ The configuration file has the following structure:
 
 ## Generate values.yaml Schema
 
-The readme-generator-for-helm can also use the metadata in the `values.yaml` to generate an schemaObject as output by using the `--metadata` option. File generated will be a JSON file formated according to the [OpenAPIv3 SchemaObject](https://spec.openapis.org/oas/v3.1.0#schema-object) definition.
+The readme-generator-for-helm can also use the metadata in the `values.yaml` to generate a *schemaObject* as output by using the `--metadata` option. The file generated will be a JSON file formatted according to the [OpenAPIv3 SchemaObject](https://spec.openapis.org/oas/v3.1.0#schema-object) definition.
