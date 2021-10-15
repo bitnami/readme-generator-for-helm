@@ -32,7 +32,7 @@ The table that will be inserted into the `readme.md` will have the following str
 ...
 ```
 
-The number of `#` characters needed for the sections titles is dynamically calculated, and the title of the `Parameters` section can be configured via the [configuration file](#configuration-file).
+The number of `#` characters needed for the section titles is dynamically calculated, and the title of the `Parameters` section can be configured via the [configuration file](#configuration-file).
 
 ## Requirements
 
