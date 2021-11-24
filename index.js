@@ -6,12 +6,12 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 
-const { createValuesObject, parseMetadataComments, generateMetadataObject } = require('./lib/parser');
+const { createValuesObject, parseMetadataComments } = require('./lib/parser');
 const { checkKeys } = require('./lib/checker');
-const { buildSections } = require('./lib/builder');
+const { combineMetadataAndValues, buildSectionsArrays, buildParamsToRenderList } = require('./lib/builder');
 const { insertReadmeTable, exportMetadata } = require('./lib/render');
 
-function getValuesSections(options) {
+function getParameters(options) {
   const valuesFilePath = options.values;
   const configPath = options.config ? options.config : `${__dirname}/config.json`;
   const CONFIG = require(configPath);
@@ -22,10 +22,10 @@ function getValuesSections(options) {
   // Check the parsed keys are consistent with the real ones
   checkKeys(valuesObject, valuesMetadata);
 
-  // We don't need the skip objects anymore so filter them
-  valuesMetadata = valuesMetadata.filter((el) => (!el.skip));
-  // Return sections array combining metadata and real values
-  return buildSections(valuesObject, valuesMetadata);
+  // valuesMetadata is modified and filled with more info
+  combineMetadataAndValues(valuesObject, valuesMetadata);
+
+  return valuesMetadata;
 }
 
 function runReadmeGenerator(options) {
@@ -42,19 +42,19 @@ function runReadmeGenerator(options) {
 
   const configPath = options.config ? options.config : `${__dirname}/config.json`;
   const CONFIG = require(configPath);
-  const sections = getValuesSections(options);
+  const parametersList = getParameters(options);
 
   if (readmeFilePath) {
+    const paramsToRender = buildParamsToRenderList(parametersList, CONFIG);
+    const sections = buildSectionsArrays(paramsToRender);
     insertReadmeTable(readmeFilePath, sections, CONFIG);
   }
 
   if (metadataFilePath) {
-    const metadata = generateMetadataObject(sections, valuesFilePath);
-    exportMetadata(metadataFilePath, metadata);
+    exportMetadata(metadataFilePath, parametersList);
   }
 }
 
 module.exports = {
-  getValuesSections,
   runReadmeGenerator,
 };

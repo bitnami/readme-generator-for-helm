@@ -12,7 +12,7 @@
                 },
                 "imagePullSecrets": {
                     "type": "array",
-                    "default": "[]",
+                    "default": [],
                     "description": "Global Docker registry secret names as an array"
                 }
             }
@@ -29,22 +29,22 @@
         },
         "commonLabels": {
             "type": "object",
-            "default": "{}",
+            "default": {},
             "description": "Labels to add to all deployed objects"
         },
         "commonAnnotations": {
             "type": "object",
-            "default": "{}",
+            "default": {},
             "description": "Annotations to add to all deployed objects"
         },
         "extraDeploy": {
             "type": "array",
-            "default": "[]",
+            "default": [],
             "description": "Array of extra objects to deploy with the release"
         },
         "hostAliases": {
             "type": "array",
-            "default": "[]",
+            "default": [],
             "description": "Add deployment host aliases"
         },
         "image": {
@@ -72,7 +72,7 @@
                 },
                 "pullSecrets": {
                     "type": "array",
-                    "default": "[]",
+                    "default": [],
                     "description": "Specify docker-registry secret names as an array"
                 }
             }
@@ -179,8 +179,18 @@
         },
         "webhook": {
             "type": "object",
-            "default": "{}",
-            "description": "Enable Webhook notifications"
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": ""
+                },
+                "url": {
+                    "type": "string",
+                    "default": "",
+                    "description": ""
+                }
+            }
         },
         "smtp": {
             "type": "object",
@@ -299,12 +309,12 @@
         },
         "command": {
             "type": "array",
-            "default": "[]",
+            "default": [],
             "description": "Override default container command (useful when using custom images)"
         },
         "args": {
             "type": "array",
-            "default": "[]",
+            "default": [],
             "description": "Override default container args (useful when using custom images)"
         },
         "extraEnvVars": {
@@ -371,6 +381,21 @@
                     "type": "boolean",
                     "default": true,
                     "description": "Set Kubewatch container's Security Context runAsNonRoot"
+                }
+            }
+        },
+        "resources": {
+            "type": "object",
+            "properties": {
+                "limits": {
+                    "type": "object",
+                    "default": {},
+                    "description": ""
+                },
+                "requests": {
+                    "type": "object",
+                    "default": {},
+                    "description": ""
                 }
             }
         },
@@ -446,12 +471,12 @@
         },
         "customLivenessProbe": {
             "type": "object",
-            "default": "{}",
+            "default": {},
             "description": "Override default liveness probe"
         },
         "customReadinessProbe": {
             "type": "object",
-            "default": "{}",
+            "default": {},
             "description": "Override default readiness probe"
         },
         "podAffinityPreset": {
@@ -479,54 +504,54 @@
                 },
                 "values": {
                     "type": "array",
-                    "default": "[]",
+                    "default": [],
                     "description": "Node label values to match. Ignored if `affinity` is set"
                 }
             }
         },
         "affinity": {
             "type": "object",
-            "default": "{}",
+            "default": {},
             "description": "Affinity for pod assignment"
         },
         "nodeSelector": {
             "type": "object",
-            "default": "{}",
+            "default": {},
             "description": "Node labels for pod assignment"
         },
         "tolerations": {
             "type": "array",
-            "default": "[]",
+            "default": [],
             "description": "Tolerations for pod assignment"
         },
         "podLabels": {
             "type": "object",
-            "default": "{}",
+            "default": {},
             "description": "Extra labels for Kubewatch pods"
         },
         "podAnnotations": {
             "type": "object",
-            "default": "{}",
+            "default": {},
             "description": "Annotations for Kubewatch pods"
         },
         "extraVolumes": {
             "type": "array",
-            "default": "[]",
+            "default": [],
             "description": "Optionally specify extra list of additional volumes for Kubewatch pods"
         },
         "extraVolumeMounts": {
             "type": "array",
-            "default": "[]",
+            "default": [],
             "description": "Optionally specify extra list of additional volumeMounts for Kubewatch container(s)"
         },
         "initContainers": {
             "type": "object",
-            "default": "{}",
+            "default": {},
             "description": "Add additional init containers to the Kubewatch pods"
         },
         "sidecars": {
             "type": "object",
-            "default": "{}",
+            "default": {},
             "description": "Add additional sidecar containers to the Kubewatch pods"
         },
         "rbac": {
@@ -556,17 +581,23 @@
         },
         "inventedArray": {
             "type": "array",
-            "default": "[\"a\",\"b\"]",
+            "default": [
+                "a",
+                "b"
+            ],
             "description": "Test parameter to check arrays"
         },
         "arrayModifier": {
             "type": "array",
-            "default": "[]",
+            "default": [
+                "a",
+                "b"
+            ],
             "description": "Test parameter for modifier array"
         },
         "configuration": {
             "type": "string",
-            "default": "\"\"",
+            "default": "global\n  log stdout format raw local0\n  maxconn 1024\ndefaults\n",
             "description": "haproxy configuration"
         },
         "jobs": {
