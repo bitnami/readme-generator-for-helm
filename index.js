@@ -22,6 +22,7 @@ function getParameters(options) {
   // Check the parsed keys are consistent with the real ones
   checkKeys(valuesObject, valuesMetadata);
 
+  // Combine after the check
   // valuesMetadata is modified and filled with more info
   combineMetadataAndValues(valuesObject, valuesMetadata);
 

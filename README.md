@@ -1,6 +1,7 @@
 # Readme Generator For Helm
 
 Autogenerate Helm Charts READMEs' tables based on values YAML file metadata.
+Autogenerate an OpenAPI compliant JSON schema defining the `values.yaml` structure of the Helm Chart.
 
 ## How it works
 
@@ -61,10 +62,10 @@ npm run-script test
 Usage: readme-generator [options]
 
 Options:
-  -r, --readme <path>   Path to the README.md file
+  -r, --readme <path>   Path to the README.md file to insert the table
   -v, --values <path>   Path to the values.yaml file
   -c, --config <path>   Path to the config file
-  -m, --metadata <path> Path to the metadata file
+  -m, --metadata <path> Path to a file where to store the metadata
   -h, --help            display help for command
 ```
 
