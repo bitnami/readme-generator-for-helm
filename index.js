@@ -17,7 +17,7 @@ function getParameters(options) {
   const CONFIG = require(configPath);
 
   const valuesObject = createValuesObject(valuesFilePath);
-  let valuesMetadata = parseMetadataComments(valuesFilePath, CONFIG);
+  const valuesMetadata = parseMetadataComments(valuesFilePath, CONFIG);
 
   // Check the parsed keys are consistent with the real ones
   checkKeys(valuesObject, valuesMetadata);

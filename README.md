@@ -56,6 +56,14 @@ We use [Jest](https://jestjs.io) to implement the tests. In order to test your c
 npm run-script test
 ```
 
+### Lint
+
+After modifying the code execute the following command to pass the linter:
+
+```console
+npm run-script lint
+```
+
 ## Basic usage
 
 ```console
