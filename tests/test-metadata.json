@@ -7,73 +7,73 @@
             "properties": {
                 "imageRegistry": {
                     "type": "string",
-                    "default": "",
-                    "description": "Global Docker image registry"
+                    "description": "Global Docker image registry",
+                    "default": ""
                 },
                 "imagePullSecrets": {
                     "type": "array",
-                    "default": [],
-                    "description": "Global Docker registry secret names as an array"
+                    "description": "Global Docker registry secret names as an array",
+                    "default": []
                 }
             }
         },
         "nameOverride": {
             "type": "string",
-            "default": "",
-            "description": "String to partially override common.names.fullname"
+            "description": "String to partially override common.names.fullname",
+            "default": ""
         },
         "fullnameOverride": {
             "type": "string",
-            "default": "",
-            "description": "String to fully override common.names.fullname"
+            "description": "String to fully override common.names.fullname",
+            "default": ""
         },
         "commonLabels": {
             "type": "object",
-            "default": {},
-            "description": "Labels to add to all deployed objects"
+            "description": "Labels to add to all deployed objects",
+            "default": {}
         },
         "commonAnnotations": {
             "type": "object",
-            "default": {},
-            "description": "Annotations to add to all deployed objects"
+            "description": "Annotations to add to all deployed objects",
+            "default": {}
         },
         "extraDeploy": {
             "type": "array",
-            "default": [],
-            "description": "Array of extra objects to deploy with the release"
+            "description": "Array of extra objects to deploy with the release",
+            "default": []
         },
         "hostAliases": {
             "type": "array",
-            "default": [],
-            "description": "Add deployment host aliases"
+            "description": "Add deployment host aliases",
+            "default": []
         },
         "image": {
             "type": "object",
             "properties": {
                 "registry": {
                     "type": "string",
-                    "default": "docker.io",
-                    "description": "Kubewatch image registry"
+                    "description": "Kubewatch image registry",
+                    "default": "docker.io"
                 },
                 "repository": {
                     "type": "string",
-                    "default": "bitnami/kubewatch",
-                    "description": "Kubewatch image name"
+                    "description": "Kubewatch image name",
+                    "default": "bitnami/kubewatch"
                 },
                 "tag": {
                     "type": "string",
-                    "default": "0.1.0-debian-10-r162",
-                    "description": "Kubewatch image tag"
+                    "description": "Kubewatch image tag",
+                    "default": "0.1.0-debian-10-r162"
                 },
                 "pullPolicy": {
                     "type": "string",
-                    "default": "IfNotPresent",
-                    "description": "Kubewatch image tag"
+                    "description": "Kubewatch image tag",
+                    "default": "IfNotPresent"
                 },
                 "pullSecrets": {
                     "type": "array",
-                    "default": [],
-                    "description": "Specify docker-registry secret names as an array"
+                    "description": "Specify docker-registry secret names as an array",
+                    "default": []
                 }
             }
         },
@@ -82,18 +82,18 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "default": true,
-                    "description": "Enable Slack notifications"
+                    "description": "Enable Slack notifications",
+                    "default": true
                 },
                 "channel": {
                     "type": "string",
-                    "default": "XXXX",
-                    "description": "Slack channel to notify"
+                    "description": "Slack channel to notify",
+                    "default": "XXXX"
                 },
                 "token": {
                     "type": "string",
-                    "default": "XXXX",
-                    "description": "Slack API token"
+                    "description": "Slack API token",
+                    "default": "XXXX"
                 }
             }
         },
@@ -102,23 +102,23 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Enable HipChat notifications"
+                    "description": "Enable HipChat notifications",
+                    "default": false
                 },
                 "room": {
                     "type": "string",
-                    "default": "",
-                    "description": "HipChat room to notify"
+                    "description": "HipChat room to notify",
+                    "default": ""
                 },
                 "token": {
                     "type": "string",
-                    "default": "",
-                    "description": "HipChat token"
+                    "description": "HipChat token",
+                    "default": ""
                 },
                 "url": {
                     "type": "string",
-                    "default": "",
-                    "description": "HipChat URL"
+                    "description": "HipChat URL",
+                    "default": ""
                 }
             }
         },
@@ -127,23 +127,23 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Enable Mattermost notifications"
+                    "description": "Enable Mattermost notifications",
+                    "default": false
                 },
                 "channel": {
                     "type": "string",
-                    "default": "",
-                    "description": "Mattermost channel to notify"
+                    "description": "Mattermost channel to notify",
+                    "default": ""
                 },
                 "username": {
                     "type": "string",
-                    "default": "",
-                    "description": "Mattermost user to notify"
+                    "description": "Mattermost user to notify",
+                    "default": ""
                 },
                 "url": {
                     "type": "string",
-                    "default": "",
-                    "description": "Mattermost URL"
+                    "description": "Mattermost URL",
+                    "default": ""
                 }
             }
         },
@@ -152,13 +152,13 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Enable Flock notifications"
+                    "description": "Enable Flock notifications",
+                    "default": false
                 },
                 "url": {
                     "type": "string",
-                    "default": "",
-                    "description": "Flock URL"
+                    "description": "Flock URL",
+                    "default": ""
                 }
             }
         },
@@ -167,13 +167,13 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Enable Microsoft Teams notifications"
+                    "description": "Enable Microsoft Teams notifications",
+                    "default": false
                 },
                 "webhookurl": {
                     "type": "string",
-                    "default": "",
-                    "description": "Microsoft Teams webhook URL"
+                    "description": "Microsoft Teams webhook URL",
+                    "default": ""
                 }
             }
         },
@@ -182,13 +182,13 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "default": false,
-                    "description": ""
+                    "description": "",
+                    "default": false
                 },
                 "url": {
                     "type": "string",
-                    "default": "",
-                    "description": ""
+                    "description": "",
+                    "default": ""
                 }
             }
         },
@@ -197,61 +197,61 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Enable SMTP (email) notifications"
+                    "description": "Enable SMTP (email) notifications",
+                    "default": false
                 },
                 "to": {
                     "type": "string",
-                    "default": "",
-                    "description": "Destination email address (required)"
+                    "description": "Destination email address (required)",
+                    "default": ""
                 },
                 "from": {
                     "type": "string",
-                    "default": "",
-                    "description": "Source email address (required)"
+                    "description": "Source email address (required)",
+                    "default": ""
                 },
                 "hello": {
                     "type": "string",
-                    "default": "",
-                    "description": "SMTP hello field (optional)"
+                    "description": "SMTP hello field (optional)",
+                    "default": ""
                 },
                 "smarthost": {
                     "type": "string",
-                    "default": "",
-                    "description": "SMTP server address (name:port) (required)"
+                    "description": "SMTP server address (name:port) (required)",
+                    "default": ""
                 },
                 "subject": {
                     "type": "string",
-                    "default": "",
-                    "description": "SMTP subject for the email"
+                    "description": "SMTP subject for the email",
+                    "default": ""
                 },
                 "requireTLS": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Force STARTTLS"
+                    "description": "Force STARTTLS",
+                    "default": false
                 },
                 "auth": {
                     "type": "object",
                     "properties": {
                         "username": {
                             "type": "string",
-                            "default": "",
-                            "description": "Username for LOGIN and PLAIN auth mech"
+                            "description": "Username for LOGIN and PLAIN auth mech",
+                            "default": ""
                         },
                         "password": {
                             "type": "string",
-                            "default": "",
-                            "description": "Password for LOGIN and PLAIN auth mech"
+                            "description": "Password for LOGIN and PLAIN auth mech",
+                            "default": ""
                         },
                         "secret": {
                             "type": "string",
-                            "default": "",
-                            "description": "Secret for CRAM-MD5 auth mech"
+                            "description": "Secret for CRAM-MD5 auth mech",
+                            "default": ""
                         },
                         "identity": {
                             "type": "string",
-                            "default": "",
-                            "description": "Identity for PLAIN auth mech"
+                            "description": "Identity for PLAIN auth mech",
+                            "default": ""
                         }
                     }
                 }
@@ -259,63 +259,63 @@
         },
         "namespaceToWatch": {
             "type": "string",
-            "default": "",
-            "description": "Namespace to watch, leave it empty for watching all"
+            "description": "Namespace to watch, leave it empty for watching all",
+            "default": ""
         },
         "resourcesToWatch": {
             "type": "object",
             "properties": {
                 "pod": {
                     "type": "boolean",
-                    "default": true,
-                    "description": "Watch changes to Pods"
+                    "description": "Watch changes to Pods",
+                    "default": true
                 },
                 "deployment": {
                     "type": "boolean",
-                    "default": true,
-                    "description": "Watch changes to Deployments"
+                    "description": "Watch changes to Deployments",
+                    "default": true
                 },
                 "replicationcontroller": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Watch changes to ReplicationControllers"
+                    "description": "Watch changes to ReplicationControllers",
+                    "default": false
                 },
                 "replicaset": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Watch changes to ReplicaSets"
+                    "description": "Watch changes to ReplicaSets",
+                    "default": false
                 },
                 "daemonset": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Watch changes to DaemonSets"
+                    "description": "Watch changes to DaemonSets",
+                    "default": false
                 },
                 "services": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Watch changes to Services"
+                    "description": "Watch changes to Services",
+                    "default": false
                 },
                 "job": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Watch changes to Jobs"
+                    "description": "Watch changes to Jobs",
+                    "default": false
                 },
                 "persistentvolume": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Watch changes to PersistentVolumes"
+                    "description": "Watch changes to PersistentVolumes",
+                    "default": false
                 }
             }
         },
         "command": {
             "type": "array",
-            "default": [],
-            "description": "Override default container command (useful when using custom images)"
+            "description": "Override default container command (useful when using custom images)",
+            "default": []
         },
         "args": {
             "type": "array",
-            "default": [],
-            "description": "Override default container args (useful when using custom images)"
+            "description": "Override default container args (useful when using custom images)",
+            "default": []
         },
         "extraEnvVars": {
             "type": "array",
@@ -336,31 +336,31 @@
         },
         "extraEnvVarsCM": {
             "type": "string",
-            "default": "",
-            "description": "Name of existing ConfigMap containing extra env vars"
+            "description": "Name of existing ConfigMap containing extra env vars",
+            "default": ""
         },
         "extraEnvVarsSecret": {
             "type": "string",
-            "default": "",
-            "description": "Name of existing Secret containing extra env vars"
+            "description": "Name of existing Secret containing extra env vars",
+            "default": ""
         },
         "replicaCount": {
             "type": "number",
-            "default": 1,
-            "description": "Number of Kubewatch replicas to deploy"
+            "description": "Number of Kubewatch replicas to deploy",
+            "default": 1
         },
         "podSecurityContext": {
             "type": "object",
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Enabled Kubewatch pods' Security Context"
+                    "description": "Enabled Kubewatch pods' Security Context",
+                    "default": false
                 },
                 "fsGroup": {
                     "type": "number",
-                    "default": 1001,
-                    "description": "Set Kubewatch pod's Security Context fsGroup"
+                    "description": "Set Kubewatch pod's Security Context fsGroup",
+                    "default": 1001
                 }
             }
         },
@@ -369,18 +369,18 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Enabled Kubewatch containers' Security Context"
+                    "description": "Enabled Kubewatch containers' Security Context",
+                    "default": false
                 },
                 "runAsUser": {
                     "type": "number",
-                    "default": 1001,
-                    "description": "Set Kubewatch container's Security Context runAsUser"
+                    "description": "Set Kubewatch container's Security Context runAsUser",
+                    "default": 1001
                 },
                 "runAsNonRoot": {
                     "type": "boolean",
-                    "default": true,
-                    "description": "Set Kubewatch container's Security Context runAsNonRoot"
+                    "description": "Set Kubewatch container's Security Context runAsNonRoot",
+                    "default": true
                 }
             }
         },
@@ -389,13 +389,13 @@
             "properties": {
                 "limits": {
                     "type": "object",
-                    "default": {},
-                    "description": ""
+                    "description": "",
+                    "default": {}
                 },
                 "requests": {
                     "type": "object",
-                    "default": {},
-                    "description": ""
+                    "description": "",
+                    "default": {}
                 }
             }
         },
@@ -404,33 +404,33 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Enable livenessProbe"
+                    "description": "Enable livenessProbe",
+                    "default": false
                 },
                 "initialDelaySeconds": {
                     "type": "number",
-                    "default": 10,
-                    "description": "Initial delay seconds for livenessProbe"
+                    "description": "Initial delay seconds for livenessProbe",
+                    "default": 10
                 },
                 "periodSeconds": {
                     "type": "number",
-                    "default": 10,
-                    "description": "Period seconds for livenessProbe"
+                    "description": "Period seconds for livenessProbe",
+                    "default": 10
                 },
                 "timeoutSeconds": {
                     "type": "number",
-                    "default": 1,
-                    "description": "Timeout seconds for livenessProbe"
+                    "description": "Timeout seconds for livenessProbe",
+                    "default": 1
                 },
                 "failureThreshold": {
                     "type": "number",
-                    "default": 3,
-                    "description": "Failure threshold for livenessProbe"
+                    "description": "Failure threshold for livenessProbe",
+                    "default": 3
                 },
                 "successThreshold": {
                     "type": "number",
-                    "default": 1,
-                    "description": "Success threshold for livenessProbe"
+                    "description": "Success threshold for livenessProbe",
+                    "default": 1
                 }
             }
         },
@@ -439,128 +439,128 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Enable readinessProbe"
+                    "description": "Enable readinessProbe",
+                    "default": false
                 },
                 "initialDelaySeconds": {
                     "type": "number",
-                    "default": 10,
-                    "description": "Initial delay seconds for readinessProbe"
+                    "description": "Initial delay seconds for readinessProbe",
+                    "default": 10
                 },
                 "periodSeconds": {
                     "type": "number",
-                    "default": 10,
-                    "description": "Period seconds for readinessProbe"
+                    "description": "Period seconds for readinessProbe",
+                    "default": 10
                 },
                 "timeoutSeconds": {
                     "type": "number",
-                    "default": 1,
-                    "description": "Timeout seconds for readinessProbe"
+                    "description": "Timeout seconds for readinessProbe",
+                    "default": 1
                 },
                 "failureThreshold": {
                     "type": "number",
-                    "default": 3,
-                    "description": "Failure threshold for readinessProbe"
+                    "description": "Failure threshold for readinessProbe",
+                    "default": 3
                 },
                 "successThreshold": {
                     "type": "number",
-                    "default": 1,
-                    "description": "Success threshold for readinessProbe"
+                    "description": "Success threshold for readinessProbe",
+                    "default": 1
                 }
             }
         },
         "customLivenessProbe": {
             "type": "object",
-            "default": {},
-            "description": "Override default liveness probe"
+            "description": "Override default liveness probe",
+            "default": {}
         },
         "customReadinessProbe": {
             "type": "object",
-            "default": {},
-            "description": "Override default readiness probe"
+            "description": "Override default readiness probe",
+            "default": {}
         },
         "podAffinityPreset": {
             "type": "string",
-            "default": "",
-            "description": "Pod affinity preset. Ignored if `affinity` is set. Allowed values: `soft` or `hard`"
+            "description": "Pod affinity preset. Ignored if `affinity` is set. Allowed values: `soft` or `hard`",
+            "default": ""
         },
         "podAntiAffinityPreset": {
             "type": "string",
-            "default": "soft",
-            "description": "Pod anti-affinity preset. Ignored if `affinity` is set. Allowed values: `soft` or `hard`"
+            "description": "Pod anti-affinity preset. Ignored if `affinity` is set. Allowed values: `soft` or `hard`",
+            "default": "soft"
         },
         "nodeAffinityPreset": {
             "type": "object",
             "properties": {
                 "type": {
                     "type": "string",
-                    "default": "",
-                    "description": "Node affinity preset type. Ignored if `affinity` is set. Allowed values: `soft` or `hard`"
+                    "description": "Node affinity preset type. Ignored if `affinity` is set. Allowed values: `soft` or `hard`",
+                    "default": ""
                 },
                 "key": {
                     "type": "string",
-                    "default": "",
-                    "description": "Node label key to match. Ignored if `affinity` is set"
+                    "description": "Node label key to match. Ignored if `affinity` is set",
+                    "default": ""
                 },
                 "values": {
                     "type": "array",
-                    "default": [],
-                    "description": "Node label values to match. Ignored if `affinity` is set"
+                    "description": "Node label values to match. Ignored if `affinity` is set",
+                    "default": []
                 }
             }
         },
         "affinity": {
             "type": "object",
-            "default": {},
-            "description": "Affinity for pod assignment"
+            "description": "Affinity for pod assignment",
+            "default": {}
         },
         "nodeSelector": {
             "type": "object",
-            "default": {},
-            "description": "Node labels for pod assignment"
+            "description": "Node labels for pod assignment",
+            "default": {}
         },
         "tolerations": {
             "type": "array",
-            "default": [],
-            "description": "Tolerations for pod assignment"
+            "description": "Tolerations for pod assignment",
+            "default": []
         },
         "podLabels": {
             "type": "object",
-            "default": {},
-            "description": "Extra labels for Kubewatch pods"
+            "description": "Extra labels for Kubewatch pods",
+            "default": {}
         },
         "podAnnotations": {
             "type": "object",
-            "default": {},
-            "description": "Annotations for Kubewatch pods"
+            "description": "Annotations for Kubewatch pods",
+            "default": {}
         },
         "extraVolumes": {
             "type": "array",
-            "default": [],
-            "description": "Optionally specify extra list of additional volumes for Kubewatch pods"
+            "description": "Optionally specify extra list of additional volumes for Kubewatch pods",
+            "default": []
         },
         "extraVolumeMounts": {
             "type": "array",
-            "default": [],
-            "description": "Optionally specify extra list of additional volumeMounts for Kubewatch container(s)"
+            "description": "Optionally specify extra list of additional volumeMounts for Kubewatch container(s)",
+            "default": []
         },
         "initContainers": {
             "type": "object",
-            "default": {},
-            "description": "Add additional init containers to the Kubewatch pods"
+            "description": "Add additional init containers to the Kubewatch pods",
+            "default": {}
         },
         "sidecars": {
             "type": "object",
-            "default": {},
-            "description": "Add additional sidecar containers to the Kubewatch pods"
+            "description": "Add additional sidecar containers to the Kubewatch pods",
+            "default": {}
         },
         "rbac": {
             "type": "object",
             "properties": {
                 "create": {
                     "type": "boolean",
-                    "default": false,
-                    "description": "Weather to create & use RBAC resources or not"
+                    "description": "Weather to create & use RBAC resources or not",
+                    "default": false
                 }
             }
         },
@@ -569,36 +569,36 @@
             "properties": {
                 "create": {
                     "type": "boolean",
-                    "default": true,
-                    "description": "Enable the creation of a ServiceAccount for Kubewatch pods"
+                    "description": "Enable the creation of a ServiceAccount for Kubewatch pods",
+                    "default": true
                 },
                 "name": {
                     "type": "string",
-                    "default": "",
-                    "description": "Name of the created ServiceAccount"
+                    "description": "Name of the created ServiceAccount",
+                    "default": ""
                 }
             }
         },
         "inventedArray": {
             "type": "array",
+            "description": "Test parameter to check arrays",
             "default": [
                 "a",
                 "b"
-            ],
-            "description": "Test parameter to check arrays"
+            ]
         },
         "arrayModifier": {
             "type": "array",
+            "description": "Test parameter for modifier array",
             "default": [
                 "a",
                 "b"
-            ],
-            "description": "Test parameter for modifier array"
+            ]
         },
         "configuration": {
             "type": "string",
-            "default": "global\n  log stdout format raw local0\n  maxconn 1024\ndefaults\n",
-            "description": "haproxy configuration"
+            "description": "haproxy configuration",
+            "default": "global\n  log stdout format raw local0\n  maxconn 1024\ndefaults\n"
         },
         "jobs": {
             "type": "array",
@@ -670,8 +670,8 @@
             "properties": {
                 "content": {
                     "type": "string",
-                    "default": "whatever",
-                    "description": "Content of the object"
+                    "description": "Content of the object",
+                    "default": "whatever"
                 }
             }
         }
