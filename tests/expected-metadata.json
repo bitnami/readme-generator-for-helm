@@ -665,6 +665,23 @@
                 }
             }
         },
+        "forceSchemaArrayModifier": {
+            "type": "array",
+            "description": "",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "w": {
+                        "type": "string",
+                        "description": ""
+                    },
+                    "y": {
+                        "type": "array",
+                        "description": ""
+                    }
+                }
+            }
+        },
         "extraTest": {
             "type": "object",
             "properties": {

@@ -491,3 +491,9 @@ jobs:
 extraTest:
   content: whatever
 
+## @param forceSchemaArrayModifier [array] The parameter should appear completely into the schema but with the modifier value into the README
+##
+forceSchemaArrayModifier:
+  - w: "x"
+    y:
+      - "z"
