@@ -9,7 +9,7 @@
 const { createValuesObject, parseMetadataComments } = require('./lib/parser');
 const { checkKeys } = require('./lib/checker');
 const { combineMetadataAndValues, buildSectionsArrays, buildParamsToRenderList } = require('./lib/builder');
-const { insertReadmeTable, exportMetadata } = require('./lib/render');
+const { insertReadmeTable, renderOpenAPISchema } = require('./lib/render');
 
 function getParameters(options) {
   const valuesFilePath = options.values;
@@ -32,10 +32,10 @@ function getParameters(options) {
 function runReadmeGenerator(options) {
   const valuesFilePath = options.values;
   const readmeFilePath = options.readme;
-  const metadataFilePath = options.metadata;
+  const schemaFilePath = options.schema;
 
-  if (!readmeFilePath && !metadataFilePath) {
-    throw new Error('Nothing to do. Please provide a README file or Metadata output.');
+  if (!readmeFilePath && !schemaFilePath) {
+    throw new Error('Nothing to do. Please provide a README file or Schema file output.');
   }
   if (!valuesFilePath) {
     throw new Error('Values file not provided');
@@ -51,8 +51,8 @@ function runReadmeGenerator(options) {
     insertReadmeTable(readmeFilePath, sections, CONFIG);
   }
 
-  if (metadataFilePath) {
-    exportMetadata(metadataFilePath, parametersList);
+  if (schemaFilePath) {
+    renderOpenAPISchema(schemaFilePath, parametersList);
   }
 }
 

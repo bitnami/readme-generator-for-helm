@@ -4,8 +4,8 @@ const fs = require('fs');
 const testValuesPath = `${__dirname}/test-values.yaml`; // File where the content will end after the tool is executed
 const testReadmePath = `${__dirname}/test-readme.md`; // File where the content will end after the tool is executed
 const expectedReadmePath = `${__dirname}/expected-readme.md`; // File that must result from executing the tool providing the test README and values
-const testMetadataPath = `${__dirname}/test-metadata.json`; // File where the content will end after the tool is executed
-const expectedMetadataPath = `${__dirname}/expected-metadata.json`; // File that must result from executing the tool providing the test README and values
+const testSchemaPath = `${__dirname}/test-schema.json`; // File where the content will end after the tool is executed
+const expectedSchemaPath = `${__dirname}/expected-schema.json`; // File that must result from executing the tool providing the test README and values
 
 const { runReadmeGenerator } = require('../index.js');
 
@@ -21,14 +21,14 @@ test('Check basic functionality', () => {
   expect(fs.readFileSync(testReadmePath)).toEqual(fs.readFileSync(expectedReadmePath));
 });
 
-test('Check metadata', () => {
+test('Check schema', () => {
   // Run readme generator with the test files
   const options = {
-    metadata: testMetadataPath,
+    schema: testSchemaPath,
     values: testValuesPath,
   };
   runReadmeGenerator(options);
 
   // Check the output is the expected one
-  expect(fs.readFileSync(testMetadataPath)).toEqual(fs.readFileSync(expectedMetadataPath));
+  expect(fs.readFileSync(testSchemaPath)).toEqual(fs.readFileSync(expectedSchemaPath));
 });

@@ -1,7 +1,7 @@
 # Readme Generator For Helm
 
-Autogenerate Helm Charts READMEs' tables based on values YAML file metadata.
-Autogenerate an OpenAPI compliant JSON schema defining the `values.yaml` structure of the Helm Chart.
+- Autogenerate Helm Charts READMEs' tables based on values YAML file metadata.
+- Autogenerate an OpenAPI compliant JSON schema defining the `values.yaml` structure of the Helm Chart. The file generated will be a JSON file formatted according to the [OpenAPIv3 SchemaObject](https://spec.openapis.org/oas/v3.1.0#schema-object) definition.
 
 ## How it works
 
@@ -73,11 +73,11 @@ Options:
   -r, --readme <path>   Path to the README.md file to insert the table
   -v, --values <path>   Path to the values.yaml file
   -c, --config <path>   Path to the config file
-  -m, --metadata <path> Path to a file where to store the metadata
+  -s, --schema <path>   Path to a file where to store the OpenAPI Schema
   -h, --help            display help for command
 ```
 
-## Metadata
+## values.yaml Metadata
 
 For the tool to work, you need to add some metadata to your `values.yaml` file.
 
@@ -127,7 +127,3 @@ The configuration file has the following structure:
   }
 }
 ```
-
-## Generate values.yaml Schema
-
-The readme-generator-for-helm can also use the metadata in the `values.yaml` to generate a *schemaObject* as output by using the `--metadata` option. The file generated will be a JSON file formatted according to the [OpenAPIv3 SchemaObject](https://spec.openapis.org/oas/v3.1.0#schema-object) definition.
