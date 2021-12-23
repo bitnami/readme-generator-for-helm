@@ -497,3 +497,9 @@ forceSchemaArrayModifier:
   - w: "x"
     y:
       - "z"
+
+## Invented parameter to test proper modifier consumption
+## @param modifierWithSquareBrackets [object] Additional square brackets should appeare in description. [More information here](#additional-square-brackets).
+modifierWithSquareBrackets:
+  propertyOne: valueOne
+  propertyTwo: valueTwo
