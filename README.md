@@ -127,3 +127,9 @@ The configuration file has the following structure:
   }
 }
 ```
+
+## Versions
+
+# 2.0.0
+
+The -m (--metadata) option has been renamed to -s (--schema) in order to properly identify what it generates.
