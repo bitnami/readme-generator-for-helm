@@ -12,7 +12,7 @@ program
   .requiredOption('-v, --values <path>', 'Path to the values.yaml file')
   .option('-r, --readme <path>', 'Path to the README.md file')
   .option('-c, --config <path>', 'Path to the config file')
-  .option('-m, --metadata <path>', 'Path for the metadata output file');
+  .option('-s, --schema <path>', 'Path for the OpenAPI Schema output file');
 
 program.parse(process.argv);
 
