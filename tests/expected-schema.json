@@ -682,7 +682,7 @@
                 }
             }
         },
-        "modifierWithSquareBrackets": {
+        "linkInDescription": {
             "type": "object",
             "properties": {
                 "propertyOne": {

@@ -498,8 +498,8 @@ forceSchemaArrayModifier:
     y:
       - "z"
 
-## Invented parameter to test proper modifier consumption
-## @param modifierWithSquareBrackets [object] Additional square brackets should appeare in description. [More information here](#additional-square-brackets).
-modifierWithSquareBrackets:
+## Invented parameter to test links in descriptions
+## @param linkInDescription [object] Link with square brackets present in description. [More information here](#link-in-description).
+linkInDescription:
   propertyOne: valueOne
   propertyTwo: valueTwo
