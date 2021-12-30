@@ -682,6 +682,21 @@
                 }
             }
         },
+        "linkInDescription": {
+            "type": "object",
+            "properties": {
+                "propertyOne": {
+                    "type": "string",
+                    "description": "",
+                    "default": "valueOne"
+                },
+                "propertyTwo": {
+                    "type": "string",
+                    "description": "",
+                    "default": "valueTwo"
+                }
+            }
+        },
         "extraTest": {
             "type": "object",
             "properties": {

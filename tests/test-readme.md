@@ -167,6 +167,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | `extraTest`                                           | An object that we want to document even though it is not at the end of the YAML tree               |             |
 | `extraTest.content`                                   | Content of the object                                                                              | `whatever`  |
 | `forceSchemaArrayModifier`                            | The parameter should appear completely into the schema but with the modifier value into the README | `[]`        |
+| `linkInDescription`                                   | Link with square brackets present in description. [More information here](#link-in-description).   | `{}`        |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
