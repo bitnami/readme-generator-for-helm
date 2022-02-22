@@ -706,6 +706,30 @@
                     "default": "whatever"
                 }
             }
+        },
+        "nullable": {
+            "type": "object",
+            "description": "Nullable parameter",
+            "default": "null",
+            "nullable": true
+        },
+        "nullableNotNull": {
+            "type": "string",
+            "description": "Nullable parameter with a non null value",
+            "default": "somestring",
+            "nullable": true
+        },
+        "nullableObject": {
+            "type": "object",
+            "description": "Nullable parameter with an object value",
+            "default": {},
+            "nullable": true
+        },
+        "nullableArray": {
+            "type": "array",
+            "description": "Nullable parameter with an array value",
+            "default": [],
+            "nullable": true
         }
     }
 }

@@ -503,3 +503,13 @@ forceSchemaArrayModifier:
 linkInDescription:
   propertyOne: valueOne
   propertyTwo: valueTwo
+
+## Nullable value
+## @param nullable [nullable] Nullable parameter
+nullable: null
+## @param nullableNotNull [nullable] Nullable parameter with a non null value
+nullableNotNull: somestring
+## @param nullableObject [nullable] Nullable parameter with an object value
+nullableObject: {}
+## @param nullableArray [nullable] Nullable parameter with an array value
+nullableArray: []

@@ -11,7 +11,8 @@
   "modifiers": {
     "array": "array",
     "object": "object",
-    "string": "string"
+    "string": "string",
+    "nullable": "nullable"
   },
   "regexp": {
     "paramsSectionTitle": "Parameters"

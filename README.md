@@ -121,6 +121,7 @@ The configuration file has the following structure:
     "array": "array",                    <-- Modifier that indicates an array type
     "object": "object"                   <-- Modifier that indicates an object type
     "string": "string"                   <-- Modifier that indicates a string type
+    "nullable": "nullable"               <-- Modifier that indicates a parameter that can be set to null
   },
   "regexp": {
     "paramsSectionTitle": "Parameters"   <-- Title of the parameters section to replace in the README.md
