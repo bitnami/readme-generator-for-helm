@@ -94,11 +94,15 @@ All the tags as well as the two initial `#` characters for the comments style ca
 
 > IMPORTANT: tags' order or position in the file is NOT important except for the @section tag. The @section that will include in the section all the parameters after it until a new section is found or the file ends.
 
-The `modifier` is optional and it will let you override the value of an object. Currently supported modifiers:
+The `modifier` is optional and it will change how the parameter is processed.
+Several modifiers can be applied by separating them using commas (`,`). When affecting the value, the last one takes precedence.
+
+Currently supported modifiers:
 
 - `[array]` Indicates that the value of the parameter must be set to `[]`.
 - `[object]` Indicates that the value of the parameter must be set to `{}`.
 - `[string]` Indicates that the value of the parameter must be set to `""`.
+- `[nullable]` Indicates that the parameter value can be set to `null`.
 
 The modifiers are also customizable via the [configuration file](#configuration-file).
 
