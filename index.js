@@ -52,7 +52,7 @@ function runReadmeGenerator(options) {
   }
 
   if (schemaFilePath) {
-    renderOpenAPISchema(schemaFilePath, parametersList);
+    renderOpenAPISchema(schemaFilePath, parametersList, CONFIG);
   }
 }
 
