@@ -47,7 +47,7 @@ git clone https://github.com/bitnami-labs/readme-generator-for-helm
 npm install ./readme-generator-for-helm
 ```
 
-Have into account that depending on how you have installed node in your system, you may need to modify your PATH environment variable to be able to execute the tool.
+Depending on how you installed NodeJS in your system, you may need to modify your `PATH` environment variable to be able to execute the tool.
 
 ## Test
 
