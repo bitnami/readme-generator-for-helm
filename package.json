@@ -21,6 +21,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.0",
+    "axios-retry": "^3.2.4",
     "commander": "^7.1.0",
     "dot-object": "^2.1.4",
     "lodash": "^4.17.21",

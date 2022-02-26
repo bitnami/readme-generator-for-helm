@@ -13,6 +13,7 @@ const { insertReadmeTable, renderOpenAPISchema } = require('./lib/render');
 
 async function getParameters(options) {
   const valuesFilePath = options.values;
+  const dependencyPath = options.dependency;
   const configPath = options.config ? options.config : `${__dirname}/config.json`;
   const CONFIG = require(configPath);
 
@@ -26,10 +27,9 @@ async function getParameters(options) {
   // valuesMetadata is modified and filled with more info
   combineMetadataAndValues(valuesObject, valuesMetadata);
 
-  // TODO add Chart.yaml option
-  const chartPath = valuesFilePath.replace(/v[^v]+$/i, "Chart.yaml");
-
-  await appendDependencies(chartPath, valuesMetadata)
+  if (dependencyPath) {
+    await appendDependencies(dependencyPath, valuesMetadata)
+  }
   
   return valuesMetadata;
 }

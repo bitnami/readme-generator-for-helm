@@ -12,7 +12,8 @@ program
   .requiredOption('-v, --values <path>', 'Path to the values.yaml file')
   .option('-r, --readme <path>', 'Path to the README.md file')
   .option('-c, --config <path>', 'Path to the config file')
-  .option('-s, --schema <path>', 'Path for the OpenAPI Schema output file');
+  .option('-s, --schema <path>', 'Path for the OpenAPI Schema output file')
+  .option('-d, --dependency <path>', 'Path to the Chart.yaml file which contains the chart dependencies');
 
 program.parse(process.argv);
 
