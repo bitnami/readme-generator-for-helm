@@ -70,11 +70,12 @@ npm run-script lint
 Usage: readme-generator [options]
 
 Options:
-  -r, --readme <path>   Path to the README.md file to insert the table
-  -v, --values <path>   Path to the values.yaml file
-  -c, --config <path>   Path to the config file
-  -s, --schema <path>   Path to a file where to store the OpenAPI Schema
-  -h, --help            display help for command
+  -r, --readme <path>     Path to the README.md file to insert the table
+  -v, --values <path>     Path to the values.yaml file
+  -c, --config <path>     Path to the config file
+  -s, --schema <path>     Path to a file where to store the OpenAPI Schema
+  -d, --dependency <path> Path to the Chart.yaml file which contains the chart dependencies
+  -h, --help              display help for command
 ```
 
 ## values.yaml Metadata

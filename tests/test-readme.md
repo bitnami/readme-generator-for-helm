@@ -168,6 +168,17 @@ The command removes all the Kubernetes components associated with the chart and 
 | `extraTest.content`                                   | Content of the object                                                                              | `whatever`  |
 | `forceSchemaArrayModifier`                            | The parameter should appear completely into the schema but with the modifier value into the README | `[]`        |
 | `linkInDescription`                                   | Link with square brackets present in description. [More information here](#link-in-description).   | `{}`        |
+| `minio.enabled`                                       | enable minio installation                                                                          | `true`      |
+| `minio`                                               | default description from values.yaml                                                               |             |
+| `minio.cpu`                                           | the number of cpu for minio                                                                        |             |
+
+
+### Mongodb
+
+| Name              | Description                                                                                                                | Value   |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `mongodb`         | For additional variables configurations please refer [here](https://github.com/bitnami/charts/tree/master/bitnami/mongodb) |         |
+| `mongodb.enabled` | install mongodb or not                                                                                                     | `false` |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,

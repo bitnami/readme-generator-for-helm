@@ -1,6 +1,6 @@
 {
   "name": "readme-generator-for-helm",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Autogenerate READMEs' tables for Bitnami Helm Charts",
   "main": "index.js",
   "scripts": {
@@ -33,5 +33,9 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "jest": "^26.6.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testTimeout": 10000
   }
 }

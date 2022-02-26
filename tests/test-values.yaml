@@ -503,3 +503,15 @@ forceSchemaArrayModifier:
 linkInDescription:
   propertyOne: valueOne
   propertyTwo: valueTwo
+
+## Invented parameter to test chart dependencies
+## @param minio.enabled enable minio installation
+## @extra minio default description from values.yaml
+## @extra minio.cpu the number of cpu for minio
+minio:
+  enabled: true
+
+## @section Mongodb
+mongodb:
+## @param mongodb.enabled install mongodb or not
+  enabled: false
