@@ -6,12 +6,12 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
 
-const { createValuesObject, parseMetadataComments } = require('./lib/parser');
+const { createValuesObject, parseMetadataComments, appendDependencies } = require('./lib/parser');
 const { checkKeys } = require('./lib/checker');
 const { combineMetadataAndValues, buildSectionsArrays, buildParamsToRenderList } = require('./lib/builder');
 const { insertReadmeTable, renderOpenAPISchema } = require('./lib/render');
 
-function getParameters(options) {
+async function getParameters(options) {
   const valuesFilePath = options.values;
   const configPath = options.config ? options.config : `${__dirname}/config.json`;
   const CONFIG = require(configPath);
@@ -26,10 +26,15 @@ function getParameters(options) {
   // valuesMetadata is modified and filled with more info
   combineMetadataAndValues(valuesObject, valuesMetadata);
 
+  // TODO add Chart.yaml option
+  const chartPath = valuesFilePath.replace(/v[^v]+$/i, "Chart.yaml");
+
+  await appendDependencies(chartPath, valuesMetadata)
+  
   return valuesMetadata;
 }
 
-function runReadmeGenerator(options) {
+async function runReadmeGenerator(options) {
   const valuesFilePath = options.values;
   const readmeFilePath = options.readme;
   const schemaFilePath = options.schema;
@@ -43,7 +48,7 @@ function runReadmeGenerator(options) {
 
   const configPath = options.config ? options.config : `${__dirname}/config.json`;
   const CONFIG = require(configPath);
-  const parametersList = getParameters(options);
+  const parametersList = await getParameters(options);
 
   if (readmeFilePath) {
     const paramsToRender = buildParamsToRenderList(parametersList, CONFIG);
