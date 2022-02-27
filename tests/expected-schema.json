@@ -706,6 +706,26 @@
                     "default": "whatever"
                 }
             }
+        },
+        "minio": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "enable minio installation",
+                    "default": true
+                }
+            }
+        },
+        "mongodb": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "install mongodb or not",
+                    "default": false
+                }
+            }
         }
     }
 }
