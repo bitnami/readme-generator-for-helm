@@ -9,11 +9,6 @@
                     "type": "string",
                     "description": "Global Docker image registry",
                     "default": ""
-                },
-                "imagePullSecrets": {
-                    "type": "array",
-                    "description": "Global Docker registry secret names as an array",
-                    "default": []
                 }
             }
         },
@@ -40,12 +35,18 @@
         "extraDeploy": {
             "type": "array",
             "description": "Array of extra objects to deploy with the release",
-            "default": []
+            "items": {
+                "type": "object",
+                "properties": {}
+            }
         },
         "hostAliases": {
             "type": "array",
             "description": "Add deployment host aliases",
-            "default": []
+            "items": {
+                "type": "object",
+                "properties": {}
+            }
         },
         "image": {
             "type": "object",
@@ -69,11 +70,6 @@
                     "type": "string",
                     "description": "Kubewatch image tag",
                     "default": "IfNotPresent"
-                },
-                "pullSecrets": {
-                    "type": "array",
-                    "description": "Specify docker-registry secret names as an array",
-                    "default": []
                 }
             }
         },
@@ -310,12 +306,18 @@
         "command": {
             "type": "array",
             "description": "Override default container command (useful when using custom images)",
-            "default": []
+            "items": {
+                "type": "object",
+                "properties": {}
+            }
         },
         "args": {
             "type": "array",
             "description": "Override default container args (useful when using custom images)",
-            "default": []
+            "items": {
+                "type": "object",
+                "properties": {}
+            }
         },
         "extraEnvVars": {
             "type": "array",
@@ -501,11 +503,6 @@
                     "type": "string",
                     "description": "Node label key to match. Ignored if `affinity` is set",
                     "default": ""
-                },
-                "values": {
-                    "type": "array",
-                    "description": "Node label values to match. Ignored if `affinity` is set",
-                    "default": []
                 }
             }
         },
@@ -522,7 +519,10 @@
         "tolerations": {
             "type": "array",
             "description": "Tolerations for pod assignment",
-            "default": []
+            "items": {
+                "type": "object",
+                "properties": {}
+            }
         },
         "podLabels": {
             "type": "object",
@@ -537,12 +537,18 @@
         "extraVolumes": {
             "type": "array",
             "description": "Optionally specify extra list of additional volumes for Kubewatch pods",
-            "default": []
+            "items": {
+                "type": "object",
+                "properties": {}
+            }
         },
         "extraVolumeMounts": {
             "type": "array",
             "description": "Optionally specify extra list of additional volumeMounts for Kubewatch container(s)",
-            "default": []
+            "items": {
+                "type": "object",
+                "properties": {}
+            }
         },
         "initContainers": {
             "type": "object",
@@ -580,20 +586,12 @@
             }
         },
         "inventedArray": {
-            "type": "array",
-            "description": "Test parameter to check arrays",
-            "default": [
-                "a",
-                "b"
-            ]
+            "type": "object",
+            "properties": {}
         },
         "arrayModifier": {
-            "type": "array",
-            "description": "Test parameter for modifier array",
-            "default": [
-                "a",
-                "b"
-            ]
+            "type": "object",
+            "properties": {}
         },
         "configuration": {
             "type": "string",
@@ -637,8 +635,8 @@
                                             "description": "Test object inside Arrat"
                                         },
                                         "plainArray": {
-                                            "type": "array",
-                                            "description": "Test nested arrays"
+                                            "type": "object",
+                                            "properties": {}
                                         },
                                         "threeLevelsArray": {
                                             "type": "array",
@@ -676,8 +674,8 @@
                         "description": ""
                     },
                     "y": {
-                        "type": "array",
-                        "description": ""
+                        "type": "object",
+                        "properties": {}
                     }
                 }
             }
@@ -719,6 +717,12 @@
             "default": null,
             "nullable": true
         },
+        "nullableNullArray": {
+            "type": "array",
+            "description": "Nullable null array. We apply array modifier that will change the type in the schema plus `nullable: true`.",
+            "default": "null",
+            "nullable": true
+        },
         "nullableNullString": {
             "type": "string",
             "description": "Nullable null string. We apply string modifier to avoid infering an object type. The null must be preverved as value.",
@@ -740,8 +744,15 @@
         "nullableArray": {
             "type": "array",
             "description": "Nullable parameter with an array value",
-            "default": [],
-            "nullable": true
+            "items": {
+                "type": "object",
+                "properties": {}
+            }
+        },
+        "arrayEmptyModifier": {
+            "type": "array",
+            "description": "Test empty array modifier",
+            "default": "value"
         }
     }
 }
