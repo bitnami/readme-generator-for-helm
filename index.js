@@ -33,26 +33,30 @@ function runReadmeGenerator(options) {
   const valuesFilePath = options.values;
   const readmeFilePath = options.readme;
   const schemaFilePath = options.schema;
+  const versionFlag = options.version;
 
-  if (!readmeFilePath && !schemaFilePath) {
-    throw new Error('Nothing to do. Please provide a README file or Schema file output.');
-  }
-  if (!valuesFilePath) {
-    throw new Error('Values file not provided');
-  }
+  if (versionFlag) {
+    console.log("Version:", require('./package.json').version);
+  } else {
+    if (!readmeFilePath && !schemaFilePath) {
+      throw new Error('Nothing to do. Please provide a README file or Schema file output.');
+    }
+    if (!valuesFilePath) {
+      throw new Error('Values file not provided');
+    }
+    const configPath = options.config ? options.config : `${__dirname}/config.json`;
+    const CONFIG = require(configPath);
+    const parametersList = getParameters(options);
 
-  const configPath = options.config ? options.config : `${__dirname}/config.json`;
-  const CONFIG = require(configPath);
-  const parametersList = getParameters(options);
+    if (readmeFilePath) {
+      const paramsToRender = buildParamsToRenderList(parametersList, CONFIG);
+      const sections = buildSectionsArrays(paramsToRender);
+      insertReadmeTable(readmeFilePath, sections, CONFIG);
+    }
 
-  if (readmeFilePath) {
-    const paramsToRender = buildParamsToRenderList(parametersList, CONFIG);
-    const sections = buildSectionsArrays(paramsToRender);
-    insertReadmeTable(readmeFilePath, sections, CONFIG);
-  }
-
-  if (schemaFilePath) {
-    renderOpenAPISchema(schemaFilePath, parametersList, CONFIG);
+    if (schemaFilePath) {
+      renderOpenAPISchema(schemaFilePath, parametersList, CONFIG);
+    }
   }
 }
 

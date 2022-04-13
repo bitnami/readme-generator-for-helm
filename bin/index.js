@@ -9,10 +9,11 @@ const { program } = require('commander');
 const { runReadmeGenerator } = require('../index');
 
 program
-  .requiredOption('-v, --values <path>', 'Path to the values.yaml file')
+  .option('-v, --values <path>', 'Path to the values.yaml file')
   .option('-r, --readme <path>', 'Path to the README.md file')
   .option('-c, --config <path>', 'Path to the config file')
-  .option('-s, --schema <path>', 'Path for the OpenAPI Schema output file');
+  .option('-s, --schema <path>', 'Path for the OpenAPI Schema output file')
+  .option('--version', 'Show Readme Generator version');
 
 program.parse(process.argv);
 
