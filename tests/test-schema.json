@@ -710,19 +710,19 @@
         "nullable": {
             "type": "object",
             "description": "Nullable parameter",
-            "default": "null",
+            "default": null,
             "nullable": true
         },
         "nullableNullStringWithValueChange": {
             "type": "string",
             "description": "Nullable null string. We apply string modifier that will change the type and value, but the schema will show `nullable: true`.",
-            "default": "null",
+            "default": null,
             "nullable": true
         },
         "nullableNullString": {
             "type": "string",
             "description": "Nullable null string. We apply string modifier to avoid infering an object type. The null must be preverved as value.",
-            "default": "null",
+            "default": null,
             "nullable": true
         },
         "nullableNotNull": {
