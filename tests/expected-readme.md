@@ -170,10 +170,12 @@ The command removes all the Kubernetes components associated with the chart and 
 | `linkInDescription`                                   | Link with square brackets present in description. [More information here](#link-in-description).                               | `{}`         |
 | `nullable`                                            | Nullable parameter                                                                                                             | `nil`        |
 | `nullableNullStringWithValueChange`                   | Nullable null string. We apply string modifier that will change the type and value, but the schema will show `nullable: true`. | `""`         |
+| `nullableNullArray`                                   | Nullable null array. We apply array modifier that will change the type in the schema plus `nullable: true`.                    | `nil`        |
 | `nullableNullString`                                  | Nullable null string. We apply string modifier to avoid infering an object type. The null must be preverved as value.          | `nil`        |
 | `nullableNotNull`                                     | Nullable parameter with a non null value                                                                                       | `somestring` |
 | `nullableObject`                                      | Nullable parameter with an object value                                                                                        | `{}`         |
 | `nullableArray`                                       | Nullable parameter with an array value                                                                                         | `[]`         |
+| `arrayEmptyModifier`                                  | Test empty array modifier                                                                                                      | `[]`         |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
