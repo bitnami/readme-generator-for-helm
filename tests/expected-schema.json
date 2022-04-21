@@ -13,7 +13,10 @@
                 "imagePullSecrets": {
                     "type": "array",
                     "description": "Global Docker registry secret names as an array",
-                    "default": []
+                    "default": [],
+                    "items": {
+                        "type": ""
+                    }
                 }
             }
         },
@@ -40,12 +43,18 @@
         "extraDeploy": {
             "type": "array",
             "description": "Array of extra objects to deploy with the release",
-            "default": []
+            "default": [],
+            "items": {
+                "type": ""
+            }
         },
         "hostAliases": {
             "type": "array",
             "description": "Add deployment host aliases",
-            "default": []
+            "default": [],
+            "items": {
+                "type": ""
+            }
         },
         "image": {
             "type": "object",
@@ -73,7 +82,10 @@
                 "pullSecrets": {
                     "type": "array",
                     "description": "Specify docker-registry secret names as an array",
-                    "default": []
+                    "default": [],
+                    "items": {
+                        "type": ""
+                    }
                 }
             }
         },
@@ -310,12 +322,18 @@
         "command": {
             "type": "array",
             "description": "Override default container command (useful when using custom images)",
-            "default": []
+            "default": [],
+            "items": {
+                "type": ""
+            }
         },
         "args": {
             "type": "array",
             "description": "Override default container args (useful when using custom images)",
-            "default": []
+            "default": [],
+            "items": {
+                "type": ""
+            }
         },
         "extraEnvVars": {
             "type": "array",
@@ -505,7 +523,10 @@
                 "values": {
                     "type": "array",
                     "description": "Node label values to match. Ignored if `affinity` is set",
-                    "default": []
+                    "default": [],
+                    "items": {
+                        "type": ""
+                    }
                 }
             }
         },
@@ -522,7 +543,10 @@
         "tolerations": {
             "type": "array",
             "description": "Tolerations for pod assignment",
-            "default": []
+            "default": [],
+            "items": {
+                "type": ""
+            }
         },
         "podLabels": {
             "type": "object",
@@ -537,12 +561,18 @@
         "extraVolumes": {
             "type": "array",
             "description": "Optionally specify extra list of additional volumes for Kubewatch pods",
-            "default": []
+            "default": [],
+            "items": {
+                "type": ""
+            }
         },
         "extraVolumeMounts": {
             "type": "array",
             "description": "Optionally specify extra list of additional volumeMounts for Kubewatch container(s)",
-            "default": []
+            "default": [],
+            "items": {
+                "type": ""
+            }
         },
         "initContainers": {
             "type": "object",
@@ -585,7 +615,10 @@
             "default": [
                 "a",
                 "b"
-            ]
+            ],
+            "items": {
+                "type": "string"
+            }
         },
         "arrayModifier": {
             "type": "array",
@@ -593,7 +626,10 @@
             "default": [
                 "a",
                 "b"
-            ]
+            ],
+            "items": {
+                "type": "string"
+            }
         },
         "configuration": {
             "type": "string",
@@ -638,7 +674,10 @@
                                         },
                                         "plainArray": {
                                             "type": "array",
-                                            "description": "Test nested arrays"
+                                            "description": "Test nested arrays",
+                                            "items": {
+                                                "type": "string"
+                                            }
                                         },
                                         "threeLevelsArray": {
                                             "type": "array",
@@ -677,7 +716,10 @@
                     },
                     "y": {
                         "type": "array",
-                        "description": ""
+                        "description": "",
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 }
             }
@@ -719,6 +761,15 @@
             "default": null,
             "nullable": true
         },
+        "nullableNullArray": {
+            "type": "array",
+            "description": "Nullable null array. We apply array modifier that will change the type in the schema plus `nullable: true`.",
+            "default": null,
+            "nullable": true,
+            "items": {
+                "type": ""
+            }
+        },
         "nullableNullString": {
             "type": "string",
             "description": "Nullable null string. We apply string modifier to avoid infering an object type. The null must be preverved as value.",
@@ -741,7 +792,18 @@
             "type": "array",
             "description": "Nullable parameter with an array value",
             "default": [],
-            "nullable": true
+            "nullable": true,
+            "items": {
+                "type": ""
+            }
+        },
+        "arrayEmptyModifier": {
+            "type": "array",
+            "description": "Test empty array modifier",
+            "default": "value",
+            "items": {
+                "type": "string"
+            }
         }
     }
 }
