@@ -176,6 +176,8 @@ The command removes all the Kubernetes components associated with the chart and 
 | `nullableObject`                                      | Nullable parameter with an object value                                                                                        | `{}`         |
 | `nullableArray`                                       | Nullable parameter with an array value                                                                                         | `[]`         |
 | `arrayEmptyModifier`                                  | Test empty array modifier                                                                                                      | `[]`         |
+| `annotations.prometheus.io/scrape`                    | A Prometheus annotation                                                                                                        | `true`       |
+| `weird.key.with.weird.format/and.object`              | A weird key with weird format and an object inside.                                                                            | `asValue`    |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
