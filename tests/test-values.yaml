@@ -522,3 +522,12 @@ nullableArray: []
 
 ## @param arrayEmptyModifier [array] Test empty array modifier
 arrayEmptyModifier: value
+
+## @param annotations.prometheus.io/scrape A Prometheus annotation
+annotations:
+  prometheus.io/scrape: "true"
+## @param weird.key.with.weird.format/and.object A weird key with weird format and an object inside.
+weird.key:
+  with:
+    weird.format/and:
+      object: asValue
