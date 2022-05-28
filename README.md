@@ -115,19 +115,21 @@ The configuration file has the following structure:
 ```
 {
   "comments": {
-    "format": "##"                       <-- Which is the comments format in the values YAML
+    "format": "##"                               <-- Which is the comments format in the values YAML
   },
   "tags": {
-    "param": "@param",                   <-- Tag that indicates a parameter
-    "section": "@section",               <-- Tag that indicates a section
-    "skip": "@skip",                     <-- Tag that indicates the object must be skipped
-    "extra": "@extra"                    <-- Tag to add a description for an intermediate object
+    "param": "@param",                           <-- Tag that indicates a parameter
+    "section": "@section",                       <-- Tag that indicates a section
+    "sectionDescStart": "@descriptionStart",     <-- Tag that indicates a section
+    "sectionDescEnd": "@descriptionEnd",         <-- Tag that indicates a section
+    "skip": "@skip",                             <-- Tag that indicates the object must be skipped
+    "extra": "@extra"                            <-- Tag to add a description for an intermediate object
   },
   "modifiers": {
-    "array": "array",                    <-- Modifier that indicates an array type
-    "object": "object"                   <-- Modifier that indicates an object type
-    "string": "string"                   <-- Modifier that indicates a string type
-    "nullable": "nullable"               <-- Modifier that indicates a parameter that can be set to null
+    "array": "array",                            <-- Modifier that indicates an array type
+    "object": "object"                           <-- Modifier that indicates an object type
+    "string": "string"                           <-- Modifier that indicates a string type
+    "nullable": "nullable"                       <-- Modifier that indicates a parameter that can be set to null
   },
   "regexp": {
     "paramsSectionTitle": "Parameters"   <-- Title of the parameters section to replace in the README.md
@@ -137,6 +139,12 @@ The configuration file has the following structure:
 
 ## Versions
 
-# 2.0.0
+### 2.4.0
+
+Add `sectionDescStart` and `sectionDescEnd` config options (default tags: `@descriptionStart` and `@descriptionEnd`)
+to allow text block upfront each section table in README.md. When changing the tag values for these, ensure to not being conflicted
+with `section` config option.
+
+### 2.0.0
 
 The -m (--metadata) option has been renamed to -s (--schema) in order to properly identify what it generates.
