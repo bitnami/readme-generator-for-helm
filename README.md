@@ -120,8 +120,8 @@ The configuration file has the following structure:
   "tags": {
     "param": "@param",                           <-- Tag that indicates a parameter
     "section": "@section",                       <-- Tag that indicates a section
-    "sectionDescStart": "@descriptionStart",     <-- Tag that indicates a section
-    "sectionDescEnd": "@descriptionEnd",         <-- Tag that indicates a section
+    "descriptionStart": "@descriptionStart",     <-- Tag that indicates a section
+    "descriptionEnd": "@descriptionEnd",         <-- Tag that indicates a section
     "skip": "@skip",                             <-- Tag that indicates the object must be skipped
     "extra": "@extra"                            <-- Tag to add a description for an intermediate object
   },
@@ -132,7 +132,7 @@ The configuration file has the following structure:
     "nullable": "nullable"                       <-- Modifier that indicates a parameter that can be set to null
   },
   "regexp": {
-    "paramsSectionTitle": "Parameters"   <-- Title of the parameters section to replace in the README.md
+    "paramsSectionTitle": "Parameters"           <-- Title of the parameters section to replace in the README.md
   }
 }
 ```
@@ -141,7 +141,7 @@ The configuration file has the following structure:
 
 ### 2.4.0
 
-Add `sectionDescStart` and `sectionDescEnd` config options (default tags: `@descriptionStart` and `@descriptionEnd`)
+Add `descriptionStart` and `descriptionEnd` config options (default tags: `@descriptionStart` and `@descriptionEnd`)
 to allow text block upfront each section table in README.md. When changing the tag values for these, ensure to not being conflicted
 with `section` config option.
 
