@@ -10,34 +10,23 @@ const fs = require('fs');
 
 const { createValuesObject, parseMetadataComments } = require('./lib/parser');
 const { checkKeys } = require('./lib/checker');
-const { combineMetadataAndValues, buildSectionsObjects, buildParamsToRenderList } = require('./lib/builder');
+const { combineMetadataAndValues, buildParamsToRenderList } = require('./lib/builder');
 const { insertReadmeTable, renderOpenAPISchema } = require('./lib/render');
 
-/*
-* Parses the given values file for all metadata comments and returns an object containing
-* Returns an object with following structure:
-* {
-*   'parsedValues': [],              // contains all parameter related data
-*   'parsedSectionDescriptions': [], // contains key-value pairs of section name (key) and an array of lines for a description (value)
-* }
-*/
-function getParsingResults(options) {
+function getParsedMetadata(options) {
   const valuesFilePath = options.values;
   const configPath = options.config ? options.config : `${__dirname}/config.json`;
   const config = require(configPath);
 
-  return parseMetadataComments(valuesFilePath, config);
-}
-
-function getParameters(valuesFilePath, valuesMetadata) {
   const valuesObject = createValuesObject(valuesFilePath);
+  const valuesMetadata = parseMetadataComments(valuesFilePath, config);
 
   // Check the parsed keys are consistent with the real ones
-  checkKeys(valuesObject, valuesMetadata);
+  checkKeys(valuesObject, valuesMetadata.parameters);
 
   // Combine after the check
   // valuesMetadata is modified and filled with more info
-  combineMetadataAndValues(valuesObject, valuesMetadata);
+  combineMetadataAndValues(valuesObject, valuesMetadata.parameters);
 
   return valuesMetadata;
 }
@@ -59,17 +48,17 @@ function runReadmeGenerator(options) {
     }
     const configPath = options.config ? options.config : `${__dirname}/config.json`;
     const config = JSON.parse(fs.readFileSync(configPath));
-    const parsedMetadataComments = getParsingResults(options);
-    const parametersList = getParameters(options.values, parsedMetadataComments.parsedValues);
+    const parsedMetadata = getParsedMetadata(options);
 
     if (readmeFilePath) {
-      const paramsToRender = buildParamsToRenderList(parametersList, config);
-      const sections = buildSectionsObjects(paramsToRender, parsedMetadataComments.parsedSectionDescriptions);
-      insertReadmeTable(readmeFilePath, sections, config);
+      parsedMetadata.sections.forEach((section) => {
+        section.parameters = buildParamsToRenderList(section.parameters, config);
+      });
+      insertReadmeTable(readmeFilePath, parsedMetadata.sections, config);
     }
 
     if (schemaFilePath) {
-      renderOpenAPISchema(schemaFilePath, parametersList, config);
+      renderOpenAPISchema(schemaFilePath, parsedMetadata.parameters, config);
     }
   }
 }
