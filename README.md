@@ -145,6 +145,8 @@ Add `descriptionStart` and `descriptionEnd` config options (default tags: `@desc
 to allow text block upfront each section table in README.md. When changing the tag values for these, ensure to not being conflicted
 with `section` config option.
 
+If you are using a customized [configuration file](#configuration-file), please add the new default tags to prevent any incorrect behavior.
+
 ### 2.0.0
 
 The -m (--metadata) option has been renamed to -s (--schema) in order to properly identify what it generates.
