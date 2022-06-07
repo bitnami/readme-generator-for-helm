@@ -10,10 +10,10 @@ const fs = require('fs');
 
 const { createValuesObject, parseMetadataComments } = require('./lib/parser');
 const { checkKeys } = require('./lib/checker');
-const { combineMetadataAndValues, buildSectionsArrays, buildParamsToRenderList } = require('./lib/builder');
+const { combineMetadataAndValues, buildParamsToRenderList } = require('./lib/builder');
 const { insertReadmeTable, renderOpenAPISchema } = require('./lib/render');
 
-function getParameters(options) {
+function getParsedMetadata(options) {
   const valuesFilePath = options.values;
   const configPath = options.config ? options.config : `${__dirname}/config.json`;
   const config = require(configPath);
@@ -22,11 +22,11 @@ function getParameters(options) {
   const valuesMetadata = parseMetadataComments(valuesFilePath, config);
 
   // Check the parsed keys are consistent with the real ones
-  checkKeys(valuesObject, valuesMetadata);
+  checkKeys(valuesObject, valuesMetadata.parameters);
 
   // Combine after the check
   // valuesMetadata is modified and filled with more info
-  combineMetadataAndValues(valuesObject, valuesMetadata);
+  combineMetadataAndValues(valuesObject, valuesMetadata.parameters);
 
   return valuesMetadata;
 }
@@ -48,16 +48,17 @@ function runReadmeGenerator(options) {
     }
     const configPath = options.config ? options.config : `${__dirname}/config.json`;
     const config = JSON.parse(fs.readFileSync(configPath));
-    const parametersList = getParameters(options);
+    const parsedMetadata = getParsedMetadata(options);
 
     if (readmeFilePath) {
-      const paramsToRender = buildParamsToRenderList(parametersList, config);
-      const sections = buildSectionsArrays(paramsToRender);
-      insertReadmeTable(readmeFilePath, sections, config);
+      parsedMetadata.sections.forEach((section) => {
+        section.parameters = buildParamsToRenderList(section.parameters, config);
+      });
+      insertReadmeTable(readmeFilePath, parsedMetadata.sections, config);
     }
 
     if (schemaFilePath) {
-      renderOpenAPISchema(schemaFilePath, parametersList, config);
+      renderOpenAPISchema(schemaFilePath, parsedMetadata.parameters, config);
     }
   }
 }

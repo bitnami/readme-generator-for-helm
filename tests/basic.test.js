@@ -2,8 +2,12 @@
 const fs = require('fs');
 
 const testValuesPath = `${__dirname}/test-values.yaml`; // File where the content will end after the tool is executed
-const testReadmePath = `${__dirname}/test-readme.md`; // File where the content will end after the tool is executed
-const expectedReadmePath = `${__dirname}/expected-readme.md`; // File that must result from executing the tool providing the test README and values
+const testReadmeSubsequentSectionsPath = `${__dirname}/test-readme.md`; // File where the content will end after the tool is executed
+const expectedReadmeSubsequentSectionsPath = `${__dirname}/expected-readme.md`; // File that must result from executing the tool providing the test README and values
+const testReadmeLastSectionPath = `${__dirname}/test-readme.last-section.md`; // File where the content will end after the tool is executed
+const expectedReadmeLastSectionPath = `${__dirname}/expected-readme.last-section.md`; // File that must result from executing the tool providing the test README and values
+const testReadmeLastSectionWithTextBelowPath = `${__dirname}/test-readme.last-section-text-below.md`; // File where the content will end after the tool is executed
+const expectedReadmeLastSectionWithTextBelowPath = `${__dirname}/expected-readme.last-section-text-below.md`; // File that must result from executing the tool providing the test README and values
 const testSchemaPath = `${__dirname}/test-schema.json`; // File where the content will end after the tool is executed
 const expectedSchemaPath = `${__dirname}/expected-schema.json`; // File that must result from executing the tool providing the test README and values
 
@@ -12,13 +16,37 @@ const { runReadmeGenerator } = require('../index.js');
 test('Check basic functionality', () => {
   // Run readme generator with the test files
   const options = {
-    readme: testReadmePath,
+    readme: testReadmeSubsequentSectionsPath,
     values: testValuesPath,
   };
   runReadmeGenerator(options);
 
   // Check the output is the expected one
-  expect(fs.readFileSync(testReadmePath)).toEqual(fs.readFileSync(expectedReadmePath));
+  expect(fs.readFileSync(testReadmeSubsequentSectionsPath)).toEqual(fs.readFileSync(expectedReadmeSubsequentSectionsPath));
+});
+
+test('Check basic functionality as last in README', () => {
+  // Run readme generator with the test files
+  const options = {
+    readme: testReadmeLastSectionPath,
+    values: testValuesPath,
+  };
+  runReadmeGenerator(options);
+
+  // Check the output is the expected one
+  expect(fs.readFileSync(testReadmeLastSectionPath)).toEqual(fs.readFileSync(expectedReadmeLastSectionPath));
+});
+
+test('Check basic functionality as last section in README but with text below', () => {
+  // Run readme generator with the test files
+  const options = {
+    readme: testReadmeLastSectionWithTextBelowPath,
+    values: testValuesPath,
+  };
+  runReadmeGenerator(options);
+
+  // Check the output is the expected one
+  expect(fs.readFileSync(testReadmeLastSectionWithTextBelowPath)).toEqual(fs.readFileSync(expectedReadmeLastSectionWithTextBelowPath));
 });
 
 test('Check schema', () => {
