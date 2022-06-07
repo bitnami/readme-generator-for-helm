@@ -120,8 +120,8 @@ The configuration file has the following structure:
   "tags": {
     "param": "@param",                           <-- Tag that indicates a parameter
     "section": "@section",                       <-- Tag that indicates a section
-    "descriptionStart": "@descriptionStart",     <-- Tag that indicates a section
-    "descriptionEnd": "@descriptionEnd",         <-- Tag that indicates a section
+    "descriptionStart": "@descriptionStart",     <-- Tag that indicates the beginning of a section description
+    "descriptionEnd": "@descriptionEnd",         <-- Tag that indicates the end of a section description 
     "skip": "@skip",                             <-- Tag that indicates the object must be skipped
     "extra": "@extra"                            <-- Tag to add a description for an intermediate object
   },
