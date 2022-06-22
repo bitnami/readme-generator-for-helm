@@ -13,10 +13,7 @@
                 "imagePullSecrets": {
                     "type": "array",
                     "description": "Global Docker registry secret names as an array",
-                    "default": [],
-                    "items": {
-                        "type": ""
-                    }
+                    "default": []
                 }
             }
         },
@@ -43,18 +40,12 @@
         "extraDeploy": {
             "type": "array",
             "description": "Array of extra objects to deploy with the release",
-            "default": [],
-            "items": {
-                "type": ""
-            }
+            "default": []
         },
         "hostAliases": {
             "type": "array",
             "description": "Add deployment host aliases",
-            "default": [],
-            "items": {
-                "type": ""
-            }
+            "default": []
         },
         "image": {
             "type": "object",
@@ -82,10 +73,7 @@
                 "pullSecrets": {
                     "type": "array",
                     "description": "Specify docker-registry secret names as an array",
-                    "default": [],
-                    "items": {
-                        "type": ""
-                    }
+                    "default": []
                 }
             }
         },
@@ -322,18 +310,12 @@
         "command": {
             "type": "array",
             "description": "Override default container command (useful when using custom images)",
-            "default": [],
-            "items": {
-                "type": ""
-            }
+            "default": []
         },
         "args": {
             "type": "array",
             "description": "Override default container args (useful when using custom images)",
-            "default": [],
-            "items": {
-                "type": ""
-            }
+            "default": []
         },
         "extraEnvVars": {
             "type": "array",
@@ -523,10 +505,7 @@
                 "values": {
                     "type": "array",
                     "description": "Node label values to match. Ignored if `affinity` is set",
-                    "default": [],
-                    "items": {
-                        "type": ""
-                    }
+                    "default": []
                 }
             }
         },
@@ -543,10 +522,7 @@
         "tolerations": {
             "type": "array",
             "description": "Tolerations for pod assignment",
-            "default": [],
-            "items": {
-                "type": ""
-            }
+            "default": []
         },
         "podLabels": {
             "type": "object",
@@ -561,18 +537,12 @@
         "extraVolumes": {
             "type": "array",
             "description": "Optionally specify extra list of additional volumes for Kubewatch pods",
-            "default": [],
-            "items": {
-                "type": ""
-            }
+            "default": []
         },
         "extraVolumeMounts": {
             "type": "array",
             "description": "Optionally specify extra list of additional volumeMounts for Kubewatch container(s)",
-            "default": [],
-            "items": {
-                "type": ""
-            }
+            "default": []
         },
         "initContainers": {
             "type": "object",
@@ -765,10 +735,7 @@
             "type": "array",
             "description": "Nullable null array. We apply array modifier that will change the type in the schema plus `nullable: true`.",
             "default": null,
-            "nullable": true,
-            "items": {
-                "type": ""
-            }
+            "nullable": true
         },
         "nullableNullString": {
             "type": "string",
@@ -792,10 +759,7 @@
             "type": "array",
             "description": "Nullable parameter with an array value",
             "default": [],
-            "nullable": true,
-            "items": {
-                "type": ""
-            }
+            "nullable": true
         },
         "arrayEmptyModifier": {
             "type": "array",
