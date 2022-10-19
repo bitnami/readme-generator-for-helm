@@ -7,6 +7,7 @@
 /* eslint-disable import/no-dynamic-require */
 
 const fs = require('fs');
+const pjson = require('./package.json')
 
 const { createValuesObject, parseMetadataComments } = require('./lib/parser');
 const { checkKeys } = require('./lib/checker');
@@ -38,7 +39,7 @@ function runReadmeGenerator(options) {
   const versionFlag = options.version;
 
   if (versionFlag) {
-    console.log("Version:", JSON.parse(fs.readFileSync('./package.json')).version);
+    console.log("Version:", pjson.version);
   } else {
     if (!readmeFilePath && !schemaFilePath) {
       throw new Error('Nothing to do. Please provide the --readme or --schema options.');
