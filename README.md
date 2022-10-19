@@ -72,11 +72,12 @@ npm run-script lint
 Usage: readme-generator [options]
 
 Options:
-  -r, --readme <path>   Path to the README.md file to insert the table
-  -v, --values <path>   Path to the values.yaml file
-  -c, --config <path>   Path to the config file
-  -s, --schema <path>   Path to a file where to store the OpenAPI Schema
-  -h, --help            display help for command
+  -v, --values <path>  Path to the values.yaml file
+  -r, --readme <path>  Path to the README.md file
+  -c, --config <path>  Path to the config file
+  -s, --schema <path>  Path for the OpenAPI Schema output file
+  --version            Show Readme Generator version
+  -h, --help           display help for command
 ```
 
 ## values.yaml Metadata
@@ -121,7 +122,7 @@ The configuration file has the following structure:
     "param": "@param",                           <-- Tag that indicates a parameter
     "section": "@section",                       <-- Tag that indicates a section
     "descriptionStart": "@descriptionStart",     <-- Tag that indicates the beginning of a section description
-    "descriptionEnd": "@descriptionEnd",         <-- Tag that indicates the end of a section description 
+    "descriptionEnd": "@descriptionEnd",         <-- Tag that indicates the end of a section description
     "skip": "@skip",                             <-- Tag that indicates the object must be skipped
     "extra": "@extra"                            <-- Tag to add a description for an intermediate object
   },
