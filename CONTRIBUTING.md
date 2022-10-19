@@ -17,3 +17,4 @@ Any type of contribution is welcome; from new features, bug fixes or documentati
 ## Technical requirements
 
 - When adding new feature or modifiying old behaviours a test must be implemented/changed.
+- All tests should pass without failures.
