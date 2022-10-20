@@ -9,7 +9,8 @@ on: # Test pull requests and any push to main.
 permissions: # Force read permissions
   contents: read
 jobs:
-  build:
+  verify:
+    name: Verify
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -25,5 +26,5 @@ jobs:
         run: npm run lint
       - name: Tests
         # Run tests if linter fails
-        if: always() && steps.npm-ci.result == 'success'
-        run: npm test
+        if: always() && steps.npm-ci.outcome == 'success'
+        run: npm run test-ci
