@@ -37,7 +37,7 @@ The number of `#` characters needed for the section titles is dynamically calcul
 
 ## Requirements
 
-The project has been developed and tested with node version `16.14.2`.
+The project has been developed and tested with node version `16.x`.
 
 ## Install
 
