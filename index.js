@@ -7,7 +7,7 @@
 /* eslint-disable import/no-dynamic-require */
 
 const fs = require('fs');
-const pjson = require('./package.json')
+const pjson = require('./package.json');
 
 const { createValuesObject, parseMetadataComments } = require('./lib/parser');
 const { checkKeys } = require('./lib/checker');
@@ -39,7 +39,7 @@ function runReadmeGenerator(options) {
   const versionFlag = options.version;
 
   if (versionFlag) {
-    console.log("Version:", pjson.version);
+    console.log('Version:', pjson.version); // eslint-disable-line no-console
   } else {
     if (!readmeFilePath && !schemaFilePath) {
       throw new Error('Nothing to do. Please provide the --readme or --schema options.');
@@ -52,6 +52,7 @@ function runReadmeGenerator(options) {
     const parsedMetadata = getParsedMetadata(options);
 
     if (readmeFilePath) {
+      /* eslint no-param-reassign: ["error", { "props": false }] */
       parsedMetadata.sections.forEach((section) => {
         section.parameters = buildParamsToRenderList(section.parameters, config);
       });
