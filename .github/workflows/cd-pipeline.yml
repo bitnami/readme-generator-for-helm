@@ -6,7 +6,8 @@ on:
 permissions:
   contents: read
 jobs:
-  build:
+  publish:
+    name: Publish
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
