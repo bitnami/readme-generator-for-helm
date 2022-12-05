@@ -45,7 +45,7 @@ function runReadmeGenerator(options) {
       throw new Error('Nothing to do. Please provide the --readme or --schema options.');
     }
     if (!valuesFilePath) {
-      throw new Error('Nothing to do. You must provide the --value option');
+      throw new Error('Nothing to do. You must provide the --values option');
     }
     const configPath = options.config ? options.config : `${__dirname}/config.json`;
     const config = JSON.parse(fs.readFileSync(configPath));
