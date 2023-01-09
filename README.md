@@ -61,8 +61,6 @@ $ npm install -g pkg
 $ pkg . -o readme-generator-for-helm
 ```
 
-Depending on how you installed NodeJS in your system, you may need to modify your `PATH` environment variable to be able to execute the tool.
-
 ## Test
 
 We use [Jest](https://jestjs.io) to implement the tests. In order to test your changes, execute the following command:
