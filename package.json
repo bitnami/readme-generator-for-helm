@@ -45,5 +45,10 @@
   "bugs": {
     "url": "https://github.com/bitnami-labs/readme-generator-for-helm/issues"
   },
-  "homepage": "https://github.com/bitnami-labs/readme-generator-for-helm#readme"
+  "homepage": "https://github.com/bitnami-labs/readme-generator-for-helm#readme",
+  "pkg": {
+    "assets": [
+        "config.json"
+    ]
+  }
 }
