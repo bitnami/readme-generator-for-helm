@@ -25,11 +25,16 @@ jobs:
           path: ~/.npm
           key: npm-${{ hashFiles('package-lock.json') }}
           restore-keys: npm-
+      - id: markdownlint
+        name: Install mardownlint
+        run: npm install -g markdownlint-cli
       - id: npm-ci
         name: Clean install
         run: npm ci
-      - name: Linter
-        run: npm run lint
+      - name: Linters
+        run: |
+          npm run lint
+          markdownlint *.md **/*.md
       - name: Tests
         # Run tests if linter fails
         if: always() && steps.npm-ci.outcome == 'success'
