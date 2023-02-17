@@ -47,7 +47,6 @@ The command removes all the Kubernetes components associated with the chart and 
 | `global.imageRegistry`    | Global Docker image registry                    | `""`  |
 | `global.imagePullSecrets` | Global Docker registry secret names as an array | `[]`  |
 
-
 ### Common parameters
 
 This section contains parameters common to most of the Helm Charts in the wild
@@ -63,7 +62,6 @@ It even supports multiple lines and [Link parsing](#common-parameters).
 | `commonAnnotations` | Annotations to add to all deployed objects         | `{}`  |
 | `extraDeploy`       | Array of extra objects to deploy with the release  | `[]`  |
 | `hostAliases`       | Add deployment host aliases                        | `[]`  |
-
 
 ### Kubewatch parameters
 
@@ -112,7 +110,6 @@ This description starts in a new line instead of the same line of description st
 | `resourcesToWatch.services`              | Watch changes to Services                           | `false`                |
 | `resourcesToWatch.job`                   | Watch changes to Jobs                               | `false`                |
 | `resourcesToWatch.persistentvolume`      | Watch changes to PersistentVolumes                  | `false`                |
-
 
 ### Deployment parameters
 
@@ -174,7 +171,7 @@ This description starts in a new line instead of the same line of description st
 | `extraTest`                                           | An object that we want to document even though it is not at the end of the YAML tree                                           |              |
 | `extraTest.content`                                   | Content of the object                                                                                                          | `whatever`   |
 | `forceSchemaArrayModifier`                            | The parameter should appear completely into the schema but with the modifier value into the README                             | `[]`         |
-| `linkInDescription`                                   | Link with square brackets present in description. [More information here](#link-in-description).                               | `{}`         |
+| `linkInDescription`                                   | Link with square brackets present in description. [More information here](#deployment-parameters).                             | `{}`         |
 | `nullable`                                            | Nullable parameter                                                                                                             | `nil`        |
 | `nullableNullStringWithValueChange`                   | Nullable null string. We apply string modifier that will change the type and value, but the schema will show `nullable: true`. | `""`         |
 | `nullableNullArray`                                   | Nullable null array. We apply array modifier that will change the type in the schema plus `nullable: true`.                    | `nil`        |

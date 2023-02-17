@@ -507,7 +507,7 @@ forceSchemaArrayModifier:
       - "z"
 
 ## Invented parameter to test links in descriptions
-## @param linkInDescription [object] Link with square brackets present in description. [More information here](#link-in-description).
+## @param linkInDescription [object] Link with square brackets present in description. [More information here](#deployment-parameters).
 linkInDescription:
   propertyOne: valueOne
   propertyTwo: valueTwo

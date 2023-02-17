@@ -1,6 +1,8 @@
 /* eslint-disable */
 const fs = require('fs');
+const temp = require('temp').track();
 
+const expectedReadmeFirstExecution = `${__dirname}/expected-readme.first-execution.md`; // File that must result from executing the tool providing a readme file with only '### Parameters' and values
 const testValuesPath = `${__dirname}/test-values.yaml`; // File where the content will end after the tool is executed
 const testReadmeSubsequentSectionsPath = `${__dirname}/test-readme.md`; // File where the content will end after the tool is executed
 const expectedReadmeSubsequentSectionsPath = `${__dirname}/expected-readme.md`; // File that must result from executing the tool providing the test README and values
@@ -12,6 +14,24 @@ const testSchemaPath = `${__dirname}/test-schema.json`; // File where the conten
 const expectedSchemaPath = `${__dirname}/expected-schema.json`; // File that must result from executing the tool providing the test README and values
 
 const { runReadmeGenerator } = require('../index.js');
+
+test('Check basic functionality. First execution', () => {
+  // Create temp file
+  let parametersHeader = "## Parameters";
+
+  // Process the data (note: error handling omitted)
+  let tempPath = temp.path({ prefix: 'readme-generator'});
+  fs.writeFileSync(tempPath, parametersHeader);
+  // Run readme generator with the test files
+  const options = {
+    readme: tempPath,
+    values: testValuesPath,
+  };
+  runReadmeGenerator(options);
+  // Check the output is the expected one
+  expect(fs.readFileSync(tempPath)).toEqual(fs.readFileSync(expectedReadmeFirstExecution));
+  temp.cleanupSync();
+});
 
 test('Check basic functionality', () => {
   // Run readme generator with the test files
