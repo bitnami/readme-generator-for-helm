@@ -19,6 +19,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
+      - name: Install mardownlint
+        run: apt-get install markdownlint
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
@@ -28,8 +30,10 @@ jobs:
       - id: npm-ci
         name: Clean install
         run: npm ci
-      - name: Linter
-        run: npm run lint
+      - name: Linters
+        run: |
+          npm run lint
+          markdownlint *.md **/*.md
       - name: Tests
         # Run tests if linter fails
         if: always() && steps.npm-ci.outcome == 'success'

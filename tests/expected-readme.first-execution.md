@@ -1,3 +1,5 @@
+# Example
+
 ## Parameters
 
 ### Global parameters

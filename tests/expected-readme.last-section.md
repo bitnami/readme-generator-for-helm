@@ -5,8 +5,8 @@
 ## TL;DR
 
 ```console
-$ helm repo add bitnami https://charts.bitnami.com/bitnami
-$ helm install my-release bitnami/kubewatch
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install my-release bitnami/kubewatch
 ```
 
 ## Introduction
@@ -23,7 +23,7 @@ This chart bootstraps a kubewatch deployment on a [Kubernetes](http://kubernetes
 To install the chart with the release name `my-release`:
 
 ```console
-$ helm install my-release bitnami/kubewatch
+helm install my-release bitnami/kubewatch
 ```
 
 The command deploys kubewatch on the Kubernetes cluster in the default configuration. The [Parameters](#parameters) section lists the parameters that can be configured during installation.
@@ -33,7 +33,7 @@ The command deploys kubewatch on the Kubernetes cluster in the default configura
 To uninstall/delete the `my-release` deployment:
 
 ```console
-$ helm delete my-release
+helm delete my-release
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.

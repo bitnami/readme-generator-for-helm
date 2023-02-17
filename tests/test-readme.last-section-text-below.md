@@ -5,8 +5,8 @@
 ## TL;DR
 
 ```console
-$ helm repo add bitnami https://charts.bitnami.com/bitnami
-$ helm install my-release bitnami/kubewatch
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install my-release bitnami/kubewatch
 ```
 
 ## Introduction
@@ -23,7 +23,7 @@ This chart bootstraps a kubewatch deployment on a [Kubernetes](http://kubernetes
 To install the chart with the release name `my-release`:
 
 ```console
-$ helm install my-release bitnami/kubewatch
+helm install my-release bitnami/kubewatch
 ```
 
 The command deploys kubewatch on the Kubernetes cluster in the default configuration. The [Parameters](#parameters) section lists the parameters that can be configured during installation.
@@ -33,7 +33,7 @@ The command deploys kubewatch on the Kubernetes cluster in the default configura
 To uninstall/delete the `my-release` deployment:
 
 ```console
-$ helm delete my-release
+helm delete my-release
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -183,18 +183,17 @@ This description starts in a new line instead of the same line of description st
 | `annotations.prometheus.io/scrape`                    | A Prometheus annotation                                                                                                        | `true`       |
 | `weird.key.with.weird.format/and.object`              | A weird key with weird format and an object inside.                                                                            | `asValue`    |
 
-
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
 ```console
-$ helm install my-release bitnami/kubewatch \
+helm install my-release bitnami/kubewatch \
   --set=slack.channel="#bots",slack.token="XXXX-XXXX-XXXX"
 ```
 
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart. For example,
 
 ```console
-$ helm install my-release -f values.yaml bitnami/kubewatch
+helm install my-release -f values.yaml bitnami/kubewatch
 ```
 
 > **Tip**: You can use the default [values.yaml](values.yaml)

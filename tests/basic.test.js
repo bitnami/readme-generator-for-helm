@@ -18,7 +18,7 @@ const { runReadmeGenerator } = require('../index.js');
 test('Check basic functionality. First execution', () => {
   // Create empty temp file with 'Parameters' section
   let tempFile = temp.path({ prefix: 'readme-generator'});
-  let parametersHeader = "## Parameters";
+  let parametersHeader = "# Example\r\n\n## Parameters";
   fs.writeFileSync(tempFile, parametersHeader);
   // Run readme generator with the test files
   const options = {

@@ -44,8 +44,8 @@ The project has been developed and tested with node version `16.x`.
 Execute the following commands to install the tool:
 
 ```console
-$ git clone https://github.com/bitnami-labs/readme-generator-for-helm
-$ npm install ./readme-generator-for-helm
+git clone https://github.com/bitnami-labs/readme-generator-for-helm
+npm install ./readme-generator-for-helm
 ```
 
 Depending on how you installed NodeJS in your system, you may need to modify your `PATH` environment variable to be able to execute the tool.
@@ -55,10 +55,10 @@ Depending on how you installed NodeJS in your system, you may need to modify you
 Execute the following commands to create a single executable binary for the tool:
 
 ```console
-$ git clone https://github.com/bitnami-labs/readme-generator-for-helm
-$ cd ./readme-generator-for-helm
-$ npm install -g pkg
-$ pkg . -o readme-generator-for-helm
+git clone https://github.com/bitnami-labs/readme-generator-for-helm
+cd ./readme-generator-for-helm
+npm install -g pkg
+pkg . -o readme-generator-for-helm
 ```
 
 ## Test
@@ -66,7 +66,7 @@ $ pkg . -o readme-generator-for-helm
 We use [Jest](https://jestjs.io) to implement the tests. In order to test your changes, execute the following command:
 
 ```console
-$ npm run-script test
+npm run-script test
 ```
 
 ### Lint
@@ -74,7 +74,7 @@ $ npm run-script test
 After modifying the code execute the following command to pass the linter:
 
 ```console
-$ npm run-script lint
+npm run-script lint
 ```
 
 ## Basic usage
@@ -167,11 +167,14 @@ The `-m (--metadata)` option has been renamed to `-s (--schema)` in order to pro
 
 Copyright &copy; 2023 Bitnami
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
-
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+<http://www.apache.org/licenses/LICENSE-2.0>
 
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and limitations under the License.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
