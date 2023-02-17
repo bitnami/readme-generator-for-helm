@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: '16.x'
       - name: Install mardownlint
-        run: apt-get install markdownlint
+        run: sudo apt-get install markdownlint
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
