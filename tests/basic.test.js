@@ -16,20 +16,19 @@ const expectedSchemaPath = `${__dirname}/expected-schema.json`; // File that mus
 const { runReadmeGenerator } = require('../index.js');
 
 test('Check basic functionality. First execution', () => {
-  // Create temp file
+  // Create empty temp file with 'Parameters' section
+  let tempFile = temp.path({ prefix: 'readme-generator'});
   let parametersHeader = "## Parameters";
-
-  // Process the data (note: error handling omitted)
-  let tempPath = temp.path({ prefix: 'readme-generator'});
-  fs.writeFileSync(tempPath, parametersHeader);
+  fs.writeFileSync(tempFile, parametersHeader);
   // Run readme generator with the test files
   const options = {
-    readme: tempPath,
+    readme: tempFile,
     values: testValuesPath,
   };
   runReadmeGenerator(options);
   // Check the output is the expected one
-  expect(fs.readFileSync(tempPath)).toEqual(fs.readFileSync(expectedReadmeFirstExecution));
+  expect(fs.readFileSync(tempFile)).toEqual(fs.readFileSync(expectedReadmeFirstExecution));
+  // Clean temporary file
   temp.cleanupSync();
 });
 
