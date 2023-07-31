@@ -13,6 +13,7 @@ Security is of the highest importance and all security vulnerabilities or suspec
 If you know of a publicly disclosed security vulnerability for this project, please **IMMEDIATELY** contact the maintainers of this project privately. The use of encrypted email is encouraged.
 
 **IMPORTANT: Do not file public issues on GitHub for security vulnerabilities**. To report a vulnerability or a security-related issue, please contact the maintainers with enough details through one of the following channels:
+
 * Directly via their individual email addresses
 * Open a [GitHub Security Advisory](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability). This allows for anyone to report security vulnerabilities directly and privately to the maintainers via GitHub. Note that this option may not be present for every repository.
 
