@@ -120,6 +120,34 @@ Currently supported modifiers:
 
 The modifiers are also customizable via the [configuration file](#configuration-file).
 
+In case you are adding a `custom modifier` to a parameter that does not have value in the values file
+you must add one of the `supported modifiers` as last modifier.
+
+Example:
+
+Values file
+
+```yaml
+# @param noDefaultValue [number, nullable] Description
+# noDefaultValue: 1
+```
+
+Custom configuration snippet:
+
+```json
+{
+  ...
+    "modifiers": {
+    "array": "array",
+    "object": "object"
+    "string": "string"
+    "nullable": "nullable",
+    "number": "number"
+  },
+  ...
+}
+```
+
 ## Configuration file
 
 The configuration file has the following structure:
