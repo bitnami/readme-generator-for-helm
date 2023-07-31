@@ -33,7 +33,7 @@ The table that will be inserted into the `readme.md` will have the following str
 ...
 ```
 
-The number of `#` characters needed for the section titles is dynamically calculated, and the title of the `Parameters` section can be configured via the [configuration file](#configuration-file). The `README.md` file with a `# Parameters` section must be created before running the tool.
+The number of `#` characters needed for the section titles is dynamically calculated, and the title of the `Parameters` section can be configured via the [configuration file](#configuration-file). The `README.md` file with a `## Parameters` section must be created before running the tool, the `Parameters` section should have two `#` or more symbols.
 
 ## Requirements
 
@@ -119,6 +119,34 @@ Currently supported modifiers:
 - `[nullable]` Indicates that the parameter value can be set to `null`.
 
 The modifiers are also customizable via the [configuration file](#configuration-file).
+
+In case you are adding a `custom modifier` to a parameter that does not have value in the values file
+you must add one of the `supported modifiers` as last modifier.
+
+Example:
+
+Values file
+
+```yaml
+# @param noDefaultValue [number, nullable] Description
+# noDefaultValue: 1
+```
+
+Custom configuration snippet:
+
+```json
+{
+  ...
+    "modifiers": {
+    "array": "array",
+    "object": "object"
+    "string": "string"
+    "nullable": "nullable",
+    "number": "number"
+  },
+  ...
+}
+```
 
 ## Configuration file
 
