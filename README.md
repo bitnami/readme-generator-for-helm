@@ -101,7 +101,7 @@ The following are the tags supported at this very moment:
 
 - For a parameter: `## @param fullKeyPath [modifier?] Description`.
 - For a section: `## @section Section Title"`.
-- To skip an object and all its children: `## @skip fullKeyPath [Description?]`.
+- To skip an object and all its children: `## @skip fullKeyPath Description?`.
 - To add a description for an intermediate object (i.e. not final in the YAML tree): `## @extra fullkeyPath Description`.
 
 All the tags as well as the two initial `#` characters for the comments style can be configured in the [configuration file](#configuration-file).
