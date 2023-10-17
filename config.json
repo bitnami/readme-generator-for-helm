@@ -15,7 +15,8 @@
     "object": "object",
     "string": "string",
     "nullable": "nullable",
-    "default": "default"
+    "default": "default",
+    "number": "number"
   },
   "regexp": {
     "paramsSectionTitle": "Parameters"
