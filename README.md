@@ -100,7 +100,6 @@ By default we use a format similar to Javadoc, using `@xxx` for tags followed by
 The following are the tags supported at this very moment:
 
 - For a parameter: `## @param fullKeyPath [modifier?] Description`.
-  - Optional: Parameter with default value: `## @param fullKeyPath [modifier?] Description Default: DEFAULT_VALUE`
 - For a section: `## @section Section Title"`.
 - To skip an object and all its children: `## @skip fullKeyPath Description?`.
 - To add a description for an intermediate object (i.e. not final in the YAML tree): `## @extra fullkeyPath Description`.
@@ -118,6 +117,7 @@ Currently supported modifiers:
 - `[object]` Indicates that the value of the parameter must be set to `{}`.
 - `[string]` Indicates that the value of the parameter must be set to `""`.
 - `[nullable]` Indicates that the parameter value can be set to `null`.
+- `[default: DEFAULT_VALUE]` Sets the default value to  `DEFAULT_VALUE`.
 
 The modifiers are also customizable via the [configuration file](#configuration-file).
 

@@ -59,8 +59,8 @@ hostAliases: []
 ## Bitnami Kubewatch image version
 ## ref: https://hub.docker.com/r/bitnami/kubewatch/tags/
 ##
-## @param image.registry Kubewatch image registry Default: REGISTRY_NAME
-## @param image.repository Kubewatch image name Default: REPOSITORY_NAME/kubewatch
+## @param image.registry [default: REGISTRY_NAME] Kubewatch image registry
+## @param image.repository [default: REPOSITORY_NAME/kubewatch] Kubewatch image name
 ## @skip image.tag Kubewatch image tag
 ## @param image.pullPolicy Kubewatch image tag
 ## @param image.pullSecrets Specify docker-registry secret names as an array

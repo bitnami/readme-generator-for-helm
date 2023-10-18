@@ -56,12 +56,12 @@
                 "registry": {
                     "type": "string",
                     "description": "Kubewatch image registry",
-                    "default": "REGISTRY_NAME"
+                    "default": "docker.io"
                 },
                 "repository": {
                     "type": "string",
                     "description": "Kubewatch image name",
-                    "default": "REPOSITORY_NAME/kubewatch"
+                    "default": "bitnami/kubewatch"
                 },
                 "tag": {
                     "type": "string",
