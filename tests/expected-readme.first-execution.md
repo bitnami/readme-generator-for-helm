@@ -31,9 +31,8 @@ This description starts in a new line instead of the same line of description st
 
 | Name                                     | Description                                         | Value                       |
 | ---------------------------------------- | --------------------------------------------------- | --------------------------- |
-| `image.registry`                         | Kubewatch image registry                            | `docker.io`                 |
+| `image.registry`                         | Kubewatch image registry                            | `REGISTRY_NAME`             |
 | `image.repository`                       | Kubewatch image name                                | `REPOSITORY_NAME/kubewatch` |
-| `image.tag`                              | Kubewatch image tag                                 | `0.1.0-debian-10-r162`      |
 | `image.pullPolicy`                       | Kubewatch image tag                                 | `IfNotPresent`              |
 | `image.pullSecrets`                      | Specify docker-registry secret names as an array    | `[]`                        |
 | `slack.enabled`                          | Enable Slack notifications                          | `true`                      |

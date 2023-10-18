@@ -56,7 +56,7 @@
                 "registry": {
                     "type": "string",
                     "description": "Kubewatch image registry",
-                    "default": "docker.io"
+                    "default": "REGISTRY_NAME"
                 },
                 "repository": {
                     "type": "string",
@@ -65,7 +65,7 @@
                 },
                 "tag": {
                     "type": "string",
-                    "description": "Kubewatch image tag",
+                    "description": "",
                     "default": "0.1.0-debian-10-r162"
                 },
                 "pullPolicy": {
