@@ -67,49 +67,49 @@ It even supports multiple lines and [Link parsing](#common-parameters).
 
 This description starts in a new line instead of the same line of description start tag. It does not have multiple lines.
 
-| Name                                     | Description                                         | Value                  |
-| ---------------------------------------- | --------------------------------------------------- | ---------------------- |
-| `image.registry`                         | Kubewatch image registry                            | `docker.io`            |
-| `image.repository`                       | Kubewatch image name                                | `bitnami/kubewatch`    |
-| `image.tag`                              | Kubewatch image tag                                 | `0.1.0-debian-10-r162` |
-| `image.pullPolicy`                       | Kubewatch image tag                                 | `IfNotPresent`         |
-| `image.pullSecrets`                      | Specify docker-registry secret names as an array    | `[]`                   |
-| `slack.enabled`                          | Enable Slack notifications                          | `true`                 |
-| `slack.channel`                          | Slack channel to notify                             | `XXXX`                 |
-| `slack.token`                            | Slack API token                                     | `XXXX`                 |
-| `hipchat.enabled`                        | Enable HipChat notifications                        | `false`                |
-| `hipchat.room`                           | HipChat room to notify                              | `""`                   |
-| `hipchat.token`                          | HipChat token                                       | `""`                   |
-| `hipchat.url`                            | HipChat URL                                         | `""`                   |
-| `mattermost.enabled`                     | Enable Mattermost notifications                     | `false`                |
-| `mattermost.channel`                     | Mattermost channel to notify                        | `""`                   |
-| `mattermost.username`                    | Mattermost user to notify                           | `""`                   |
-| `mattermost.url`                         | Mattermost URL                                      | `""`                   |
-| `flock.enabled`                          | Enable Flock notifications                          | `false`                |
-| `flock.url`                              | Flock URL                                           | `""`                   |
-| `msteams.enabled`                        | Enable Microsoft Teams notifications                | `false`                |
-| `msteams.webhookurl`                     | Microsoft Teams webhook URL                         | `""`                   |
-| `webhook`                                | Enable Webhook notifications                        | `{}`                   |
-| `smtp.enabled`                           | Enable SMTP (email) notifications                   | `false`                |
-| `smtp.to`                                | Destination email address (required)                | `""`                   |
-| `smtp.from`                              | Source email address (required)                     | `""`                   |
-| `smtp.hello`                             | SMTP hello field (optional)                         | `""`                   |
-| `smtp.smarthost`                         | SMTP server address (name:port) (required)          | `""`                   |
-| `smtp.subject`                           | SMTP subject for the email                          | `""`                   |
-| `smtp.requireTLS`                        | Force STARTTLS                                      | `false`                |
-| `smtp.auth.username`                     | Username for LOGIN and PLAIN auth mech              | `""`                   |
-| `smtp.auth.password`                     | Password for LOGIN and PLAIN auth mech              | `""`                   |
-| `smtp.auth.secret`                       | Secret for CRAM-MD5 auth mech                       | `""`                   |
-| `smtp.auth.identity`                     | Identity for PLAIN auth mech                        | `""`                   |
-| `namespaceToWatch`                       | Namespace to watch, leave it empty for watching all | `""`                   |
-| `resourcesToWatch.pod`                   | Watch changes to Pods                               | `true`                 |
-| `resourcesToWatch.deployment`            | Watch changes to Deployments                        | `true`                 |
-| `resourcesToWatch.replicationcontroller` | Watch changes to ReplicationControllers             | `false`                |
-| `resourcesToWatch.replicaset`            | Watch changes to ReplicaSets                        | `false`                |
-| `resourcesToWatch.daemonset`             | Watch changes to DaemonSets                         | `false`                |
-| `resourcesToWatch.services`              | Watch changes to Services                           | `false`                |
-| `resourcesToWatch.job`                   | Watch changes to Jobs                               | `false`                |
-| `resourcesToWatch.persistentvolume`      | Watch changes to PersistentVolumes                  | `false`                |
+| Name                                     | Description                                         | Value                       |
+| ---------------------------------------- | --------------------------------------------------- | --------------------------- |
+| `image.registry`                         | Kubewatch image registry                            | `docker.io`                 |
+| `image.repository`                       | Kubewatch image name                                | `REPOSITORY_NAME/kubewatch` |
+| `image.tag`                              | Kubewatch image tag                                 | `0.1.0-debian-10-r162`      |
+| `image.pullPolicy`                       | Kubewatch image tag                                 | `IfNotPresent`              |
+| `image.pullSecrets`                      | Specify docker-registry secret names as an array    | `[]`                        |
+| `slack.enabled`                          | Enable Slack notifications                          | `true`                      |
+| `slack.channel`                          | Slack channel to notify                             | `XXXX`                      |
+| `slack.token`                            | Slack API token                                     | `XXXX`                      |
+| `hipchat.enabled`                        | Enable HipChat notifications                        | `false`                     |
+| `hipchat.room`                           | HipChat room to notify                              | `""`                        |
+| `hipchat.token`                          | HipChat token                                       | `""`                        |
+| `hipchat.url`                            | HipChat URL                                         | `""`                        |
+| `mattermost.enabled`                     | Enable Mattermost notifications                     | `false`                     |
+| `mattermost.channel`                     | Mattermost channel to notify                        | `""`                        |
+| `mattermost.username`                    | Mattermost user to notify                           | `""`                        |
+| `mattermost.url`                         | Mattermost URL                                      | `""`                        |
+| `flock.enabled`                          | Enable Flock notifications                          | `false`                     |
+| `flock.url`                              | Flock URL                                           | `""`                        |
+| `msteams.enabled`                        | Enable Microsoft Teams notifications                | `false`                     |
+| `msteams.webhookurl`                     | Microsoft Teams webhook URL                         | `""`                        |
+| `webhook`                                | Enable Webhook notifications                        | `{}`                        |
+| `smtp.enabled`                           | Enable SMTP (email) notifications                   | `false`                     |
+| `smtp.to`                                | Destination email address (required)                | `""`                        |
+| `smtp.from`                              | Source email address (required)                     | `""`                        |
+| `smtp.hello`                             | SMTP hello field (optional)                         | `""`                        |
+| `smtp.smarthost`                         | SMTP server address (name:port) (required)          | `""`                        |
+| `smtp.subject`                           | SMTP subject for the email                          | `""`                        |
+| `smtp.requireTLS`                        | Force STARTTLS                                      | `false`                     |
+| `smtp.auth.username`                     | Username for LOGIN and PLAIN auth mech              | `""`                        |
+| `smtp.auth.password`                     | Password for LOGIN and PLAIN auth mech              | `""`                        |
+| `smtp.auth.secret`                       | Secret for CRAM-MD5 auth mech                       | `""`                        |
+| `smtp.auth.identity`                     | Identity for PLAIN auth mech                        | `""`                        |
+| `namespaceToWatch`                       | Namespace to watch, leave it empty for watching all | `""`                        |
+| `resourcesToWatch.pod`                   | Watch changes to Pods                               | `true`                      |
+| `resourcesToWatch.deployment`            | Watch changes to Deployments                        | `true`                      |
+| `resourcesToWatch.replicationcontroller` | Watch changes to ReplicationControllers             | `false`                     |
+| `resourcesToWatch.replicaset`            | Watch changes to ReplicaSets                        | `false`                     |
+| `resourcesToWatch.daemonset`             | Watch changes to DaemonSets                         | `false`                     |
+| `resourcesToWatch.services`              | Watch changes to Services                           | `false`                     |
+| `resourcesToWatch.job`                   | Watch changes to Jobs                               | `false`                     |
+| `resourcesToWatch.persistentvolume`      | Watch changes to PersistentVolumes                  | `false`                     |
 
 ### Deployment parameters
 

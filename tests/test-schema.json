@@ -61,7 +61,7 @@
                 "repository": {
                     "type": "string",
                     "description": "Kubewatch image name",
-                    "default": "bitnami/kubewatch"
+                    "default": "REPOSITORY_NAME/kubewatch"
                 },
                 "tag": {
                     "type": "string",
