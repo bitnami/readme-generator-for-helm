@@ -62,7 +62,7 @@ hostAliases: []
 ## @param image.registry [default: REGISTRY_NAME] Kubewatch image registry
 ## @param image.repository [default: REPOSITORY_NAME/kubewatch] Kubewatch image name
 ## @skip image.tag Kubewatch image tag
-## @param image.pullPolicy Kubewatch image tag
+## @param image.pullPolicy Kubewatch image pull policy
 ## @param image.pullSecrets Specify docker-registry secret names as an array
 image:
   registry: docker.io

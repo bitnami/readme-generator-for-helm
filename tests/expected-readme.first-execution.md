@@ -33,7 +33,7 @@ This description starts in a new line instead of the same line of description st
 | ---------------------------------------- | --------------------------------------------------- | --------------------------- |
 | `image.registry`                         | Kubewatch image registry                            | `REGISTRY_NAME`             |
 | `image.repository`                       | Kubewatch image name                                | `REPOSITORY_NAME/kubewatch` |
-| `image.pullPolicy`                       | Kubewatch image tag                                 | `IfNotPresent`              |
+| `image.pullPolicy`                       | Kubewatch image pull policy                         | `IfNotPresent`              |
 | `image.pullSecrets`                      | Specify docker-registry secret names as an array    | `[]`                        |
 | `slack.enabled`                          | Enable Slack notifications                          | `true`                      |
 | `slack.channel`                          | Slack channel to notify                             | `XXXX`                      |
