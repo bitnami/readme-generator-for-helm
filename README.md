@@ -117,6 +117,7 @@ Currently supported modifiers:
 - `[object]` Indicates that the value of the parameter must be set to `{}`.
 - `[string]` Indicates that the value of the parameter must be set to `""`.
 - `[nullable]` Indicates that the parameter value can be set to `null`.
+- `[default: DEFAULT_VALUE]` Sets the default value to `DEFAULT_VALUE`.
 
 The modifiers are also customizable via the [configuration file](#configuration-file).
 
