@@ -57,6 +57,7 @@ Execute the following commands to create a single executable binary for the tool
 ```console
 git clone https://github.com/bitnami-labs/readme-generator-for-helm
 cd ./readme-generator-for-helm
+npm install
 npm install -g pkg
 pkg . -o readme-generator-for-helm
 ```
