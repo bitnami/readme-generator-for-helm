@@ -40,13 +40,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bitnami-labs/readme-generator-for-helm.git"
+    "url": "git+https://github.com/bitnami/readme-generator-for-helm.git"
   },
   "author": "",
   "bugs": {
-    "url": "https://github.com/bitnami-labs/readme-generator-for-helm/issues"
+    "url": "https://github.com/bitnami/readme-generator-for-helm/issues"
   },
-  "homepage": "https://github.com/bitnami-labs/readme-generator-for-helm#readme",
+  "homepage": "https://github.com/bitnami/readme-generator-for-helm#readme",
   "pkg": {
     "assets": [
         "config.json"

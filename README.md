@@ -44,7 +44,7 @@ The project has been developed and tested with node version `16.x`.
 Execute the following commands to install the tool:
 
 ```console
-git clone https://github.com/bitnami-labs/readme-generator-for-helm
+git clone https://github.com/bitnami/readme-generator-for-helm
 npm install ./readme-generator-for-helm
 ```
 
@@ -55,7 +55,7 @@ Depending on how you installed NodeJS in your system, you may need to modify you
 Execute the following commands to create a single executable binary for the tool:
 
 ```console
-git clone https://github.com/bitnami-labs/readme-generator-for-helm
+git clone https://github.com/bitnami/readme-generator-for-helm
 cd ./readme-generator-for-helm
 npm install
 npm install -g pkg
