@@ -1,0 +1,22 @@
+# Copyright VMware, Inc.
+# SPDX-License-Identifier: APACHE-2.0
+
+# This workflow is built to manage the triage support by using GH issues.
+name: '[Support] Organize triage'
+on:
+  issues:
+    types:
+      - reopened
+      - opened
+  pull_request_target:
+    types:
+      - reopened
+      - opened
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+jobs:
+  call-triage-workflow:
+    uses: bitnami/support/.github/workflows/item-opened.yml@main
+    secrets: inherit
