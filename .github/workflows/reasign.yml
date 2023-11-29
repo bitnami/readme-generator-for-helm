@@ -3,7 +3,7 @@
 
 name: '[Support] Review based card movements'
 on:
-  pull_request:
+  pull_request_target:
     types:
       - labeled
   issues:
