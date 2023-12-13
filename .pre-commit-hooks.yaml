@@ -1,5 +1,7 @@
 - id: helm-readme-generator
   name: Generate Helm Charts documentation using Bitnami generator
-  description: This hooks generates the documentation for Helm Charts using Bitnami generator.
-  entry: "node bin/index.js"
+  description: This hook generates the documentation for Helm Charts using Bitnami generator.
+  entry: "readme-generator"
+  always_run: true
   language: node
+  args: [--readme=chart/README.md, --values=chart/values.yaml]
