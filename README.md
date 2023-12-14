@@ -179,6 +179,19 @@ The configuration file has the following structure:
 }
 ```
 
+## Pre-commit
+
+Add this to your `.pre-commit-config.yaml`:
+
+```yaml
+- repo: https://github.com/bitnami/readme-generator-for-helm
+  rev: "2.6.0"
+  hooks:
+    - id: helm-readme-generator
+      # default args are [--readme=chart/README.md, --values=chart/values.yaml]
+      args: [--readme=path/to/README.md, --values=path/to/values.yaml]
+```
+
 ## Versions
 
 ### 2.4.0
