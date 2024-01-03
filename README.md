@@ -185,7 +185,7 @@ Add this to your `.pre-commit-config.yaml`:
 
 ```yaml
 - repo: https://github.com/bitnami/readme-generator-for-helm
-  rev: "2.6.0"
+  rev: "main"
   hooks:
     - id: helm-readme-generator
       # default args are [--readme=chart/README.md, --values=chart/values.yaml]
