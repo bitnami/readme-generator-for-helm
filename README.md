@@ -188,6 +188,9 @@ Add this to your `.pre-commit-config.yaml`:
   rev: "main"
   hooks:
     - id: helm-readme-generator
+      # in order to run helm-readme-generator only once
+      pass_filenames: false
+      always_run: true
       # default args are [--readme=chart/README.md, --values=chart/values.yaml]
       args: [--readme=path/to/README.md, --values=path/to/values.yaml]
 ```
