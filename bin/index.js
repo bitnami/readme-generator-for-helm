@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*
-* Copyright 2021-2021 VMware, Inc.
+* Copyright Broadcom, Inc. All Rights Reserved.
 * SPDX-License-Identifier: Apache-2.0
 */
 
