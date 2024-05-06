@@ -1,5 +1,5 @@
 #
-# Copyright 2021-2021 VMware, Inc.
+# Copyright © 2024 Broadcom, Inc. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 #
 FROM bitnami/node:16
@@ -8,7 +8,7 @@ LABEL org.opencontainers.image.authors="https://bitnami.com/contact" \
       org.opencontainers.image.description="Readme Generator For Helm" \
       org.opencontainers.image.source="https://github.com/bitnami/readme-generator-for-helm" \
       org.opencontainers.image.title="readme-generator-for-helm" \
-      org.opencontainers.image.vendor="VMware, Inc."
+      org.opencontainers.image.vendor="Broadcom, Inc. All Rights Reserved."
 
 COPY . /app
 WORKDIR /app
