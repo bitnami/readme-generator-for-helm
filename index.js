@@ -14,11 +14,7 @@ const { checkKeys } = require('./lib/checker');
 const { combineMetadataAndValues, buildParamsToRenderList } = require('./lib/builder');
 const { insertReadmeTable, renderOpenAPISchema } = require('./lib/render');
 
-function getParsedMetadata(options) {
-  const valuesFilePath = options.values;
-  const configPath = options.config ? options.config : `${__dirname}/config.json`;
-  const config = require(configPath);
-
+function getParsedMetadata(valuesFilePath, config) {
   const valuesObject = createValuesObject(valuesFilePath);
   const valuesMetadata = parseMetadataComments(valuesFilePath, config);
 
@@ -49,7 +45,7 @@ function runReadmeGenerator(options) {
     }
     const configPath = options.config ? options.config : `${__dirname}/config.json`;
     const config = JSON.parse(fs.readFileSync(configPath));
-    const parsedMetadata = getParsedMetadata(options);
+    const parsedMetadata = getParsedMetadata(options.values, config);
 
     if (readmeFilePath) {
       /* eslint no-param-reassign: ["error", { "props": false }] */
