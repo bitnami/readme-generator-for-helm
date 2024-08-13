@@ -12,6 +12,9 @@ const testReadmeLastSectionWithTextBelowPath = `${__dirname}/test-readme.last-se
 const expectedReadmeLastSectionWithTextBelowPath = `${__dirname}/expected-readme.last-section-text-below.md`; // File that must result from executing the tool providing the test README and values
 const testSchemaPath = `${__dirname}/test-schema.json`; // File where the content will end after the tool is executed
 const expectedSchemaPath = `${__dirname}/expected-schema.json`; // File that must result from executing the tool providing the test README and values
+const testReadConfigFile = `${__dirname}/test-readme.config.md`; // Configuration file
+const testConfigFile = `${__dirname}/test-config.json`; // Configuration file
+const expectedReadmeConfig = `${__dirname}/expected-readme.config.md`; // File where the content will end after the tool is executed
 
 const { runReadmeGenerator } = require('../index.js');
 
@@ -78,4 +81,17 @@ test('Check schema', () => {
 
   // Check the output is the expected one
   expect(fs.readFileSync(testSchemaPath)).toEqual(fs.readFileSync(expectedSchemaPath));
+});
+
+test('Check config file', () => {
+  // Run readme generator with the test files
+  const options = {
+    readme: testReadConfigFile,
+    values: testValuesPath,
+    config: testConfigFile,
+  };
+  runReadmeGenerator(options);
+
+  // Check the output is the expected one
+  expect(fs.readFileSync(testReadConfigFile)).toEqual(fs.readFileSync(expectedReadmeConfig));
 });
