@@ -26,7 +26,7 @@ To install the chart with the release name `my-release`:
 helm install my-release bitnami/kubewatch
 ```
 
-The command deploys kubewatch on the Kubernetes cluster in the default configuration. The [Parameters](#parameters) section lists the parameters that can be configured during installation.
+The command deploys kubewatch on the Kubernetes cluster in the default configuration. The [Parameters](#new-parameters-section) section lists the parameters that can be configured during installation.
 
 ## Uninstalling the Chart
 
