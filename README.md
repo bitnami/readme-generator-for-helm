@@ -107,7 +107,8 @@ The following are the tags supported at this very moment:
 
 All the tags as well as the two initial `#` characters for the comments style can be configured in the [configuration file](#configuration-file).
 
-> IMPORTANT: tags' order or position in the file is NOT important except for the @section tag. The @section that will include in the section all the parameters after it until a new section is found or the file ends.
+> [!IMPORTANT]
+> tags' order or position in the file is NOT important except for the @section tag. The @section that will include in the section all the parameters after it until a new section is found or the file ends.
 
 The `modifier` is optional and it will change how the parameter is processed.
 Several modifiers can be applied by separating them using commas (`,`). When affecting the value, the last one takes precedence.
