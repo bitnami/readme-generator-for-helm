@@ -1,6 +1,6 @@
 {
   "name": "@bitnami/readme-generator-for-helm",
-  "version": "2.6.2",
+  "version": "2.7.0",
   "description": "Autogenerate READMEs tables and OpenAPI schemas for Helm Charts",
   "main": "index.js",
   "scripts": {
@@ -21,17 +21,17 @@
   ],
   "license": "Apache-2.0",
   "dependencies": {
-    "commander": "^7.1.0",
-    "dot-object": "^2.1.4",
+    "commander": "^13.1.0",
+    "dot-object": "^2.1.5",
     "lodash": "^4.17.21",
     "markdown-table": "^2.0.0",
-    "yaml": "^2.0.0-3"
+    "yaml": "^2.7.0"
   },
   "devDependencies": {
-    "eslint": "^7.24.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "jest": "^29.2.1",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.31.0",
+    "jest": "^29.7.0",
     "temp": "^0.9.4"
   },
   "directories": {
@@ -49,7 +49,7 @@
   "homepage": "https://github.com/bitnami/readme-generator-for-helm#readme",
   "pkg": {
     "assets": [
-        "config.json"
+      "config.json"
     ]
   }
 }

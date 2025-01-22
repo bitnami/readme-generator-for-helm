@@ -37,7 +37,7 @@ The number of `#` characters needed for the section titles is dynamically calcul
 
 ## Requirements
 
-The project has been developed and tested with node version `16.x`.
+The project has been developed and tested with node version `22.x`.
 
 ## Install
 
@@ -58,7 +58,7 @@ Execute the following commands to create a single executable binary for the tool
 git clone https://github.com/bitnami/readme-generator-for-helm
 cd ./readme-generator-for-helm
 npm install
-npm install -g pkg
+npm install -g @yao-pkg/pkg
 pkg . -o readme-generator-for-helm
 ```
 
