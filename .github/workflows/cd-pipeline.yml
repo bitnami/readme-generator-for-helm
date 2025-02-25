@@ -21,7 +21,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           scope: '@bitnami'
       - name: Cache dependencies
-        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57
+        uses: actions/cache@0c907a75c2c80ebcb7f088228285e798b750cf8f
         with:
           path: ~/.npm
           key: npm-${{ hashFiles('package-lock.json') }}
