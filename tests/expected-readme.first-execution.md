@@ -4,6 +4,15 @@
 
 ### Global parameters
 
+Example:
+
+```yaml
+global:
+  imageRegistry: myRegistryName
+  imagePullSecrets:
+    - myRegistryKeySecretName
+```
+
 | Name                      | Description                                     | Value |
 | ------------------------- | ----------------------------------------------- | ----- |
 | `global.imageRegistry`    | Global Docker image registry                    | `""`  |
