@@ -198,6 +198,10 @@ Add this to your `.pre-commit-config.yaml`:
 
 ## Versions
 
+### 2.8.0
+
+Descriptions now discard only a single whitespace. This way, code blocks can use proper indentation.
+
 ### 2.4.0
 
 Add `descriptionStart` and `descriptionEnd` config options (default tags: `@descriptionStart` and `@descriptionEnd`)

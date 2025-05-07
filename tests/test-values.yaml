@@ -5,10 +5,16 @@
 ## @param global.imageRegistry Global Docker image registry
 ## @param global.imagePullSecrets Global Docker registry secret names as an array
 ##
-# global:
-#   imageRegistry: myRegistryName
-#   imagePullSecrets:
-#     - myRegistryKeySecretName
+## @descriptionStart
+## Example:
+##
+## ```yaml
+## global:
+##   imageRegistry: myRegistryName
+##   imagePullSecrets:
+##     - myRegistryKeySecretName
+## ```
+## @descriptionEnd
 global:
   imageRegistry: ""
   imagePullSecrets: []
