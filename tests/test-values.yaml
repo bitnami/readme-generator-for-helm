@@ -545,3 +545,10 @@ weird.key:
   with:
     weird.format/and:
       object: asValue
+## Issue: https://github.com/bitnami/readme-generator-for-helm/issues/60
+## section foo bar
+## @param foo.file.ext.foo This a test
+foo:
+  file.ext:
+    foo:
+      - bar
