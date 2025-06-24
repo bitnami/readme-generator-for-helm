@@ -42,6 +42,15 @@ The command removes all the Kubernetes components associated with the chart and 
 
 ### Global parameters
 
+Example:
+
+```yaml
+global:
+  imageRegistry: myRegistryName
+  imagePullSecrets:
+    - myRegistryKeySecretName
+```
+
 | Name                      | Description                                     | Value |
 | ------------------------- | ----------------------------------------------- | ----- |
 | `global.imageRegistry`    | Global Docker image registry                    | `""`  |
