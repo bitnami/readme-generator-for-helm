@@ -547,7 +547,7 @@ weird.key:
       object: asValue
 ## Issue: https://github.com/bitnami/readme-generator-for-helm/issues/60
 ## section foo bar
-## @param foo.file.ext.foo This a test
+## @param foo.file.ext.foo A weird key with a list.
 foo:
   file.ext:
     foo:

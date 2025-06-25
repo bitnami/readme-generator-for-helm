@@ -152,4 +152,4 @@ This description starts in a new line instead of the same line of description st
 | `arrayEmptyModifier`                                  | Test empty array modifier                                                                                                      | `[]`         |
 | `annotations.prometheus.io/scrape`                    | A Prometheus annotation                                                                                                        | `true`       |
 | `weird.key.with.weird.format/and.object`              | A weird key with weird format and an object inside.                                                                            | `asValue`    |
-| `foo.file.ext.foo`                                    | This a test                                                                                                                    | `["bar"]`    |
+| `foo.file.ext.foo`                                    | A weird key with a list.                                                                                                       | `["bar"]`    |
