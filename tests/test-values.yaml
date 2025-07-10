@@ -552,3 +552,8 @@ foo:
   file.ext:
     foo:
       - bar
+## Issue: https://github.com/bitnami/readme-generator-for-helm/issues/70
+## @param vault.annotations.vault.hashicorp.com/agent-inject Some desc
+vault:
+  annotations:
+    vault.hashicorp.com/agent-inject: "true"
