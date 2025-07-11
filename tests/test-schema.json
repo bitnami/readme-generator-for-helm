@@ -715,6 +715,22 @@
             "items": {
                 "type": "string"
             }
+        },
+        "stack": {
+            "type": "object",
+            "properties": {
+                "mode": {
+                    "type": "string",
+                    "description": "way to deploy",
+                    "default": null,
+                    "nullable": true
+                },
+                "version": {
+                    "type": "string",
+                    "description": "version of the stack",
+                    "default": "8.10.3"
+                }
+            }
         }
     }
 }

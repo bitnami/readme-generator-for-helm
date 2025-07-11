@@ -545,6 +545,7 @@ weird.key:
   with:
     weird.format/and:
       object: asValue
+## @section Regression tests
 ## Issue: https://github.com/bitnami/readme-generator-for-helm/issues/60
 ## section foo bar
 ## @param foo.file.ext.foo A weird key with a list.
@@ -557,3 +558,8 @@ foo:
 vault:
   annotations:
     vault.hashicorp.com/agent-inject: "true"
+## Issue: ## Issue: https://github.com/bitnami/readme-generator-for-helm/issues/73
+## @param stack.mode [string, nullable] way to deploy
+## @param stack.version version of the stack
+stack:
+  version: 8.10.3
