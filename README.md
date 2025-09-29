@@ -118,38 +118,9 @@ Currently supported modifiers:
 - `[array]` Indicates that the value of the parameter must be set to `[]`.
 - `[object]` Indicates that the value of the parameter must be set to `{}`.
 - `[string]` Indicates that the value of the parameter must be set to `""`.
+- `[boolean]` Indicates that the value of the parameter must be set to `false`.
 - `[nullable]` Indicates that the parameter value can be set to `null`.
 - `[default: DEFAULT_VALUE]` Sets the default value to `DEFAULT_VALUE`.
-
-The modifiers are also customizable via the [configuration file](#configuration-file).
-
-In case you are adding a `custom modifier` to a parameter that does not have value in the values file
-you must add one of the `supported modifiers` as last modifier.
-
-Example:
-
-Values file
-
-```yaml
-# @param noDefaultValue [number, nullable] Description
-# noDefaultValue: 1
-```
-
-Custom configuration snippet:
-
-```json
-{
-  ...
-    "modifiers": {
-    "array": "array",
-    "object": "object"
-    "string": "string"
-    "nullable": "nullable",
-    "number": "number"
-  },
-  ...
-}
-```
 
 ## Configuration file
 
@@ -172,6 +143,7 @@ The configuration file has the following structure:
     "array": "array",                            <-- Modifier that indicates an array type
     "object": "object"                           <-- Modifier that indicates an object type
     "string": "string"                           <-- Modifier that indicates a string type
+    "boolean": "boolean"                         <-- Modifier that indicates a boolean type
     "nullable": "nullable"                       <-- Modifier that indicates a parameter that can be set to null
   },
   "regexp": {
