@@ -161,3 +161,4 @@ This description starts in a new line instead of the same line of description st
 | `vault.annotations.vault.hashicorp.com/agent-inject` | Some desc                | `true`    |
 | `stack.mode`                                         | way to deploy            | `nil`     |
 | `stack.version`                                      | version of the stack     | `8.10.3`  |
+| `booleanValue`                                       | A boolean value          | `false`   |
