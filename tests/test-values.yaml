@@ -563,3 +563,6 @@ vault:
 ## @param stack.version version of the stack
 stack:
   version: 8.10.3
+## Issue: ## Issue: https://github.com/bitnami/readme-generator-for-helm/issues/173
+## @param booleanValue [boolean] A boolean value
+booleanValue: false

@@ -731,6 +731,11 @@
                     "default": "8.10.3"
                 }
             }
+        },
+        "booleanValue": {
+            "type": "boolean",
+            "description": "A boolean value",
+            "default": false
         }
     }
 }
