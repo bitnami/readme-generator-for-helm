@@ -142,8 +142,8 @@ Custom configuration snippet:
   ...
     "modifiers": {
     "array": "array",
-    "object": "object"
-    "string": "string"
+    "object": "object",
+    "string": "string",
     "nullable": "nullable",
     "number": "number"
   },
