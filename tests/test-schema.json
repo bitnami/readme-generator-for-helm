@@ -176,6 +176,11 @@
                 }
             }
         },
+        "webhook": {
+            "type": "object",
+            "description": "Enable Webhook notifications",
+            "default": "{}"
+        },
         "smtp": {
             "type": "object",
             "properties": {
@@ -663,6 +668,11 @@
             "items": {
                 "type": "string"
             }
+        },
+        "linkInDescription": {
+            "type": "object",
+            "description": "Link with square brackets present in description. [More information here](#deployment-parameters).",
+            "default": "{}"
         },
         "nullable": {
             "type": "object",
