@@ -198,6 +198,10 @@ Add this to your `.pre-commit-config.yaml`:
 
 ## Versions
 
+### 2.8.1
+
+Fix wrong resolved URLs in `package-lock.json` and upgrade base image in `Dockerfile`.
+
 ### 2.8.0
 
 Upgrade Node.js version to branch 24.x and dependencies.
