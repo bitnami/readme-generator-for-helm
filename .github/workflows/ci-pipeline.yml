@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238
         with:
-          node-version: '22.x'
+          node-version: '24.x'
       - name: Cache dependencies
         uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306
         with:
@@ -36,6 +36,6 @@ jobs:
           npm run lint
           markdownlint *.md **/*.md
       - name: Tests
-        # Run tests if linter fails
+        # Run tests if linter fails
         if: always() && steps.npm-ci.outcome == 'success'
         run: npm run test-ci

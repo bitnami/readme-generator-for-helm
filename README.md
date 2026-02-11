@@ -200,6 +200,8 @@ Add this to your `.pre-commit-config.yaml`:
 
 ### 2.8.0
 
+Upgrade Node.js version to branch 24.x and dependencies.
+
 Descriptions now discard only a single whitespace. This way, code blocks can use proper indentation.
 
 ### 2.4.0
