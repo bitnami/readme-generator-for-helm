@@ -50,6 +50,8 @@ npm install ./readme-generator-for-helm
 
 Depending on how you installed NodeJS in your system, you may need to modify your `PATH` environment variable to be able to execute the tool.
 
+> NOTE: Starting with version `2.8.0`, we are no longer publishing this package to npmjs.org.
+
 ## Single Binary
 
 Execute the following commands to create a single executable binary for the tool:
