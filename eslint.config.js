@@ -32,6 +32,7 @@ export default defineConfig([
       'semi': ['error', 'always'],
       'prefer-const': 'error',
       'no-unused-vars': 'error',
+      'max-len': ['error', { 'code': 120 }],
       // eslint-plugin-node
       'node/no-missing-import': 'error',
       'node/no-extraneous-import': 'error',
@@ -54,6 +55,7 @@ export default defineConfig([
       // Disables the eslint/config not found message
       'node/no-missing-import': 'off',
       'import/no-unresolved': 'off',
+      'max-len': 'off',
     },
   },
   {
@@ -100,5 +102,8 @@ export default defineConfig([
       'js/recommended',
       'jest/recommended',
     ],
+    rules: {
+      'max-len': 'off',
+    },
   },
 ]);
