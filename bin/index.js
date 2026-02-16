@@ -5,8 +5,8 @@
 * SPDX-License-Identifier: Apache-2.0
 */
 
-const { program } = require('commander');
-const { runReadmeGenerator } = require('../index');
+import { program } from 'commander';
+import runReadmeGenerator from '../index.js';
 
 program
   .option('-v, --values <path>', 'Path to the values.yaml file')
