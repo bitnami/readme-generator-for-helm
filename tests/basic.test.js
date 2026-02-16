@@ -1,6 +1,12 @@
-/* eslint-disable */
-const fs = require('fs');
-const temp = require('temp').track();
+
+import fs from 'node:fs';
+import * as tempModule from 'temp';
+
+// Initialize temp package
+const temp = tempModule.track();
+
+// Common alias for __dirname not available in ESM
+const __dirname = import.meta.dirname;
 
 const expectedReadmeFirstExecution = `${__dirname}/expected-readme.first-execution.md`; // File that must result from executing the tool providing a readme file with only '### Parameters' and values
 const testValuesPath = `${__dirname}/test-values.yaml`; // File where the content will end after the tool is executed
@@ -16,12 +22,12 @@ const testReadConfigFile = `${__dirname}/test-readme.config.md`; // Configuratio
 const testConfigFile = `${__dirname}/test-config.json`; // Configuration file
 const expectedReadmeConfig = `${__dirname}/expected-readme.config.md`; // File where the content will end after the tool is executed
 
-const { runReadmeGenerator } = require('../index.js');
+import runReadmeGenerator from '../index.js';
 
 test('Check basic functionality. First execution', () => {
   // Create empty temp file with 'Parameters' section
-  let tempFile = temp.path({ prefix: 'readme-generator'});
-  let parametersHeader = "# Example\r\n\n## Parameters";
+  const tempFile = temp.path({ prefix: 'readme-generator'});
+  const parametersHeader = "# Example\r\n\n## Parameters";
   fs.writeFileSync(tempFile, parametersHeader);
   // Run readme generator with the test files
   const options = {

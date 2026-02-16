@@ -1,14 +1,15 @@
 {
   "name": "@bitnami/readme-generator-for-helm",
-  "version": "2.8.1",
+  "version": "3.0.0",
   "description": "Autogenerate READMEs tables and OpenAPI schemas for Helm Charts",
-  "main": "index.js",
+  "main": "./index.js",
+  "type": "module",
   "engines": {
     "node": ">=24.0.0 <25.0.0"
   },
   "scripts": {
-    "test": "npx jest",
-    "test-ci": "npx jest --ci --reporters 'github-actions'",
+    "test": "NODE_OPTIONS=\"${NODE_OPTIONS} --experimental-vm-modules\" npx jest --silent",
+    "test-ci": "NODE_OPTIONS=\"${NODE_OPTIONS} --experimental-vm-modules\" npx jest --ci --reporters 'github-actions' --silent",
     "lint": "./node_modules/eslint/bin/eslint.js ."
   },
   "bin": {
@@ -27,13 +28,21 @@
     "commander": "^14.0.3",
     "dot-object": "^2.1.5",
     "lodash": "^4.17.23",
-    "markdown-table": "^2.0.0",
+    "markdown-table": "^3.0.0",
     "yaml": "^2.8.2"
   },
   "devDependencies": {
-    "eslint": "^8.2.0",
-    "eslint-config-airbnb-base": "^15.0.0",
+    "@babel/preset-env": "^7.29.0",
+    "@eslint/compat": "^2.0.0",
+    "@eslint/js": "^9.39.2",
+    "@eslint/json": "^1.0.1",
+    "@eslint/markdown": "^7.5.1",
+    "eslint": "^9.39.2",
     "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jest": "^29.0.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-unicorn": "^63.0.0",
+    "globals": "^17.3.0",
     "jest": "^30.2.0",
     "temp": "^0.9.4"
   },

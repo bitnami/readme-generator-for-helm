@@ -3,16 +3,16 @@
 * SPDX-License-Identifier: Apache-2.0
 */
 
-/* eslint-disable global-require */
-/* eslint-disable import/no-dynamic-require */
+import fs from 'node:fs';
+import pjson from './package.json' with { type: "json" };
 
-const fs = require('fs');
-const pjson = require('./package.json');
+import { createValuesObject, parseMetadataComments } from './lib/parser.js';
+import checkKeys from './lib/checker.js';
+import { combineMetadataAndValues, buildParamsToRenderList } from './lib/builder.js';
+import { insertReadmeTable, renderOpenAPISchema } from './lib/render.js';
 
-const { createValuesObject, parseMetadataComments } = require('./lib/parser');
-const { checkKeys } = require('./lib/checker');
-const { combineMetadataAndValues, buildParamsToRenderList } = require('./lib/builder');
-const { insertReadmeTable, renderOpenAPISchema } = require('./lib/render');
+// Common alias for __dirname not available in ESM
+const __dirname = import.meta.dirname;
 
 function getParsedMetadata(valuesFilePath, config) {
   const valuesObject = createValuesObject(valuesFilePath);
@@ -28,14 +28,14 @@ function getParsedMetadata(valuesFilePath, config) {
   return valuesMetadata;
 }
 
-function runReadmeGenerator(options) {
+export default function runReadmeGenerator(options) {
   const valuesFilePath = options.values;
   const readmeFilePath = options.readme;
   const schemaFilePath = options.schema;
   const versionFlag = options.version;
 
   if (versionFlag) {
-    console.log('Version:', pjson.version); // eslint-disable-line no-console
+    console.log('Version:', pjson.version);
   } else {
     if (!readmeFilePath && !schemaFilePath) {
       throw new Error('Nothing to do. Please provide the --readme or --schema options.');
@@ -62,6 +62,3 @@ function runReadmeGenerator(options) {
   }
 }
 
-module.exports = {
-  runReadmeGenerator,
-};
