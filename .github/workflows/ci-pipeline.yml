@@ -24,13 +24,12 @@ jobs:
         with:
           path: ~/.npm
           key: npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: npm-
-      - id: markdownlint
-        name: Install mardownlint
-        run: npm install -g markdownlint-cli
       - id: npm-ci
         name: Clean install
         run: npm ci
+      - id: markdownlint
+        name: Install mardownlint
+        run: npm install -g markdownlint-cli
       - name: Linters
         run: |
           npm run lint
