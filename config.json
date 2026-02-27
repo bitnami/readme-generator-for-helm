@@ -18,6 +18,9 @@
     "default": "default"
   },
   "regexp": {
-    "paramsSectionTitle": "Parameters"
+    "paramsSectionTitle": {
+      "key": "parameters",
+      "title": "Parameters"
+    }
   }
 }
