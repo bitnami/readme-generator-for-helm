@@ -20,5 +20,6 @@
   "regexp": {
     "paramsSectionTitle": "<a id=\"parameters\"></a> Parameters"
   },
+  "findParametersSubsection": true,
   "includeSectionAnchor": true
 }
