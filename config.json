@@ -18,9 +18,7 @@
     "default": "default"
   },
   "regexp": {
-    "paramsSectionTitle": {
-      "key": "parameters",
-      "title": "Parameters"
-    }
-  }
+    "paramsSectionTitle": "<a id=\"parameters\"></a> Parameters"
+  },
+  "includeSectionAnchor": true
 }

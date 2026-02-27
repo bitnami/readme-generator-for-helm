@@ -178,7 +178,8 @@ The configuration file has the following structure:
   },
   "regexp": {
     "paramsSectionTitle": "Parameters"           <-- Title of the parameters section to replace in the README.md
-  }
+  },
+  "includeSectionAnchor": false                  <-- Include anchor in each section
 }
 ```
 
