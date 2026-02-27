@@ -179,6 +179,7 @@ The configuration file has the following structure:
   "regexp": {
     "paramsSectionTitle": "Parameters"           <-- Title of the parameters section to replace in the README.md
   },
+  "findParametersSubsection": false,             <-- Find first subsection to start replacing text
   "includeSectionAnchor": false                  <-- Include anchor in each section
 }
 ```
@@ -200,6 +201,10 @@ Add this to your `.pre-commit-config.yaml`:
 ```
 
 ## Versions
+
+### 3.1.0
+
+Allow finding Parameters' subsection (`findParametersSubsection`) to start overwriting text and including anchors (`includeSectionAnchor`) in the generated subsections
 
 ### 2.8.1
 
