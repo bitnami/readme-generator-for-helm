@@ -18,8 +18,8 @@
     "default": "default"
   },
   "regexp": {
-    "paramsSectionTitle": "<a id=\"parameters\"></a> Parameters"
+    "paramsSectionTitle": "Parameters"
   },
-  "findParametersSubsection": true,
-  "includeSectionAnchor": true
+  "findParametersSubsection": false,
+  "includeSectionAnchor": false
 }
