@@ -19,5 +19,7 @@
   },
   "regexp": {
     "paramsSectionTitle": "Parameters"
-  }
+  },
+  "findParametersSubsection": false,
+  "includeSectionAnchor": false
 }
