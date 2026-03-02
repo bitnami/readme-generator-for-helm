@@ -34,7 +34,18 @@ jobs:
         run: |
           npm run lint
           markdownlint *.md **/*.md
-      - name: Tests
+      - id: tests
+        name: Tests
         # Run tests if linter fails
         if: always() && steps.npm-ci.outcome == 'success'
-        run: npm run test-ci
+        shell: bash
+        run: |
+          npm run test-ci &> output.log || true
+          # Make the content of the log file available as a step output (using new GITHUB_OUTPUT syntax)
+          echo "logs<<EOF" >> $GITHUB_OUTPUT
+          cat output.log >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+      - name: Print captured logs
+        run: |
+          echo "Captured logs:"
+          echo "${{ steps.tests.outputs.logs }}"
