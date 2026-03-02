@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "NODE_OPTIONS=\"${NODE_OPTIONS} --experimental-vm-modules\" npx jest --useStderr --silent",
-    "test-ci": "NODE_OPTIONS=\"${NODE_OPTIONS} --experimental-vm-modules\" npx jest --ci --reporters 'github-actions' --useStderr --silent",
+    "test-ci": "NODE_OPTIONS=\"${NODE_OPTIONS} --experimental-vm-modules\" npx jest --ci --reporters 'github-actions' --useStderr 2>&1",
     "lint": "./node_modules/eslint/bin/eslint.js ."
   },
   "bin": {
