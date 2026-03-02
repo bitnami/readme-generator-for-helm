@@ -16,6 +16,9 @@ const testReadmeLastSectionPath = `${__dirname}/test-readme.last-section.md`; //
 const expectedReadmeLastSectionPath = `${__dirname}/expected-readme.last-section.md`; // File that must result from executing the tool providing the test README and values
 const testReadmeLastSectionWithTextBelowPath = `${__dirname}/test-readme.last-section-text-below.md`; // File where the content will end after the tool is executed
 const expectedReadmeLastSectionWithTextBelowPath = `${__dirname}/expected-readme.last-section-text-below.md`; // File that must result from executing the tool providing the test README and values
+const testReadmeWithAnchorsPath = `${__dirname}/test-readme.with-anchors.md`; // Input README with anchors on ## and ### headers
+const expectedReadmeWithAnchorsPath = `${__dirname}/expected-readme.with-anchors.md`; // Expected output when running with includeSectionAnchor: true
+const testConfigWithAnchorsPath = `${__dirname}/test-config.with-anchors.json`; // Config that matches Parameters section "## <a id=\"parameters\"></a> Parameters" and enables includeSectionAnchor
 const testSchemaPath = `${__dirname}/test-schema.json`; // File where the content will end after the tool is executed
 const expectedSchemaPath = `${__dirname}/expected-schema.json`; // File that must result from executing the tool providing the test README and values
 const testReadConfigFile = `${__dirname}/test-readme.config.md`; // Configuration file
@@ -75,6 +78,23 @@ test('Check basic functionality as last section in README but with text below', 
 
   // Check the output is the expected one
   expect(fs.readFileSync(testReadmeLastSectionWithTextBelowPath)).toEqual(fs.readFileSync(expectedReadmeLastSectionWithTextBelowPath));
+});
+
+test('Check basic functionality with anchors', () => {
+  // Use a temp copy so we don't mutate the fixture. Use config.new.json so the tool
+  // finds "## <a id=\"parameters\"></a> Parameters" and regenerates the section (same as: -c config.new.json -v ... -r ...)
+  const tempReadme = temp.path({ prefix: 'readme-generator-anchors' });
+  fs.copyFileSync(testReadmeWithAnchorsPath, tempReadme);
+  const options = {
+    readme: tempReadme,
+    values: testValuesPath,
+    config: testConfigWithAnchorsPath,
+  };
+  runReadmeGenerator(options);
+
+  // Check the output is the expected one
+  expect(fs.readFileSync(tempReadme)).toEqual(fs.readFileSync(expectedReadmeWithAnchorsPath));
+  temp.cleanupSync();
 });
 
 test('Check schema', () => {
