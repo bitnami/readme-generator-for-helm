@@ -25,7 +25,7 @@
   ],
   "license": "Apache-2.0",
   "dependencies": {
-    "commander": "^14.0.3",
+    "commander": "^15.0.0",
     "dot-object": "^2.1.5",
     "lodash": "^4.17.23",
     "markdown-table": "^3.0.0",
