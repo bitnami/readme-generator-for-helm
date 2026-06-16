@@ -32,7 +32,7 @@
     "yaml": "^2.8.2"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-env": "^8.0.0",
     "@eslint/compat": "^2.0.0",
     "@eslint/js": "^9.39.2",
     "@eslint/json": "^2.0.0",
